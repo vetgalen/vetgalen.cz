@@ -30,9 +30,7 @@ const IndexPage = ({ data, location }) => {
             </Col>
             <Col xs={{ order: 1 }} sm={{ order: 1, size: 8 }} md={{ order: 2, size: 4 }}>
             <Card>
-              <CardHeader>
-                Novinky
-              </CardHeader>
+                <CardHeader>Novinky</CardHeader>
               <CardBody>
                 <CardText>text</CardText>
               </CardBody>
