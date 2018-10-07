@@ -26,7 +26,7 @@ const IndexPage = ({ data, location }) => {
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
       <Meta site={get(data, 'site.meta')} />
-      <Container fluid>
+      <Container>
         <Container>
           <div className="d-block d-md-none text-center">
             <Img fixed={logoImage} />
@@ -79,14 +79,14 @@ export const pageQuery = graphql`
     logo: file(name: { eq: "vetgalen-logo" }) {
       childImageSharp {
         fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
     icon: file(name: { eq: "icon" }) {
       childImageSharp {
         fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }

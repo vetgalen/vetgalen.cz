@@ -51,7 +51,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img resolutions={prevence} />
+            <Img fluid={prevence} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -73,7 +73,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img resolutions={zkumavka} />
+            <Img fluid={zkumavka} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -95,7 +95,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img resolutions={mikroskop} />
+            <Img fluid={mikroskop} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -117,7 +117,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img resolutions={derma} />
+            <Img fluid={derma} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -138,7 +138,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img resolutions={zub} />
+            <Img fluid={zub} />
           </Col>
         </Row>
         <Row>
@@ -164,7 +164,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img resolutions={miska} />
+            <Img fluid={miska} />
           </Col>
         </Row>
         <Row>
@@ -190,7 +190,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img resolutions={packa} />
+            <Img fluid={packa} />
           </Col>
         </Row>
         <Row>
@@ -215,7 +215,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img resolutions={prevence} />
+            <Img fluid={prevence} />
           </Col>
         </Row>
         <Row>
@@ -241,7 +241,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img resolutions={psik} />
+            <Img fluid={psik} />
           </Col>
         </Row>
         <Row>
@@ -267,7 +267,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img resolutions={usg} />
+            <Img fluid={usg} />
           </Col>
         </Row>
         <Row>
@@ -292,7 +292,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img resolutions={zkumavka} />
+            <Img fluid={zkumavka} />
           </Col>
         </Row>
         <Row>
@@ -318,7 +318,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img resolutions={zub} />
+            <Img fluid={zub} />
           </Col>
         </Row>
       </Container>
@@ -341,98 +341,98 @@ export const pageQuery = graphql`
     logo: file(name: { eq: "vetgalen-logo" }) {
       childImageSharp {
         fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
     icon: file(name: { eq: "icon" }) {
       childImageSharp {
         fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
     derma: file(name: { eq: "derma" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     chirda: file(name: { eq: "chirda" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     infuze: file(name: { eq: "infuze" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 180) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 180) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     lahvicka: file(name: { eq: "lahvicka" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 100) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     mikroskop: file(name: { eq: "mikroskop" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 150) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 150) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     miska: file(name: { eq: "miska" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 180) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 180) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     packa: file(name: { eq: "packa" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     prevence: file(name: { eq: "prevence" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     psik: file(name: { eq: "psik" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     usg: file(name: { eq: "usg" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     zkumavka: file(name: { eq: "zkumavka" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 100) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     zub: file(name: { eq: "zub" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 110) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fluid(quality: 100, width: 110) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

@@ -46,14 +46,14 @@ export const pageQuery = graphql`
     logo: file(name: { eq: "vetgalen-logo" }) {
       childImageSharp {
         fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
     icon: file(name: { eq: "icon" }) {
       childImageSharp {
         fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
