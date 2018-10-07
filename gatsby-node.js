@@ -1,11 +1,11 @@
-const path = require('path')
+import { resolve as _resolve } from 'path'
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+export function onCreateWebpackConfig({ actions }) {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'src/components'),
-        scss: path.resolve(__dirname, 'src/scss'),
+        components: _resolve(__dirname, 'src/components'),
+        scss: _resolve(__dirname, 'src/scss'),
       },
     },
   })

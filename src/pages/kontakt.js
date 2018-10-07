@@ -21,11 +21,12 @@ const ContactPage = ({ data, location }) => {
   const zkumavka = get(data, 'zkumavka.childImageSharp.resolutions')
   const zub = get(data, 'zub.childImageSharp.resolutions')
   return (
-    <Layout location={location} logo={get(data, 'logo')} icon={get(data, 'icon')}>
+    <Layout
+      location={location}
+      logo={get(data, 'logo')}
+      icon={get(data, 'icon')}>
       <Meta site={get(data, 'site.meta')} />
-      <Container>
-        Dobry den
-      </Container>
+      <Container>Dobry den</Container>
     </Layout>
   )
 }
