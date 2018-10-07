@@ -1,11 +1,12 @@
-import { resolve as _resolve } from 'path'
+// this file needs to stay as CommonJS otherwise `gatsby build` will not work
+const path = require('path')
 
-export function onCreateWebpackConfig({ actions }) {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        components: _resolve(__dirname, 'src/components'),
-        scss: _resolve(__dirname, 'src/scss'),
+        components: path.resolve(__dirname, 'src/components'),
+        scss: path.resolve(__dirname, 'src/scss'),
       },
     },
   })

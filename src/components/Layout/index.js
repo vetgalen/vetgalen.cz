@@ -1,6 +1,5 @@
 import React from 'react'
 import emergence from 'emergence.js'
-import { graphql } from 'gatsby'
 
 import Navi from 'components/Navi'
 import Footer from 'components/Footer'
@@ -40,16 +39,3 @@ class Layout extends React.Component {
 }
 
 export default Layout
-
-export const layoutQuery = graphql`
-  query layoutQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
-    }
-  }
-`
