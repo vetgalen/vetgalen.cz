@@ -31,15 +31,19 @@ $enable-hover-media-query: false !default;
 $enable-grid-classes: true !default;
 $enable-print-styles: true !default;
 
+$container-sm: 540px;
+$container-md: 640px;
+$container-lg: 710px;
+$container-xl: 780px;
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 540px,
-  md: 640px,
-  lg: 710px,
-  xl: 780px,
+  sm: $container-sm,
+  md: $container-md,
+  lg: $container-lg,
+  xl: $container-xl,
 ) !default;
 
 // Body
@@ -114,26 +118,23 @@ h3 {
   padding-top: 20px;
 }
 
-/*
-li { 
-  padding-left: 16px; 
-}
-
-li:before {
-  //content: "-"; 
-  padding-right: 8px;
-}
-*/
-
 .offer {
   border-radius: 15px;
   padding: 25px;
-  //background-color: rgba(199, 217, 255, 0.158);
 }
 
 .compact {
   font-size: 12px;
   line-height: 1;
+}
+
+.card-header {
+  background-color: $primary;
+  text-align: center;
+}
+
+.card-header h5 {
+  color: #ffffff;
 }
 
 .spacer-lg {

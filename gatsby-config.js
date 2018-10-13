@@ -1,3 +1,4 @@
+// this file needs to stay as CommonJS otherwise `gatsby build` will not work
 module.exports = {
   siteMetadata: {
     title: 'Vetgalen.cz',

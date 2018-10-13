@@ -16,10 +16,14 @@ import {
 
 import Meta from 'components/Meta'
 import Layout from 'components/Layout'
+import News from 'components/News'
 
 const IndexPage = ({ data, location }) => {
-  const { logo } = data
+  const { logo, news } = data
   const logoImage = get(logo, 'childImageSharp.fixed')
+
+  console.log(news)
+
   return (
     <Layout
       location={location}
@@ -27,33 +31,40 @@ const IndexPage = ({ data, location }) => {
       icon={get(data, 'icon')}>
       <Meta site={get(data, 'site.meta')} />
       <Container>
+        <div className="clear-fix">
+        <div className="d-block d-md-none text-center">
+          <Img fixed={logoImage} />
+        </div>
+        <p>
+          Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
+          Medlánkách a zaměřujeme se na medicínu psů, koček a drobných savců.
+          Našim cílem je, aby byli spokojeni naši klienti i jejich čtyřnozí
+          přátelé!
+        </p>
+        </div>
+        <h1>Novinky</h1>
+        <News news={news} />
+        <h1>Kdo jsme?</h1>
         <Container>
-          <div className="d-block d-md-none text-center">
-            <Img fixed={logoImage} />
-          </div>
-          <p>
-            Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
-            Medlánkách a zaměřujeme se na medicínu psů, koček a drobných savců.
-            Našim cílem je, aby byli spokojeni naši klienti i jejich čtyřnozí
-            přátelé!
-          </p>
-        </Container>
-        <Container fluid>
           <Row>
-            <Col
-              xs={{ order: 2 }}
-              sm={{ order: 2, size: 8 }}
-              md={{ offset: 2, order: 1, size: 6 }}>
-              Tady je text
-            </Col>
-            <Col
-              xs={{ order: 1 }}
-              sm={{ order: 1, size: 8 }}
-              md={{ order: 2, size: 4 }}>
-              <Card>
-                <CardHeader>Novinky</CardHeader>
+            <Col>
+              <Card className="border-primary">
+                <CardHeader>
+                  <h5>MVDr. Pavla Alexandrová</h5>
+                </CardHeader>
                 <CardBody>
-                  <CardText>text</CardText>
+                  
+                  <CardText>Bla bla</CardText>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="border-primary">
+                <CardHeader>
+                  <h5>MVDr. Zuzana Jančíková</h5>
+                </CardHeader>
+                <CardBody>
+                  <CardText>Bla bla</CardText>
                 </CardBody>
               </Card>
             </Col>
@@ -87,6 +98,14 @@ export const pageQuery = graphql`
       childImageSharp {
         fixed(width: 80, height: 30) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    # order news file desc, novinky-{number}.md
+    news: allMarkdownRemark(sort: { order: DESC, fields: fileAbsolutePath }) {
+      edges {
+        node {
+          html
         }
       }
     }
