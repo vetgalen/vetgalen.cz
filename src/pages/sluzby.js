@@ -323,7 +323,7 @@ const OfferPage = ({ data, location }) => {
           </Col>
         </Row>
         */}
-        <h3>A další...</h3>
+        <h3>A další doplníme, až dokreslíme obrázky ;-)...</h3>
       </Container>
     </Layout>
   )
