@@ -55,7 +55,7 @@ const IndexPage = ({ data, location }) => {
                     Do praxe jsem nastoupila po ukončení studií na VFU v roce
                     2004. Zaměřuji se na medicínu psů, koček a drobných savců.
                     Ráda se účastním zajímavých odborných seminářů. Nejvíce mě
-                    baví interna, měkotkáňová chirurgie, kardiologie,
+                    baví interna, měkkotkáňová chirurgie, kardiologie,
                     ultrasonografie a dermatologie.
                   </CardText>
                 </CardBody>
