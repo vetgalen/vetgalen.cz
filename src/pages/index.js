@@ -66,7 +66,9 @@ const IndexPage = ({ data, location }) => {
               </Card>
             </Col>
             {/* Spacer column only */}
-            <Col md={{ order: 2 }} className="d-block d-lg-none">&nbsp;</Col>
+            <Col md={{ order: 2 }} className="d-block d-lg-none">
+              &nbsp;
+            </Col>
             <Col md={{ order: 3 }} lg={{ order: 3, size: 6 }}>
               <Card className="border-primary h-100">
                 <CardHeader>
