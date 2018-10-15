@@ -10,8 +10,7 @@ import {
   CardText,
   CardBody,
   CardHeader,
-  CardTitle,
-  CardSubtitle,
+  CardFooter,
 } from 'reactstrap'
 
 import Meta from 'components/Meta'
@@ -47,23 +46,46 @@ const IndexPage = ({ data, location }) => {
         <Container>
           <Row>
             <Col md={{ order: 1 }} lg={{ order: 1, size: 6 }}>
-              <Card className="border-primary">
+              <Card className="border-primary h-100">
                 <CardHeader>
                   <h5>MVDr. Pavla Alexandrová</h5>
                 </CardHeader>
                 <CardBody>
-                  <CardText>...</CardText>
+                  <CardText>
+                    Do praxe jsem nastoupila po ukončení studií na VFU v roce
+                    2004. Zaměřuji se na medicínu psů, koček a drobných savců.
+                    Ráda se účastním zajímavých odborných seminářů. Nejvíce mě
+                    baví interna, měkkotkáňová chirurgie, kardiologie,
+                    ultrasonografie a dermatologie.
+                  </CardText>
                 </CardBody>
+                <CardFooter>
+                  Do mojí čtyřnohé bandy patří boxeři Gan a Argana, a dva
+                  kocouři.
+                </CardFooter>
               </Card>
             </Col>
-            <Col md={{ order: 2 }} lg={{ order: 2, size: 6 }}>
-              <Card className="border-primary">
+            {/* Spacer column only */}
+            <Col md={{ order: 2 }} className="d-block d-lg-none">
+              &nbsp;
+            </Col>
+            <Col md={{ order: 3 }} lg={{ order: 3, size: 6 }}>
+              <Card className="border-primary h-100">
                 <CardHeader>
                   <h5>MVDr. Zuzana Piwková</h5>
                 </CardHeader>
                 <CardBody>
-                  <CardText>...</CardText>
+                  <CardText>
+                    V praxi jsem od r. 2013, kdy jsem ukončila studium na
+                    Fakultě veterinárního lékařství VFU. Věnuji se medicíně psů
+                    a koček, okrajově i drobných savců. Účastním se různých
+                    odborných seminářů, z lékařských oborů mě baví hlavně
+                    interna, oftalmologie a psychické „neduhy“ psů a koček.
+                  </CardText>
                 </CardBody>
+                <CardFooter>
+                  Mým zvířecím parťákem je borderteriér Lenny.
+                </CardFooter>
               </Card>
             </Col>
           </Row>
