@@ -1,0 +1,22 @@
+@import 'scss/colors.scss';
+@import 'scss/fonts.scss';
+@import 'scss/gatstrap.scss';
+
+caption {
+  caption-side: top !important;
+  font-size: $h3-font-size;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $primary !important;
+}
+
+
+caption.compact {
+  caption-side: top !important;
+  text-align: left;
+  font-weight: bolder;
+  margin-left: 20px;
+  margin-bottom: -10px;
+  padding-bottom: -10px;
+}

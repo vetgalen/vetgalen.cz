@@ -6,27 +6,45 @@ import get from 'lodash/get'
 
 import Meta from 'components/Meta'
 import Layout from 'components/Layout'
+import Timetable from 'components/Timetable'
+import Icon from 'components/Icon'
 
 const ContactPage = ({ data, location }) => {
-  const derma = get(data, 'derma.childImageSharp.resolutions')
-  const chirda = get(data, 'chirda.childImageSharp.resolutions')
-  const infuze = get(data, 'infuze.childImageSharp.resolutions')
-  const lahvicka = get(data, 'lahvicka.childImageSharp.resolutions')
-  const mikroskop = get(data, 'mikroskop.childImageSharp.resolutions')
-  const miska = get(data, 'miska.childImageSharp.resolutions')
-  const packa = get(data, 'packa.childImageSharp.resolutions')
-  const prevence = get(data, 'prevence.childImageSharp.resolutions')
-  const psik = get(data, 'psik.childImageSharp.resolutions')
-  const usg = get(data, 'usg.childImageSharp.resolutions')
-  const zkumavka = get(data, 'zkumavka.childImageSharp.resolutions')
-  const zub = get(data, 'zub.childImageSharp.resolutions')
   return (
     <Layout
       location={location}
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
       <Meta site={get(data, 'site.meta')} />
-      <Container>...bude doplněno...</Container>
+      <Container>
+        <h3>Kde nás najdete?</h3>
+        <Container>
+          <Row>
+            <Col xs={{ order: 1 }} sm={{ order: 1, size: 4 }}>
+              <address>
+                <strong>
+                  <Icon name="map-marker" />
+                  &nbsp;Veterinární ordinace Galen
+                </strong>
+                <br />
+                Podpěrova 439/2
+                <br />
+                621 00 Brno-Medlánky
+                <br />
+                <strong>
+                  <Icon name="envelope" />
+                  &nbsp;
+                  <a href="mailto:ordinace@vetgalen.cz">ordinace@vetgalen.cz</a>
+                </strong>
+                <br />
+              </address>
+            </Col>
+            <Col xs={{ order: 2 }} sm={{ order: 2, size: 8 }}>
+            </Col>
+          </Row>
+        </Container>
+        <Timetable />
+      </Container>
     </Layout>
   )
 }

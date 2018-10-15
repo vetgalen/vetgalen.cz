@@ -43,8 +43,6 @@ export default class News extends React.Component {
       )
     })
 
-    console.log(news.length)
-
     const visibleIndicators = classNames('carousel-indicators', {
       'd-none': news === null || news.length <= 1,
     })

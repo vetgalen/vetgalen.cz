@@ -7,8 +7,6 @@ import 'typeface-overpass'
 
 export default class HTML extends React.Component {
   render() {
-    console.log(this.props)
-
     return (
       <html lang="en">
         <head>

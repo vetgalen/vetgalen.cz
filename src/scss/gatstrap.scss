@@ -93,15 +93,6 @@ img:hover {
   animation: pulse 0.5s;
 }
 
-caption {
-  caption-side: top !important;
-  text-align: left;
-  font-weight: bolder;
-  margin-left: 20px;
-  margin-bottom: -10px;
-  padding-bottom: -10px;
-}
-
 ul {
   list-style: disc; /* Remove list bullets */
   padding: 0;
@@ -110,6 +101,9 @@ ul {
 
 h3 {
   color: $primary;
+}
+
+.offer h3 {
   margin-left: -20px;
   margin-top: 10px;
 }
@@ -128,16 +122,16 @@ h3 {
   line-height: 1;
 }
 
+.card {
+  margin-top: 1rem;
+}
+
 .card-header {
   background-color: $primary;
   text-align: center;
 }
 
-.card-header h5 {
-  color: $white;
-}
-
-.card-header h2 {
+.card-header h2, h5 {
   color: $white;
 }
 

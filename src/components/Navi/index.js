@@ -13,6 +13,7 @@ import {
   NavLink,
 } from 'reactstrap'
 import Img from 'gatsby-image'
+import Timetable from 'components/Timetable'
 
 class Navi extends React.Component {
   constructor(props) {
@@ -41,36 +42,7 @@ class Navi extends React.Component {
               <Img fixed={logoImage} />
             </Col>
             <Col className="col-3 font-weight-bold">
-              <table className="table table-sm table-hover table-borderless compact">
-                <caption>Ordinační hodiny</caption>
-                <tbody>
-                  <tr>
-                    <th scope="row">Po</th>
-                    <td>09:00&nbsp;-&nbsp;12:00</td>
-                    <td>15:00&nbsp;-&nbsp;18:00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Út</th>
-                    <td>operace</td>
-                    <td>15:00&nbsp;-&nbsp;18:00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">St</th>
-                    <td>13:00&nbsp;-&nbsp;19:00</td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <th scope="row">Čt</th>
-                    <td>09:00&nbsp;-&nbsp;16:00</td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <th scope="row">Pá</th>
-                    <td>09:00&nbsp;-&nbsp;15:00</td>
-                    <td />
-                  </tr>
-                </tbody>
-              </table>
+              <Timetable compact />
             </Col>
           </Row>
         </Container>

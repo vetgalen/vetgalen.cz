@@ -22,8 +22,6 @@ const IndexPage = ({ data, location }) => {
   const { logo, news } = data
   const logoImage = get(logo, 'childImageSharp.fixed')
 
-  console.log(news)
-
   return (
     <Layout
       location={location}
@@ -48,7 +46,7 @@ const IndexPage = ({ data, location }) => {
         <h1>Kdo jsme?</h1>
         <Container>
           <Row>
-            <Col>
+            <Col md={{ order: 1 }} lg={{ order: 1, size: 6 }}>
               <Card className="border-primary">
                 <CardHeader>
                   <h5>MVDr. Pavla Alexandrová</h5>
@@ -58,7 +56,7 @@ const IndexPage = ({ data, location }) => {
                 </CardBody>
               </Card>
             </Col>
-            <Col>
+            <Col md={{ order: 2 }} lg={{ order: 2, size: 6 }}>
               <Card className="border-primary">
                 <CardHeader>
                   <h5>MVDr. Zuzana Jančíková</h5>
