@@ -59,7 +59,7 @@ const IndexPage = ({ data, location }) => {
             <Col md={{ order: 2 }} lg={{ order: 2, size: 6 }}>
               <Card className="border-primary">
                 <CardHeader>
-                  <h5>MVDr. Zuzana Jančíková</h5>
+                  <h5>MVDr. Zuzana Piwková</h5>
                 </CardHeader>
                 <CardBody>
                   <CardText>...</CardText>
