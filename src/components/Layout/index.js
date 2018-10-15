@@ -1,5 +1,4 @@
 import React from 'react'
-import emergence from 'emergence.js'
 
 import Navi from 'components/Navi'
 import Footer from 'components/Footer'
@@ -13,14 +12,6 @@ import 'font-awesome/css/font-awesome.css'
 import 'typeface-overpass'
 
 class Layout extends React.Component {
-  componentDidMount() {
-    emergence.init()
-  }
-
-  componentDidUpdate() {
-    emergence.init()
-  }
-
   render() {
     const { children } = this.props
 

@@ -8,15 +8,6 @@
   svg {
     font-size: $display4-size;
     margin-bottom: 20px;
-
-    &[data-emergence='visible'] {
-      opacity: 1;
-      animation: bounceIn 2s;
-    }
-
-    &[data-emergence='hidden'] {
-      opacity: 0;
-    }
   }
 
   &:hover {
