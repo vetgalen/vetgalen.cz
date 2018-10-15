@@ -32,18 +32,19 @@ const IndexPage = ({ data, location }) => {
       <Meta site={get(data, 'site.meta')} />
       <Container>
         <div className="clear-fix">
-        <div className="d-block d-md-none text-center">
-          <Img fixed={logoImage} />
+          <div className="d-block d-md-none text-center">
+            <Img fixed={logoImage} />
+          </div>
+          <p>
+            Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
+            Medlánkách a zaměřujeme se na medicínu psů, koček a drobných savců.
+            Našim cílem je, aby byli spokojeni naši klienti i jejich čtyřnozí
+            přátelé!
+          </p>
         </div>
-        <p>
-          Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
-          Medlánkách a zaměřujeme se na medicínu psů, koček a drobných savců.
-          Našim cílem je, aby byli spokojeni naši klienti i jejich čtyřnozí
-          přátelé!
-        </p>
-        </div>
-        <h1>Novinky</h1>
+        <hr />
         <News news={news} />
+        <hr />
         <h1>Kdo jsme?</h1>
         <Container>
           <Row>
@@ -53,8 +54,7 @@ const IndexPage = ({ data, location }) => {
                   <h5>MVDr. Pavla Alexandrová</h5>
                 </CardHeader>
                 <CardBody>
-                  
-                  <CardText>Bla bla</CardText>
+                  <CardText>...</CardText>
                 </CardBody>
               </Card>
             </Col>
@@ -64,7 +64,7 @@ const IndexPage = ({ data, location }) => {
                   <h5>MVDr. Zuzana Jančíková</h5>
                 </CardHeader>
                 <CardBody>
-                  <CardText>Bla bla</CardText>
+                  <CardText>...</CardText>
                 </CardBody>
               </Card>
             </Col>

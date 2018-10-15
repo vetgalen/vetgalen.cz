@@ -141,6 +141,7 @@ const OfferPage = ({ data, location }) => {
             <Img resolutions={zub} />
           </Col>
         </Row>
+        {/*
         <Row>
           <Col
             xs={{ order: 2 }}
@@ -321,6 +322,8 @@ const OfferPage = ({ data, location }) => {
             <Img resolutions={zub} />
           </Col>
         </Row>
+        */}
+        <h3>A další...</h3>
       </Container>
     </Layout>
   )

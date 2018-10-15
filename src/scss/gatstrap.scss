@@ -134,7 +134,11 @@ h3 {
 }
 
 .card-header h5 {
-  color: #ffffff;
+  color: $white;
+}
+
+.card-header h2 {
+  color: $white;
 }
 
 .spacer-lg {

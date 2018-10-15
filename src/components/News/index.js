@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Container } from 'reactstrap'
+import { Card, CardHeader, CardBody, Container } from 'reactstrap'
 import './style.scss'
 
 export default class News extends React.Component {
@@ -58,26 +58,36 @@ export default class News extends React.Component {
     })
 
     return (
-      <div id="newsCarousel" className="carousel slide" data-interval="false">
-        <ol className={visibleIndicators}>{newsIndicators}</ol>
-        <Container className="carousel-inner">{newsContent}</Container>
-        <a
-          className={visiblePrevButton}
-          href="#newsCarousel"
-          role="button"
-          data-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="sr-only">Předchozí</span>
-        </a>
-        <a
-          className={visibleNextButton}
-          href="#newsCarousel"
-          role="button"
-          data-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="sr-only">Další</span>
-        </a>
-      </div>
+      <Card className="border-primary">
+        <CardHeader>
+          <h2>Novinky</h2>
+        </CardHeader>
+        <CardBody>
+          <div
+            id="newsCarousel"
+            className="carousel slide"
+            data-interval="false">
+            <ol className={visibleIndicators}>{newsIndicators}</ol>
+            <Container className="carousel-inner">{newsContent}</Container>
+            <a
+              className={visiblePrevButton}
+              href="#newsCarousel"
+              role="button"
+              data-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="sr-only">Předchozí</span>
+            </a>
+            <a
+              className={visibleNextButton}
+              href="#newsCarousel"
+              role="button"
+              data-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="sr-only">Další</span>
+            </a>
+          </div>
+        </CardBody>
+      </Card>
     )
   }
 }

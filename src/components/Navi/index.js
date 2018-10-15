@@ -46,23 +46,28 @@ class Navi extends React.Component {
                 <tbody>
                   <tr>
                     <th scope="row">Po</th>
-                    <td>09:10 - 13:00</td>
+                    <td>09:00&nbsp;-&nbsp;12:00</td>
+                    <td>15:00&nbsp;-&nbsp;18:00</td>
                   </tr>
                   <tr>
                     <th scope="row">Út</th>
-                    <td>09:10 - 13:00</td>
+                    <td>operace</td>
+                    <td>15:00&nbsp;-&nbsp;18:00</td>
                   </tr>
                   <tr>
                     <th scope="row">St</th>
-                    <td>09:10 - 13:00</td>
+                    <td>13:00&nbsp;-&nbsp;19:00</td>
+                    <td />
                   </tr>
                   <tr>
                     <th scope="row">Čt</th>
-                    <td>09:10 - 16:00</td>
+                    <td>09:00&nbsp;-&nbsp;16:00</td>
+                    <td />
                   </tr>
                   <tr>
                     <th scope="row">Pá</th>
-                    <td>11:10 - 13:00</td>
+                    <td>09:00&nbsp;-&nbsp;15:00</td>
+                    <td />
                   </tr>
                 </tbody>
               </table>

@@ -26,7 +26,7 @@ const ContactPage = ({ data, location }) => {
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
       <Meta site={get(data, 'site.meta')} />
-      <Container>Dobry den</Container>
+      <Container>...bude doplněno...</Container>
     </Layout>
   )
 }
