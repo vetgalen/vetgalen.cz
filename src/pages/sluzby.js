@@ -14,6 +14,7 @@ const OfferPage = ({ data, location }) => {
   const lahvicka = get(data, 'lahvicka.childImageSharp.resolutions')
   const mikroskop = get(data, 'mikroskop.childImageSharp.resolutions')
   const miska = get(data, 'miska.childImageSharp.resolutions')
+  const otoskop = get(data, 'otoskop.childImageSharp.resolutions')
   const packa = get(data, 'packa.childImageSharp.resolutions')
   const prevence = get(data, 'prevence.childImageSharp.resolutions')
   const psik = get(data, 'psik.childImageSharp.resolutions')
@@ -106,10 +107,9 @@ const OfferPage = ({ data, location }) => {
             md={{ order: 1, size: 6 }}>
             <h3>Dermatologie</h3>
             <ul>
-              <li>
-                vyšetření, odběr vzorků pro další diagnostiku, kultivace na
-                dermatofyta
-              </li>
+              <li>vyšetření</li>
+              <li>odběr vzorků pro další diagnostiku</li>
+              <li>kultivace na dermatofyta</li>
             </ul>
           </Col>
           <Col
@@ -141,49 +141,37 @@ const OfferPage = ({ data, location }) => {
             <Img resolutions={zub} />
           </Col>
         </Row>
-        {/*
-        <Row>
+        <Row className="row-offer">
           <Col
+            className="offer"
             xs={{ order: 2 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            Papkes
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
+            <h3>Otologie a oftalmologie</h3>
+            <ul>
+              <li>vyšetření uší, terapie ušních zánětů, prevence</li>
+              <li>diagnostika defektů víček, rohovky</li>
+            </ul>
           </Col>
           <Col
             className="text-center"
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img resolutions={miska} />
+            <Img resolutions={otoskop} />
           </Col>
         </Row>
-        <Row>
+        <Row className="row-offer">
           <Col
+            className="offer"
             xs={{ order: 2 }}
             sm={{ order: 2, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            Packa
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
+            <h3>Ultrasonografické vyšetření</h3>
+            <ul>
+              <li>vyšetření přístrojem vybaveným Doppler zobrazením</li>
+              <li>echokardiografické vyšetření</li>
+            </ul>
           </Col>
           <Col
             className="text-center"
@@ -191,139 +179,134 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img resolutions={packa} />
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={{ order: 2 }}
-            sm={{ order: 1, size: 6 }}
-            md={{ order: 1, size: 6 }}>
-            Prevence
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
-          </Col>
-          <Col
-            className="text-center"
-            xs={{ order: 1 }}
-            sm={{ order: 1, size: 6 }}
-            md={{ order: 2, size: 6 }}>
-            <Img resolutions={prevence} />
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={{ order: 2 }}
-            sm={{ order: 2, size: 6 }}
-            md={{ order: 2, size: 6 }}>
-            Psik
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
-          </Col>
-          <Col
-            className="text-center"
-            xs={{ order: 1 }}
-            sm={{ order: 1, size: 6 }}
-            md={{ order: 1, size: 6 }}>
-            <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img resolutions={psik} />
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            xs={{ order: 2 }}
-            sm={{ order: 1, size: 6 }}
-            md={{ order: 1, size: 6 }}>
-            USG
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
-          </Col>
-          <Col
-            className="text-center"
-            xs={{ order: 1 }}
-            sm={{ order: 1, size: 6 }}
-            md={{ order: 2, size: 6 }}>
-            <div className="d-none d-sm-block mt-4">&nbsp;</div>
             <Img resolutions={usg} />
           </Col>
         </Row>
-        <Row>
+        <Row className="row-offer">
           <Col
+            className="offer"
+            xs={{ order: 2 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 1, size: 6 }}>
+            <h3>Chirurgické zákroky</h3>
+            <ul>
+              <li>preventivní a terapeutické</li>
+              <li>odeslání vzorků na vyšetření</li>
+            </ul>
+          </Col>
+          <Col
+            className="text-center"
+            xs={{ order: 1 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 2, size: 6 }}>
+            <div className="d-none d-sm-block mt-2">&nbsp;</div>
+            <Img resolutions={chirda} />
+          </Col>
+        </Row>
+        <Row className="row-offer">
+          <Col
+            className="offer"
             xs={{ order: 2 }}
             sm={{ order: 2, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            Zkumavka
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
+            <h3>Ortopedie</h3>
+            <ul>
+              <li>klinické vyšetření</li>
+              <li>management pacientů s ortopedickým onemocněním</li>
+              <li>případně zajištění ošetření na specializovaném pracovišti</li>
+            </ul>
           </Col>
           <Col
             className="text-center"
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img resolutions={zkumavka} />
+            <div className="d-none d-sm-block mt-4">&nbsp;</div>
+            <Img resolutions={packa} />
           </Col>
         </Row>
-        <Row>
+        <Row className="row-offer">
           <Col
+            className="offer"
             xs={{ order: 2 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            Zub
-            <p>
-              Lorem ipsum dolor sit amet, est brute errem invidunt et, accumsan
-              efficiendi sadipscing est ea, at quo novum epicurei. Nam in quod
-              deleniti, quo cibo insolens an, agam dicit ex eum.
-            </p>
-            <p>
-              Has ex probo mazim nemore, ex sed adipisci suavitate, purto habeo
-              appetere vis ex. Id ubique expetenda liberavisse vix, vim an solum
-              verear. Sea at euismod deleniti appareat.
-            </p>
+            <div className="d-none d-sm-block mt-1">&nbsp;</div>
+            <h3>Gynekologie a porodnictví</h3>
+            <ul>
+              <li>stanovení hladiny progesteronu a vhodné doby ke krytí</li>
+              <li>vaginální cytologie</li>
+              <li>diagnostika březosti</li>
+              <li>vedení porodu a péče o novorozence</li>
+            </ul>
           </Col>
           <Col
             className="text-center"
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img resolutions={zub} />
+            <div className="d-none d-sm-block mt-4">&nbsp;</div>
+            <Img resolutions={lahvicka} />
           </Col>
         </Row>
-        */}
-        <h3>A další doplníme, až dokreslíme obrázky ;-)...</h3>
+        <Row className="row-offer">
+          <Col
+            className="offer"
+            xs={{ order: 2 }}
+            sm={{ order: 2, size: 6 }}
+            md={{ order: 2, size: 6 }}>
+            <h3>Výživa</h3>
+            <ul>
+              <li>Konzultace výživy</li>
+              <li>prodej krmiv, doplňků výživy a veterinárních diet</li>
+            </ul>
+          </Col>
+          <Col
+            className="text-center"
+            xs={{ order: 1 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 1, size: 6 }}>
+            <div className="d-none d-sm-block mt-3">&nbsp;</div>
+            <Img resolutions={miska} />
+          </Col>
+        </Row>
+        <Row className="row-offer">
+          <Col
+            className="offer"
+            xs={{ order: 2 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 1, size: 6 }}>
+            <h3>Konzultace v oblasti nežádoucího chování psů a koček</h3>
+          </Col>
+          <Col
+            className="text-center"
+            xs={{ order: 1 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 2, size: 6 }}>
+            <div className="d-none d-sm-block mt-1">&nbsp;</div>
+            <Img resolutions={psik} />
+          </Col>
+        </Row>
+        <Row className="row-offer">
+          <Col
+            className="offer"
+            xs={{ order: 2 }}
+            sm={{ order: 2, size: 6 }}
+            md={{ order: 2, size: 6 }}>
+            <div className="d-none d-sm-block mt-3">&nbsp;</div>
+            <h3>
+              Krátkodobá hospitalizace pacientů, infúzní terapie, pooperační
+              péče
+            </h3>
+          </Col>
+          <Col
+            className="text-center"
+            xs={{ order: 1 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 1, size: 6 }}>
+            <Img resolutions={infuze} />
+          </Col>
+        </Row>
       </Container>
     </Layout>
   )
@@ -393,6 +376,13 @@ export const pageQuery = graphql`
     miska: file(name: { eq: "miska" }) {
       childImageSharp {
         resolutions(quality: 100, width: 180) {
+          ...GatsbyImageSharpResolutions_withWebp
+        }
+      }
+    }
+    otoskop: file(name: { eq: "otoskop" }) {
+      childImageSharp {
+        resolutions(quality: 100, width: 100) {
           ...GatsbyImageSharpResolutions_withWebp
         }
       }

@@ -39,8 +39,7 @@ const ContactPage = ({ data, location }) => {
                 <br />
               </address>
             </Col>
-            <Col xs={{ order: 2 }} sm={{ order: 2, size: 8 }}>
-            </Col>
+            <Col xs={{ order: 2 }} sm={{ order: 2, size: 8 }} />
           </Row>
         </Container>
         <Timetable />
