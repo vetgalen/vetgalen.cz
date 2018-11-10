@@ -127,7 +127,8 @@ h3 {
   text-align: center;
 }
 
-.card-header h2, h5 {
+.card-header h2,
+h5 {
   color: $white;
 }
 
@@ -137,4 +138,8 @@ h3 {
 
 .spacer-md {
   margin-top: 50px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }

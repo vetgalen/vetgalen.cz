@@ -9,7 +9,6 @@ import 'prismjs/themes/prism.css'
 import 'scss/gatstrap.scss'
 import 'animate.css/animate.css'
 import 'font-awesome/css/font-awesome.css'
-import 'typeface-overpass'
 
 class Layout extends React.Component {
   render() {

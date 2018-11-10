@@ -40,7 +40,7 @@ const IndexPage = ({ data, location }) => {
           </p>
         </div>
         <hr />
-        <News news={news} />
+        <News news={news} novinky={get(data, 'novinky')} />
         <hr />
         <h1>Kdo jsme?</h1>
         <Container>
@@ -126,6 +126,13 @@ export const pageQuery = graphql`
       edges {
         node {
           html
+        }
+      }
+    }
+    novinky: file(name: { eq: "novinky" }) {
+      childImageSharp {
+        fixed(width: 112, height: 193) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }

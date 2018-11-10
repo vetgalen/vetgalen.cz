@@ -1,6 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Card, CardHeader, CardBody, Container } from 'reactstrap'
+import Img from 'gatsby-image'
+import { Card, CardHeader, CardBody, Container, Row, Col } from 'reactstrap'
+import get from 'lodash/get'
 import './style.scss'
 
 export default class News extends React.Component {
@@ -14,6 +16,7 @@ export default class News extends React.Component {
 
   render() {
     const news = this.news
+    const novinky = get(this.props.novinky, 'childImageSharp.fixed')
 
     const newsContent = news.map((content, index) => {
       const classes = classNames('carousel-item', {
@@ -61,29 +64,46 @@ export default class News extends React.Component {
           <h2>Novinky</h2>
         </CardHeader>
         <CardBody>
-          <div
-            id="newsCarousel"
-            className="carousel slide"
-            data-interval="false">
-            <ol className={visibleIndicators}>{newsIndicators}</ol>
-            <Container className="carousel-inner">{newsContent}</Container>
-            <a
-              className={visiblePrevButton}
-              href="#newsCarousel"
-              role="button"
-              data-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true" />
-              <span className="sr-only">Předchozí</span>
-            </a>
-            <a
-              className={visibleNextButton}
-              href="#newsCarousel"
-              role="button"
-              data-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true" />
-              <span className="sr-only">Další</span>
-            </a>
-          </div>
+          <Container fluid>
+            <Row>
+              <Col xs={{ order: 1 }} sm={{ order: 1, size: 3 }}>
+                <Img fixed={novinky} />
+              </Col>
+              <Col xs={{ order: 2 }} sm={{ order: 2, size: 9 }}>
+                <div
+                  id="newsCarousel"
+                  className="carousel slide"
+                  data-interval="false">
+                  <ol className={visibleIndicators}>{newsIndicators}</ol>
+                  <Container className="carousel-inner">
+                    {newsContent}
+                  </Container>
+                  <a
+                    className={visiblePrevButton}
+                    href="#newsCarousel"
+                    role="button"
+                    data-slide="prev">
+                    <span
+                      className="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    />
+                    <span className="sr-only">Předchozí</span>
+                  </a>
+                  <a
+                    className={visibleNextButton}
+                    href="#newsCarousel"
+                    role="button"
+                    data-slide="next">
+                    <span
+                      className="carousel-control-next-icon"
+                      aria-hidden="true"
+                    />
+                    <span className="sr-only">Další</span>
+                  </a>
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </CardBody>
       </Card>
     )

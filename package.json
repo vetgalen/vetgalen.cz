@@ -22,6 +22,7 @@
     "gatsby-plugin-sharp": "^2.0.0",
     "gatsby-plugin-sitemap": "^2.0.0",
     "gatsby-plugin-twitter": "^2.0.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^2.0.0",
     "gatsby-remark-images": "^2.0.1",
     "gatsby-remark-prismjs": "^3.0.0",
@@ -30,8 +31,7 @@
     "gatsby-source-filesystem": "^2.0.1",
     "gatsby-transformer-remark": "^2.1.1",
     "gatsby-transformer-sharp": "^2.1.1",
-    "reactstrap": "^6.4.0",
-    "typeface-overpass": "^0.0.54"
+    "reactstrap": "^6.4.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.2",
@@ -64,14 +64,9 @@
   "keywords": [],
   "license": "MIT",
   "lint-staged": {
-    "*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.md": [
-      "npm run lint:textfix",
-      "git add"
-    ]
+    "linters": {
+      "*.{js,json,md}": ["prettier --write","git add"]
+    }
   },
   "main": "n/a",
   "scripts": {

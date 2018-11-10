@@ -11,12 +11,12 @@ caption {
   color: $primary !important;
 }
 
-
 caption.compact {
   caption-side: top !important;
   text-align: left;
-  font-weight: bolder;
-  margin-left: 20px;
+  font-size: $h6-font-size;
+  font-weight: 800;
+  margin-left: 0px;
   margin-bottom: -10px;
   padding-bottom: -10px;
 }
