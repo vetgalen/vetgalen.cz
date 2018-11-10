@@ -257,7 +257,7 @@ const OfferPage = ({ data, location }) => {
             md={{ order: 2, size: 6 }}>
             <h3>Výživa</h3>
             <ul>
-              <li>Konzultace výživy</li>
+              <li>konzultace výživy</li>
               <li>prodej krmiv, doplňků výživy a veterinárních diet</li>
             </ul>
           </Col>

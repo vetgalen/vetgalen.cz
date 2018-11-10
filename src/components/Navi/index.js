@@ -38,10 +38,10 @@ class Navi extends React.Component {
       <div className="fixed-top">
         <Container fluid className="d-none d-md-block bg-light">
           <Row>
-            <Col className="col-9 pt-2 pl-3">
+            <Col className="col-8 pt-2 pl-3">
               <Img fixed={logoImage} />
             </Col>
-            <Col className="col-3 font-weight-bold">
+            <Col className="col-4 font-weight-bold">
               <Timetable compact />
             </Col>
           </Row>

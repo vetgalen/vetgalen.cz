@@ -1,5 +1,5 @@
-## Říjen 2018
+## Listopad 2018
 
-Stránky jsou ve výstavbě. Dejte nám ještě chvilku ;-)
+**Otevíráme v pondělí 12. listopadu...**
 
-**Otevíráme v listopadu a moc se na Vás těšíme!**
+**a těšíme se na Vás! 🙂**

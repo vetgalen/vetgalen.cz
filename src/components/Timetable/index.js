@@ -29,8 +29,8 @@ const Timetable = ({ compact }) => {
         </tr>
         <tr>
           <th scope="row">St</th>
-          <td>13:00&nbsp;-&nbsp;19:00</td>
           <td />
+          <td>13:00&nbsp;-&nbsp;19:00</td>
         </tr>
         <tr>
           <th scope="row">Čt</th>

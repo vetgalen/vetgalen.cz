@@ -10,6 +10,8 @@ import Timetable from 'components/Timetable'
 import Icon from 'components/Icon'
 
 const ContactPage = ({ data, location }) => {
+  const adresa = get(data, 'adresa.childImageSharp.resolutions')
+
   return (
     <Layout
       location={location}
@@ -20,26 +22,33 @@ const ContactPage = ({ data, location }) => {
         <h3>Kde nás najdete?</h3>
         <Container>
           <Row>
-            <Col xs={{ order: 1 }} sm={{ order: 1, size: 4 }}>
+            <Col xs={{ order: 2 }} sm={{ order: 1, size: 6 }}>
               <address>
-                <strong>
-                  <Icon name="map-marker" />
-                  &nbsp;Veterinární ordinace Galen
-                </strong>
+                <span className="nowrap font-weight-bold">
+                  <Icon name="map-marker" /> Veterinární ordinace Galen
+                </span>
                 <br />
                 Podpěrova 439/2
                 <br />
                 621 00 Brno-Medlánky
                 <br />
-                <strong>
+                <span className="nowrap font-weight-bold">
                   <Icon name="envelope" />
                   &nbsp;
                   <a href="mailto:ordinace@vetgalen.cz">ordinace@vetgalen.cz</a>
-                </strong>
+                </span>
                 <br />
+                <span className="nowrap font-weight-bold">
+                  <Icon name="phone-square" /> 721 022 265‬
+                </span>
               </address>
             </Col>
-            <Col xs={{ order: 2 }} sm={{ order: 2, size: 8 }} />
+            <Col
+              xs={{ order: 1 }}
+              sm={{ order: 2, size: 6 }}
+              className="text-left">
+              <Img resolutions={adresa} />
+            </Col>
           </Row>
         </Container>
         <Timetable />
@@ -71,6 +80,13 @@ export const pageQuery = graphql`
       childImageSharp {
         fixed(width: 80, height: 30) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    adresa: file(name: { eq: "adresa" }) {
+      childImageSharp {
+        resolutions(quality: 100, width: 150) {
+          ...GatsbyImageSharpResolutions_withWebp
         }
       }
     }
