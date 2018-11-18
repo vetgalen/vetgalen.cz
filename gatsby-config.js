@@ -57,9 +57,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Veterinární ordinace Galen',
-        short_name: 'Galen.cz',
-        description: 'Veterinární ordinace Galen, Brno-Medlánky',
+        name: 'Veterinární ordinace Galen, Vetgalen.cz',
+        short_name: 'Galen',
+        description: 'Veterinární ordinace Galen, Brno-Medlánky, Vetgalen.cz',
         homepage_url: 'https://vetgalen.cz',
         start_url: '/',
         background_color: '#ffffff',
@@ -84,7 +84,7 @@ module.exports = {
       options: {
         mergeSecurityHeaders: true,
         mergeLinkHeaders: true,
-        mergeCachingHeaders: true,
+        mergeCachingHeaders: false,
       },
     },
     'gatsby-plugin-catch-links',
