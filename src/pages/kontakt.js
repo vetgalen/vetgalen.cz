@@ -132,7 +132,7 @@ class ContactPage extends React.Component {
 
     return (
       <Layout
-        location={location}
+        location={this.location}
         logo={get(this.data, 'logo')}
         icon={get(this.data, 'icon')}>
         <Meta site={get(this.data, 'site.meta')} />
