@@ -34,13 +34,11 @@ const Timetable = ({ compact }) => {
         </tr>
         <tr>
           <th scope="row">Čt</th>
-          <td>09:00&nbsp;-&nbsp;16:00</td>
-          <td />
+          <td colSpan="2">09:00&nbsp;-&nbsp;16:00</td>
         </tr>
         <tr>
           <th scope="row">Pá</th>
-          <td>09:00&nbsp;-&nbsp;15:00</td>
-          <td />
+          <td colSpan="2">09:00&nbsp;-&nbsp;15:00</td>
         </tr>
       </tbody>
     </table>

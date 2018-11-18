@@ -66,7 +66,10 @@ export default class News extends React.Component {
         <CardBody>
           <Container fluid>
             <Row>
-              <Col xs={{ order: 1 }} sm={{ order: 1, size: 3 }}>
+              <Col
+                xs={{ order: 1 }}
+                sm={{ order: 1, size: 3 }}
+                className="text-center">
                 <Img fixed={novinky} />
               </Col>
               <Col xs={{ order: 2 }} sm={{ order: 2, size: 9 }}>
