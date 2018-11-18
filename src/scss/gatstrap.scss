@@ -147,3 +147,26 @@ h5 {
 ol.lower-roman {
   list-style-type: lower-roman;
 }
+
+#map {
+  width: 100%; 
+  height: 400px;
+  min-height: 400px;
+}
+
+div#map img { 
+  all: initial;
+}
+
+div#map div.card-header {
+  all: initial;
+}
+
+div#map div.card-footer {
+  all: initial;
+}
+
+
+div#map div.card {
+  z-index: 10;
+}
