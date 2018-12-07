@@ -1,3 +1,1 @@
-# vetgalen.cz
-
-Web pages for vetgalen.cz
+Web pages are hosted from *prod* branch
