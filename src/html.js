@@ -15,6 +15,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <meta
+            name="google-site-verification"
+            content="5cwWrFg6CjrPj9Ptr2ZunZ2tkuxRvrVKqYnTFIzpsXs"
+          />
           {this.props.headComponents}
           <link
             href="/img/apple-touch-icon.png"
@@ -37,6 +41,21 @@ export default class HTML extends React.Component {
             rel="shortcut icon"
             type="image/x-icon"
             href="/img/favicon.ico"
+          />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-130093311-1"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-130093311-1');
+        `,
+            }}
           />
         </head>
         <body>

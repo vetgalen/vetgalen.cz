@@ -59,6 +59,9 @@ class Navi extends React.Component {
               <NavItem active={location.pathname === '/sluzby/'}>
                 <NavLink href="/sluzby/">Co děláme?</NavLink>
               </NavItem>
+              <NavItem active={location.pathname === '/galerie/'}>
+                <NavLink href="/galerie/">Jak to u nás vypadá?</NavLink>
+              </NavItem>
               <NavItem active={location.pathname === '/kontakt/'}>
                 <NavLink href="/kontakt/">Kontakt</NavLink>
               </NavItem>

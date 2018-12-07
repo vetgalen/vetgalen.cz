@@ -19,7 +19,7 @@ const Footer = () => {
       <Container fluid className="bg-primary footer text-light">
         <span>
           &copy;
-          {year} Vetgalen.cz
+          {year} Veterinární ordinace Galen, vetgalen.cz
         </span>
       </Container>
     </div>

@@ -8,13 +8,84 @@ import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const PrivacyPage = ({ data, location }) => {
-  const { logo, gdpr, icon, site } = data
+  const { logo, gdpr, cookie, icon, site } = data
   const gdprImage = get(gdpr, 'childImageSharp.resolutions')
+  const cookieImage = get(cookie, 'childImageSharp.resolutions')
 
   return (
     <Layout location={location} logo={logo} icon={icon}>
       <Meta site={get(site, 'meta')} />
       <Container>
+        <Row>
+          <Col
+            xs={{ order: 1 }}
+            sm={{ order: 2, size: 5 }}
+            md={{ order: 2, size: 4 }}
+            className="text-center">
+            <Img resolutions={cookieImage} />
+          </Col>
+          <Col
+            xs={{ order: 2 }}
+            sm={{ order: 1, size: 7 }}
+            md={{ order: 1, size: 8 }}>
+            <h3 id="cookies">SOUBORY COOKIES</h3>
+            <p>
+              Cookies jsou krátké textové soubory, které si internetové stránky
+              ukládají do paměti internetového prohlížeče zařízení uživatele, za
+              účelem usnadnění používání stránek. Některé funkce není možné bez
+              cookies využívat.
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <hr />
+            <p>
+              <strong>
+                Na stránce vetgalen.cz nepoužíváme cookies za účelem osobní
+                identifikace uživatelů ani za účelem reklamy.
+              </strong>
+            </p>
+            <hr />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <p>Ukládáme následující druhy cookies:</p>
+            <ul>
+              <li>
+                Cookie sloužící ke zjištění, zda uživatel potvrdil dialog
+                ohledně cookies, abychom ho nezobrazovali znovu ;-)
+              </li>
+              <li>
+                Cookies třetích stran určené pro měření anonymních dat o chování
+                uživatelů a sledování návštěvnosti pomocí Google Analytics za
+                účelem lepšího přizpůsobení stránek pro uživatele
+              </li>
+            </ul>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <p>
+              Pravidla pro používání nebo zablokování cookies si může každý
+              uživatel nastavit ve svém internetovém prohlížeči. Uživatel si
+              může nastavit povolení nebo odmítnutí veškerých nebo pouze
+              některých souborů cookies. Uživatel může svou volbu ohledně
+              nastavení cookies kdykoliv změnit. Uživatel může již uložené
+              soubory cookies vymazat ve svém internetovém prohlížeči.
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <p>
+              Detailní informace o nastavení ukládání souborů cookies v
+              prohlížeči lze nalézt v nápovědě konkrétního internetového
+              prohlížeče.
+            </p>
+          </Col>
+        </Row>
         <Row>
           <Col
             xs={{ order: 1 }}
@@ -266,6 +337,13 @@ export const pageQuery = graphql`
     gdpr: file(name: { eq: "gdpr" }) {
       childImageSharp {
         resolutions(quality: 100, width: 200) {
+          ...GatsbyImageSharpResolutions_withWebp
+        }
+      }
+    }
+    cookie: file(name: { eq: "cookie" }) {
+      childImageSharp {
+        resolutions(quality: 100, width: 107) {
           ...GatsbyImageSharpResolutions_withWebp
         }
       }
