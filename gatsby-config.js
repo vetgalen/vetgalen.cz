@@ -1,9 +1,9 @@
 // this file needs to stay as CommonJS otherwise `gatsby build` will not work
 module.exports = {
   siteMetadata: {
-    title: 'Vetgalen.cz',
-    description: 'Veterinární ordinace Vetgalen.cz - Podpěrova 2, Brno',
-    siteUrl: 'https://vetgalen.cz',
+    title: 'Veterinární ordinace Galen',
+    description: 'Veterinární ordinace Galen, Brno-Medlánky, Podpěrova 439/2',
+    siteUrl: 'https://www.vetgalen.cz',
     author: 'Karel Piwko',
   },
   pathPrefix: '/',
