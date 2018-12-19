@@ -26,7 +26,11 @@ const IndexPage = ({ data, location }) => {
       location={location}
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
-      <Meta site={get(data, 'site.meta')} />
+      <Meta
+        site={get(data, 'site.meta')}
+        path="/"
+        description="Veterinární ordinace v Brně-Medlánkách, péče o malá zvířata a bezproblémové parkování"
+      />
       <Container>
         <div className="clear-fix">
           <div className="d-block d-md-none text-center">
