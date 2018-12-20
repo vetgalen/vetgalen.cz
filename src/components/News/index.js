@@ -16,7 +16,7 @@ export default class News extends React.Component {
 
   render() {
     const news = this.news
-    const novinky = get(this.props.novinky, 'childImageSharp.fixed')
+    const vanoce = get(this.props.vanoce, 'childImageSharp.fixed')
 
     const newsContent = news.map((content, index) => {
       const classes = classNames('carousel-item', {
@@ -70,7 +70,7 @@ export default class News extends React.Component {
                 xs={{ order: 1 }}
                 sm={{ order: 1, size: 3 }}
                 className="text-center">
-                <Img fixed={novinky} />
+                <Img fixed={vanoce} />
               </Col>
               <Col xs={{ order: 2 }} sm={{ order: 2, size: 9 }}>
                 <div

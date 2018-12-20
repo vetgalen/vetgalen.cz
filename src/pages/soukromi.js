@@ -14,7 +14,12 @@ const PrivacyPage = ({ data, location }) => {
 
   return (
     <Layout location={location} logo={logo} icon={icon}>
-      <Meta site={get(site, 'meta')} />
+      <Meta
+        site={get(site, 'meta')}
+        title="Ochrana soukromí"
+        path="/soukromi/"
+        description="Veterinární ordinace Galen dbá na ochranu Vašeho soukromí"
+      />
       <Container>
         <Row>
           <Col

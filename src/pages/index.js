@@ -26,7 +26,11 @@ const IndexPage = ({ data, location }) => {
       location={location}
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
-      <Meta site={get(data, 'site.meta')} />
+      <Meta
+        site={get(data, 'site.meta')}
+        path="/"
+        description="Veterinární ordinace v Brně-Medlánkách, péče o malá zvířata a bezproblémové parkování"
+      />
       <Container>
         <div className="clear-fix">
           <div className="d-block d-md-none text-center">
@@ -40,7 +44,7 @@ const IndexPage = ({ data, location }) => {
           </p>
         </div>
         <hr />
-        <News news={news} novinky={get(data, 'novinky')} />
+        <News news={news} vanoce={get(data, 'vanoce')} />
         <hr />
         <h1>Kdo jsme?</h1>
         <Container>
@@ -132,6 +136,13 @@ export const pageQuery = graphql`
     novinky: file(name: { eq: "novinky" }) {
       childImageSharp {
         fixed(width: 112, height: 193) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    vanoce: file(name: { eq: "vanoce" }) {
+      childImageSharp {
+        fixed(width: 135, height: 134) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }

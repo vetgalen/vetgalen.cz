@@ -26,7 +26,12 @@ const OfferPage = ({ data, location }) => {
       location={location}
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
-      <Meta site={get(data, 'site.meta')} />
+      <Meta
+        site={get(data, 'site.meta')}
+        title="Služby"
+        path="/sluzby/"
+        description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, konzultace a další"
+      />
       <Container>
         <Row className="row-offer">
           <Col

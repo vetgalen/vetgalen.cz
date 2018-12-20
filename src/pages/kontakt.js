@@ -135,7 +135,12 @@ class ContactPage extends React.Component {
         location={this.location}
         logo={get(this.data, 'logo')}
         icon={get(this.data, 'icon')}>
-        <Meta site={get(this.data, 'site.meta')} />
+        <Meta
+          site={get(this.data, 'site.meta')}
+          title="Kontakty"
+          path="/kontakt/"
+          description="Veterinární ordinace v Brně-Medlánkách/Řečkovicích, Podpěrova 439/2, ordinace@vetgalen.cz, +420 721 022 265. "
+        />
         <Container>
           <h3>Kde nás najdete?</h3>
           <Container>

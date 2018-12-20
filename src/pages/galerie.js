@@ -17,7 +17,12 @@ const GalleryPage = ({ data, location }) => {
       location={location}
       logo={get(data, 'logo')}
       icon={get(data, 'icon')}>
-      <Meta site={get(data, 'site.meta')} />
+      <Meta
+        site={get(data, 'site.meta')}
+        title="Galerie"
+        path="/galerie/"
+        description="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu"
+      />
       <Container>
         <Row className="align-items-center">
           <Col
