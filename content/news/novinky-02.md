@@ -1,3 +1,7 @@
+---
+image: 'vanoce'
+---
+
 ## Prosinec 2018
 
 **Vánoční otevírací doba**
