@@ -157,7 +157,7 @@ export const pageQuery = graphql`
     }
     spici_pes: file(name: { eq: "spici_pes" }) {
       childImageSharp {
-        fixed(width: 165, height: 121) {
+        fixed(width: 133, height: 97) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
