@@ -44,7 +44,12 @@ const IndexPage = ({ data, location }) => {
           </p>
         </div>
         <hr />
-        <News news={news} vanoce={get(data, 'vanoce')} />
+        <News
+          news={news}
+          vanoce={get(data, 'vanoce')}
+          novinky={get(data, 'novinky')}
+          spici_pes={get(data, 'spici_pes')}
+        />
         <hr />
         <h1>Kdo jsme?</h1>
         <Container>
@@ -130,6 +135,9 @@ export const pageQuery = graphql`
       edges {
         node {
           html
+          frontmatter {
+            image
+          }
         }
       }
     }
@@ -143,6 +151,13 @@ export const pageQuery = graphql`
     vanoce: file(name: { eq: "vanoce" }) {
       childImageSharp {
         fixed(width: 135, height: 134) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    spici_pes: file(name: { eq: "spici_pes" }) {
+      childImageSharp {
+        fixed(width: 165, height: 121) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
