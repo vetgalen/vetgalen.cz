@@ -1,16 +1,39 @@
 import React from 'react'
 import classNames from 'classnames'
 import Img from 'gatsby-image'
-import { Card, CardHeader, CardBody, Container, Row, Col } from 'reactstrap'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Container,
+  Row,
+  Col,
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  UncontrolledCarousel,
+} from 'reactstrap'
+
 import get from 'lodash/get'
 import './style.scss'
 
 export default class News extends React.Component {
   constructor(props) {
     super(props)
+    this.state = { activeIndex: 0 }
+    this.next = this.next.bind(this)
+    this.previous = this.previous.bind(this)
+    this.goToIndex = this.goToIndex.bind(this)
+    this.onExiting = this.onExiting.bind(this)
+    this.onExited = this.onExited.bind(this)
 
     this.news = this.props.news.edges.map(e => {
-      return e.node.html
+      return {
+        html: e.node.html,
+        image: e.node.frontmatter.image,
+        src: e.node.id,
+      }
     })
 
     this.newsImages = {
@@ -20,48 +43,65 @@ export default class News extends React.Component {
     }
   }
 
-  render() {
-    const news = this.news
-    const newsImage = this.newsImages['spici_pes']
+  onExiting() {
+    this.animating = true
+  }
 
-    const newsContent = news.map((content, index) => {
-      const classes = classNames('carousel-item', {
-        active: index === 0,
-      })
+  onExited() {
+    this.animating = false
+  }
+
+  next() {
+    if (this.animating) return
+    const nextIndex =
+      this.state.activeIndex === this.news.length - 1
+        ? 0
+        : this.state.activeIndex + 1
+    this.setState({ activeIndex: nextIndex })
+  }
+
+  previous() {
+    if (this.animating) return
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? this.news.length - 1
+        : this.state.activeIndex - 1
+    this.setState({ activeIndex: nextIndex })
+  }
+
+  goToIndex(newIndex) {
+    if (this.animating) return
+    this.setState({ activeIndex: newIndex })
+  }
+
+  render() {
+    const { activeIndex } = this.state
+
+    const slideImages = this.news.map(slide => {
       return (
-        <div
-          key={index}
-          className={classes}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <CarouselItem
+          className="max-width"
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={slide.src}>
+          <Img fixed={this.newsImages[slide.image]} />
+        </CarouselItem>
       )
     })
 
-    const newsIndicators = news.map((_, index) => {
-      const classes = classNames({
-        active: index === 0,
-      })
-
+    const slides = this.news.map(slide => {
       return (
-        <li
-          data-target="#newsCarousel"
-          data-slide-to={index}
-          key={index}
-          className={classes}
-        />
+        <CarouselItem
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={slide.src}>
+          <div dangerouslySetInnerHTML={{ __html: slide.html }} />
+        </CarouselItem>
       )
     })
 
     const visibleIndicators = classNames('carousel-indicators', {
-      'd-none': news === null || news.length <= 1,
-    })
-
-    const visiblePrevButton = classNames('carousel-control-prev', {
-      'd-none': news === null || news.length <= 1,
-    })
-
-    const visibleNextButton = classNames('carousel-control-next', {
-      'd-none': news === null || news.length <= 1,
+      'd-none': this.news === null || this.news.length <= 1,
     })
 
     return (
@@ -74,42 +114,55 @@ export default class News extends React.Component {
             <Row>
               <Col
                 xs={{ order: 1 }}
-                sm={{ order: 1, size: 3 }}
-                className="text-center">
-                <Img fixed={newsImage} />
+                sm={{ order: 1 }}
+                md={{ order: 1, size: 3 }}
+                className="text-center min-width">
+                <Carousel
+                  className="max-width"
+                  activeIndex={activeIndex}
+                  next={this.next}
+                  previous={this.previous}
+                  interval={false}
+                  slide={false}
+                  autoPlay={false}>
+                  {/* TODO report this bug, Carousel does not work if only with CarouselItems */}
+                  <CarouselIndicators
+                    className="d-none"
+                    items={this.news}
+                    activeIndex={activeIndex}
+                    onClickHandler={this.goToIndex}
+                  />
+                  {slideImages}
+                </Carousel>
               </Col>
-              <Col xs={{ order: 2 }} sm={{ order: 2, size: 9 }}>
-                <div
-                  id="newsCarousel"
-                  className="carousel slide"
-                  data-interval="false">
-                  <ol className={visibleIndicators}>{newsIndicators}</ol>
-                  <Container className="carousel-inner">
-                    {newsContent}
-                  </Container>
-                  <a
-                    className={visiblePrevButton}
-                    href="#newsCarousel"
-                    role="button"
-                    data-slide="prev">
-                    <span
-                      className="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">Předchozí</span>
-                  </a>
-                  <a
-                    className={visibleNextButton}
-                    href="#newsCarousel"
-                    role="button"
-                    data-slide="next">
-                    <span
-                      className="carousel-control-next-icon"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">Další</span>
-                  </a>
-                </div>
+              <Col
+                xs={{ order: 2 }}
+                sm={{ order: 2 }}
+                md={{ order: 2, size: 9 }}>
+                <Carousel
+                  activeIndex={activeIndex}
+                  next={this.next}
+                  previous={this.previous}
+                  interval={false}
+                  slide={false}>
+                  <CarouselIndicators
+                    className={visibleIndicators}
+                    items={this.news}
+                    activeIndex={activeIndex}
+                    onClickHandler={this.goToIndex}
+                  />
+                  {slides}
+                  <CarouselControl
+                    direction="prev"
+                    directionText="Previous"
+                    onClickHandler={this.previous}
+                  />
+                  <CarouselControl
+                    direction="next"
+                    directionText="Next"
+                    onClickHandler={this.next}
+                  />
+                </Carousel>
               </Col>
             </Row>
           </Container>
