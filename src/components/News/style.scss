@@ -16,14 +16,8 @@
   z-index: 10;
 }
 
-/* Declare heights because of positioning of img element */
+
 .carousel-item {
-  //height: 20rem;
-  //border-color: $blue;
-  //border-width: 0px;
-  //border-radius: 4px;
-  //padding-top: 1rem;
-  //padding-left: 4rem;
   margin-bottom: 6rem;
   //background-color: rgba(199, 217, 255, 0.1);
   border-style: none;
@@ -51,4 +45,16 @@
 
 .carousel-indicators li.active {
   background-color: $primary;
+}
+
+/* poor man's hack to make sure image is alwash shown as whole */
+.max-width {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.min-width {
+  padding-left: 0px;
+  padding-right: 0px;
 }
