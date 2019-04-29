@@ -49,6 +49,7 @@ const IndexPage = ({ data, location }) => {
           vanoce={get(data, 'vanoce')}
           novinky={get(data, 'novinky')}
           spici_pes={get(data, 'spici_pes')}
+          baset={get(data, 'baset')}
         />
         <hr />
         <h1>Kdo jsme?</h1>
@@ -159,6 +160,13 @@ export const pageQuery = graphql`
     spici_pes: file(name: { eq: "spici_pes" }) {
       childImageSharp {
         fixed(width: 133, height: 97) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    baset: file(name: { eq: "baset_zavreno" }) {
+      childImageSharp {
+        fixed(width: 110, height: 138) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
