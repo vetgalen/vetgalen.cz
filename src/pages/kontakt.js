@@ -128,7 +128,7 @@ class ContactPage extends React.Component {
   }
 
   render() {
-    const adresa = get(this.data, 'adresa.childImageSharp.resolutions')
+    const adresa = get(this.data, 'adresa.childImageSharp.fixed')
 
     return (
       <Layout
@@ -172,7 +172,7 @@ class ContactPage extends React.Component {
                 xs={{ order: 1 }}
                 sm={{ order: 2, size: 6 }}
                 className="text-left">
-                <Img resolutions={adresa} />
+                <Img fixed={adresa} />
               </Col>
             </Row>
           </Container>
@@ -225,8 +225,8 @@ export const pageQuery = graphql`
     }
     adresa: file(name: { eq: "adresa" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 150) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fixed(height: 115, width: 150) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

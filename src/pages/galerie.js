@@ -8,10 +8,10 @@ import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const GalleryPage = ({ data, location }) => {
-  const cekarna = get(data, 'cekarna.childImageSharp.resolutions')
-  const vchod = get(data, 'vchod.childImageSharp.resolutions')
-  const ordinace = get(data, 'ordinace.childImageSharp.resolutions')
-  const sal = get(data, 'sal.childImageSharp.resolutions')
+  const cekarna = get(data, 'cekarna.childImageSharp.fluid')
+  const vchod = get(data, 'vchod.childImageSharp.fluid')
+  const ordinace = get(data, 'ordinace.childImageSharp.fluid')
+  const sal = get(data, 'sal.childImageSharp.fluid')
   return (
     <Layout
       location={location}
@@ -29,7 +29,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <Img imgStyle={{ 'border-radius': '5%' }} resolutions={vchod} />
+            <Img imgStyle={{ 'border-radius': '5%' }} fluid={vchod} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -54,7 +54,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <Img imgStyle={{ 'border-radius': '5%' }} resolutions={cekarna} />
+            <Img imgStyle={{ 'border-radius': '5%' }} fluid={cekarna} />
           </Col>
         </Row>
         <Row>
@@ -67,7 +67,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <Img imgStyle={{ 'border-radius': '5%' }} resolutions={ordinace} />
+            <Img imgStyle={{ 'border-radius': '5%' }} fluid={ordinace} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -92,7 +92,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <Img imgStyle={{ 'border-radius': '5%' }} resolutions={sal} />
+            <Img imgStyle={{ 'border-radius': '5%' }} fluid={sal} />
           </Col>
         </Row>
       </Container>
@@ -128,29 +128,29 @@ export const pageQuery = graphql`
     }
     vchod: file(name: { eq: "foto-vchod" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 315, height: 210) {
-          ...GatsbyImageSharpResolutions_withWebp_noBase64
+        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     cekarna: file(name: { eq: "foto-cekarna" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 315, height: 210) {
-          ...GatsbyImageSharpResolutions_withWebp_noBase64
+        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     ordinace: file(name: { eq: "foto-ordinace" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 315, height: 210) {
-          ...GatsbyImageSharpResolutions_withWebp_noBase64
+        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }
     sal: file(name: { eq: "foto-sal" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 315, height: 210) {
-          ...GatsbyImageSharpResolutions_withWebp_noBase64
+        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

@@ -9,8 +9,8 @@ import Layout from 'components/Layout'
 
 const PrivacyPage = ({ data, location }) => {
   const { logo, gdpr, cookie, icon, site } = data
-  const gdprImage = get(gdpr, 'childImageSharp.resolutions')
-  const cookieImage = get(cookie, 'childImageSharp.resolutions')
+  const gdprImage = get(gdpr, 'childImageSharp.fixed')
+  const cookieImage = get(cookie, 'childImageSharp.fixed')
 
   return (
     <Layout location={location} logo={logo} icon={icon}>
@@ -27,7 +27,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 2, size: 5 }}
             md={{ order: 2, size: 4 }}
             className="text-center">
-            <Img resolutions={cookieImage} />
+            <Img fixed={cookieImage} />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -97,7 +97,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 1, size: 5 }}
             md={{ order: 1, size: 4 }}
             className="text-center">
-            <Img resolutions={gdprImage} />
+            <Img fixed={gdprImage} />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -341,15 +341,15 @@ export const pageQuery = graphql`
     }
     gdpr: file(name: { eq: "gdpr" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 200) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fixed(height: 122, width: 200) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     cookie: file(name: { eq: "cookie" }) {
       childImageSharp {
-        resolutions(quality: 100, width: 107) {
-          ...GatsbyImageSharpResolutions_withWebp
+        fixed(height: 122, width: 107) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
