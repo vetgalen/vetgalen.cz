@@ -18,6 +18,7 @@ const OfferPage = ({ data, location }) => {
   const packa = get(data, 'packa.childImageSharp.fixed')
   const prevence = get(data, 'prevence.childImageSharp.fixed')
   const psik = get(data, 'psik.childImageSharp.fixed')
+  const rtg = get(data, 'rtg.childImageSharp.fixed')
   const usg = get(data, 'usg.childImageSharp.fixed')
   const zkumavka = get(data, 'zkumavka.childImageSharp.fixed')
   const zub = get(data, 'zub.childImageSharp.fixed')
@@ -193,10 +194,10 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <h3>Chirurgické zákroky</h3>
+            <h3>Rentgenologické vyšetření</h3>
             <ul>
-              <li>preventivní a terapeutické</li>
-              <li>odeslání vzorků na vyšetření</li>
+              <li>vyšetření při akutních stavech</li>
+              <li>preventivní a kontrolní vyšetření pohybového aparátu</li>
             </ul>
           </Col>
           <Col
@@ -204,8 +205,8 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <div className="d-none d-sm-block mt-2">&nbsp;</div>
-            <Img fixed={chirda} />
+            <div className="d-none d-sm-block mt-1">&nbsp;</div>
+            <Img fixed={rtg} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -228,6 +229,27 @@ const OfferPage = ({ data, location }) => {
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
             <Img fixed={packa} />
+          </Col>
+        </Row>
+        <Row className="row-offer">
+          <Col
+            className="offer"
+            xs={{ order: 2 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 1, size: 6 }}>
+            <h3>Chirurgické zákroky</h3>
+            <ul>
+              <li>preventivní a terapeutické</li>
+              <li>odeslání vzorků na vyšetření</li>
+            </ul>
+          </Col>
+          <Col
+            className="text-center"
+            xs={{ order: 1 }}
+            sm={{ order: 1, size: 6 }}
+            md={{ order: 2, size: 6 }}>
+            <div className="d-none d-sm-block mt-2">&nbsp;</div>
+            <Img fixed={chirda} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -410,6 +432,13 @@ export const pageQuery = graphql`
       childImageSharp {
         fixed(height: 130, width: 200) {
           ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    rtg: file(name: { eq: "rtg_pes" }) {
+      childImageSharp {
+        fixed(width: 200, height: 161) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
