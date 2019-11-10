@@ -43,6 +43,7 @@ export default class News extends React.Component {
       baset: get(this.props.baset, 'childImageSharp.fixed'),
       cipovani: get(this.props.cipovani, 'childImageSharp.fixed'),
       rtg_pes: get(this.props.rtg_pes, 'childImageSharp.fixed'),
+      cupcake: get(this.props.cupcake, 'childImageSharp.fixed'),
     }
   }
 
