@@ -26,7 +26,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Overpass:n3,n4,n7,n8'],
+          families: ['Overpass:400,600'],
         },
       },
     },
