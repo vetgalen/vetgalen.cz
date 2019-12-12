@@ -53,6 +53,7 @@ const IndexPage = ({ data, location }) => {
           cipovani={get(data, 'cipovani')}
           rtg_pes={get(data, 'rtg_pes')}
           cupcake={get(data, 'cupcake')}
+          krabice={get(data, 'krabice')}
         />
         <hr />
         <h1>Kdo jsme?</h1>
@@ -191,6 +192,13 @@ export const pageQuery = graphql`
     cupcake: file(name: { eq: "cupcake" }) {
       childImageSharp {
         fixed(width: 115, height: 175) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    krabice: file(name: { eq: "krabice" }) {
+      childImageSharp {
+        fixed(width: 162, height: 120) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
