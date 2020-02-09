@@ -45,6 +45,7 @@ export default class News extends React.Component {
       rtg_pes: get(this.props.rtg_pes, 'childImageSharp.fixed'),
       cupcake: get(this.props.cupcake, 'childImageSharp.fixed'),
       krabice: get(this.props.krabice, 'childImageSharp.fixed'),
+      od_peti: get(this.props.od_peti, 'childImageSharp.fixed'),
     }
   }
 
