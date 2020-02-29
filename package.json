@@ -78,7 +78,11 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.+(js|json|md)\"",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "precommit": "lint-staged",
     "test": "prettier --write \"**/*.+(js|jsx|json|css|scss)\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
