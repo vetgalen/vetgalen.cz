@@ -47,6 +47,7 @@ export default class News extends React.Component {
       krabice: get(this.props.krabice, 'childImageSharp.fixed'),
       od_peti: get(this.props.od_peti, 'childImageSharp.fixed'),
       alert: get(this.props.alert, 'childImageSharp.fixed'),
+      mask: get(this.props.mask, 'childImageSharp.fixed'),
     }
   }
 
