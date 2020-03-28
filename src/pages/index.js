@@ -56,6 +56,7 @@ const IndexPage = ({ data, location }) => {
           krabice={get(data, 'krabice')}
           od_peti={get(data, 'od_peti')}
           alert={get(data, 'alert')}
+          mask={get(data, 'mask')}
         />
         <hr />
         <h1>Kdo jsme?</h1>
@@ -215,6 +216,13 @@ export const pageQuery = graphql`
     alert: file(name: { eq: "alert" }) {
       childImageSharp {
         fixed(width: 119, height: 247) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    mask: file(name: { eq: "mask" }) {
+      childImageSharp {
+        fixed(width: 210, height: 150) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
