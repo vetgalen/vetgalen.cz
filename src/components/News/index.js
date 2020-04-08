@@ -48,6 +48,7 @@ export default class News extends React.Component {
       od_peti: get(this.props.od_peti, 'childImageSharp.fixed'),
       alert: get(this.props.alert, 'childImageSharp.fixed'),
       mask: get(this.props.mask, 'childImageSharp.fixed'),
+      zajicek: get(this.props.zajicek, 'childImageSharp.fixed'),
     }
   }
 
