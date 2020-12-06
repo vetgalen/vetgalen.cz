@@ -59,6 +59,7 @@ const IndexPage = ({ data, location }) => {
           mask={get(data, 'mask')}
           zajicek={get(data, 'zajicek')}
           pes_stanuje={get(data, 'pes_stanuje')}
+          vanoce_2020={get(data, 'vanoce_2020')}
         />
         <hr />
         <h1>Kdo jsme?</h1>
@@ -239,6 +240,13 @@ export const pageQuery = graphql`
     pes_stanuje: file(name: { eq: "pes_stanuje" }) {
       childImageSharp {
         fixed(width: 166, height: 101) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+    vanoce_2020: file(name: { eq: "vanoce_2020" }) {
+      childImageSharp {
+        fixed(width: 174, height: 128) {
           ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
