@@ -51,6 +51,7 @@ export default class News extends React.Component {
       zajicek: get(this.props.zajicek, 'childImageSharp.fixed'),
       pes_stanuje: get(this.props.pes_stanuje, 'childImageSharp.fixed'),
       vanoce_2020: get(this.props.vanoce_2020, 'childImageSharp.fixed'),
+      velikonoce_mops: get(this.props.velikonoce_mops, 'childImageSharp.fixed'),
     }
   }
 
