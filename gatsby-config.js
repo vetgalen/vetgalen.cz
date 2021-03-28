@@ -60,7 +60,6 @@ module.exports = {
         name: 'Veterinární ordinace Galen, Vetgalen.cz',
         short_name: 'Galen',
         description: 'Veterinární ordinace Galen, Brno-Medlánky, Vetgalen.cz',
-        homepage_url: 'https://vetgalen.cz',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#4eb3ed',
