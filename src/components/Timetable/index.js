@@ -24,7 +24,7 @@ const Timetable = ({ compact }) => {
         </tr>
         <tr>
           <th scope="row">Út</th>
-          <td>operace</td>
+          <td />
           <td>15:00&nbsp;-&nbsp;18:00</td>
         </tr>
         <tr>
