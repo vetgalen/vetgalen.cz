@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {
   Row,
   Col,
@@ -34,7 +34,7 @@ const IndexPage = ({ data, location }) => {
       <Container>
         <div className="clear-fix">
           <div className="d-block d-md-none text-center">
-            <Img fixed={logoImage} />
+            <GatsbyImage image={logoImage} />
           </div>
           <p>
             Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
@@ -113,151 +113,115 @@ const IndexPage = ({ data, location }) => {
         </Container>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query IndexPageQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
+export const pageQuery = graphql`query IndexPageQuery {
+  site {
+    meta: siteMetadata {
+      title
+      description
+      url: siteUrl
+      author
     }
-    logo: file(name: { eq: "vetgalen-logo" }) {
-      childImageSharp {
-        fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
+  }
+  logo: file(name: {eq: "vetgalen-logo"}) {
+    childImageSharp {
+      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
     }
-    icon: file(name: { eq: "icon" }) {
-      childImageSharp {
-        fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
+  }
+  icon: file(name: {eq: "icon"}) {
+    childImageSharp {
+      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
     }
-    # order news file desc, novinky-{number}.md
-    news: allMarkdownRemark(sort: { order: DESC, fields: fileAbsolutePath }) {
-      edges {
-        node {
-          html
-          frontmatter {
-            image
-          }
-          id
+  }
+  news: allMarkdownRemark(sort: {order: DESC, fields: fileAbsolutePath}) {
+    edges {
+      node {
+        html
+        frontmatter {
+          image
         }
-      }
-    }
-    novinky: file(name: { eq: "novinky" }) {
-      childImageSharp {
-        fixed(width: 112, height: 193) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    vanoce: file(name: { eq: "vanoce" }) {
-      childImageSharp {
-        fixed(width: 135, height: 134) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    spici_pes: file(name: { eq: "spici_pes" }) {
-      childImageSharp {
-        fixed(width: 133, height: 97) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    baset: file(name: { eq: "baset_zavreno" }) {
-      childImageSharp {
-        fixed(width: 110, height: 138) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    cipovani: file(name: { eq: "cipovani" }) {
-      childImageSharp {
-        fixed(width: 131, height: 137) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    rtg_pes: file(name: { eq: "rtg_pes" }) {
-      childImageSharp {
-        fixed(width: 133, height: 108) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    cupcake: file(name: { eq: "cupcake" }) {
-      childImageSharp {
-        fixed(width: 115, height: 175) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    krabice: file(name: { eq: "krabice" }) {
-      childImageSharp {
-        fixed(width: 162, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    od_peti: file(name: { eq: "od_peti" }) {
-      childImageSharp {
-        fixed(width: 140, height: 202) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    alert: file(name: { eq: "alert" }) {
-      childImageSharp {
-        fixed(width: 119, height: 247) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    mask: file(name: { eq: "mask" }) {
-      childImageSharp {
-        fixed(width: 210, height: 150) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    zajicek: file(name: { eq: "zajicek" }) {
-      childImageSharp {
-        fixed(width: 115, height: 181) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    pes_stanuje: file(name: { eq: "pes_stanuje" }) {
-      childImageSharp {
-        fixed(width: 166, height: 101) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    vanoce_2020: file(name: { eq: "vanoce_2020" }) {
-      childImageSharp {
-        fixed(width: 174, height: 128) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    velikonoce_mops: file(name: { eq: "velikonoce_mops" }) {
-      childImageSharp {
-        fixed(width: 142, height: 157) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
+        id
       }
     }
   }
+  novinky: file(name: {eq: "novinky"}) {
+    childImageSharp {
+      gatsbyImageData(width: 112, height: 193, placeholder: NONE, layout: FIXED)
+    }
+  }
+  vanoce: file(name: {eq: "vanoce"}) {
+    childImageSharp {
+      gatsbyImageData(width: 135, height: 134, placeholder: NONE, layout: FIXED)
+    }
+  }
+  spici_pes: file(name: {eq: "spici_pes"}) {
+    childImageSharp {
+      gatsbyImageData(width: 133, height: 97, placeholder: NONE, layout: FIXED)
+    }
+  }
+  baset: file(name: {eq: "baset_zavreno"}) {
+    childImageSharp {
+      gatsbyImageData(width: 110, height: 138, placeholder: NONE, layout: FIXED)
+    }
+  }
+  cipovani: file(name: {eq: "cipovani"}) {
+    childImageSharp {
+      gatsbyImageData(width: 131, height: 137, placeholder: NONE, layout: FIXED)
+    }
+  }
+  rtg_pes: file(name: {eq: "rtg_pes"}) {
+    childImageSharp {
+      gatsbyImageData(width: 133, height: 108, placeholder: NONE, layout: FIXED)
+    }
+  }
+  cupcake: file(name: {eq: "cupcake"}) {
+    childImageSharp {
+      gatsbyImageData(width: 115, height: 175, placeholder: NONE, layout: FIXED)
+    }
+  }
+  krabice: file(name: {eq: "krabice"}) {
+    childImageSharp {
+      gatsbyImageData(width: 162, height: 120, placeholder: NONE, layout: FIXED)
+    }
+  }
+  od_peti: file(name: {eq: "od_peti"}) {
+    childImageSharp {
+      gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
+    }
+  }
+  alert: file(name: {eq: "alert"}) {
+    childImageSharp {
+      gatsbyImageData(width: 119, height: 247, placeholder: NONE, layout: FIXED)
+    }
+  }
+  mask: file(name: {eq: "mask"}) {
+    childImageSharp {
+      gatsbyImageData(width: 210, height: 150, placeholder: NONE, layout: FIXED)
+    }
+  }
+  zajicek: file(name: {eq: "zajicek"}) {
+    childImageSharp {
+      gatsbyImageData(width: 115, height: 181, placeholder: NONE, layout: FIXED)
+    }
+  }
+  pes_stanuje: file(name: {eq: "pes_stanuje"}) {
+    childImageSharp {
+      gatsbyImageData(width: 166, height: 101, placeholder: NONE, layout: FIXED)
+    }
+  }
+  vanoce_2020: file(name: {eq: "vanoce_2020"}) {
+    childImageSharp {
+      gatsbyImageData(width: 174, height: 128, placeholder: NONE, layout: FIXED)
+    }
+  }
+  velikonoce_mops: file(name: {eq: "velikonoce_mops"}) {
+    childImageSharp {
+      gatsbyImageData(width: 142, height: 157, placeholder: NONE, layout: FIXED)
+    }
+  }
+}
 `

@@ -12,7 +12,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import Timetable from 'components/Timetable'
 
 class Navi extends React.Component {
@@ -32,14 +32,14 @@ class Navi extends React.Component {
 
   render() {
     const { location, logo, icon } = this.props
-    const logoImage = get(logo, 'childImageSharp.fixed')
-    const iconImage = get(icon, 'childImageSharp.fixed')
+    const logoImage = get(logo, 'childImageSharp.gatsbyImageData')
+    const iconImage = get(icon, 'childImageSharp.gatsbyImageData')
     return (
       <div className="fixed-top">
         <Container fluid className="d-none d-md-block bg-light">
           <Row>
             <Col className="col-8 pt-2 pl-3">
-              <Img fixed={logoImage} />
+              <GatsbyImage image={logoImage} />
             </Col>
             <Col className="col-4 font-weight-bold">
               <Timetable compact />
@@ -48,7 +48,7 @@ class Navi extends React.Component {
         </Container>
         <Navbar className="bg-primary navbar-dark" expand="sm">
           <NavbarBrand className="d-block d-md-none">
-            <Img fixed={iconImage} />
+            <GatsbyImage image={iconImage} />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -72,7 +72,7 @@ class Navi extends React.Component {
           </Collapse>
         </Navbar>
       </div>
-    )
+    );
   }
 }
 

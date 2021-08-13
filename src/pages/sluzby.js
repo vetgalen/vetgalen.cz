@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import get from 'lodash/get'
@@ -8,20 +8,20 @@ import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const OfferPage = ({ data, location }) => {
-  const derma = get(data, 'derma.childImageSharp.fixed')
-  const chirda = get(data, 'chirda.childImageSharp.fixed')
-  const infuze = get(data, 'infuze.childImageSharp.fixed')
-  const lahvicka = get(data, 'lahvicka.childImageSharp.fixed')
-  const mikroskop = get(data, 'mikroskop.childImageSharp.fixed')
-  const miska = get(data, 'miska.childImageSharp.fixed')
-  const otoskop = get(data, 'otoskop.childImageSharp.fixed')
-  const packa = get(data, 'packa.childImageSharp.fixed')
-  const prevence = get(data, 'prevence.childImageSharp.fixed')
-  const psik = get(data, 'psik.childImageSharp.fixed')
-  const rtg = get(data, 'rtg.childImageSharp.fixed')
-  const usg = get(data, 'usg.childImageSharp.fixed')
-  const zkumavka = get(data, 'zkumavka.childImageSharp.fixed')
-  const zub = get(data, 'zub.childImageSharp.fixed')
+  const derma = get(data, 'derma.childImageSharp.gatsbyImageData')
+  const chirda = get(data, 'chirda.childImageSharp.gatsbyImageData')
+  const infuze = get(data, 'infuze.childImageSharp.gatsbyImageData')
+  const lahvicka = get(data, 'lahvicka.childImageSharp.gatsbyImageData')
+  const mikroskop = get(data, 'mikroskop.childImageSharp.gatsbyImageData')
+  const miska = get(data, 'miska.childImageSharp.gatsbyImageData')
+  const otoskop = get(data, 'otoskop.childImageSharp.gatsbyImageData')
+  const packa = get(data, 'packa.childImageSharp.gatsbyImageData')
+  const prevence = get(data, 'prevence.childImageSharp.gatsbyImageData')
+  const psik = get(data, 'psik.childImageSharp.gatsbyImageData')
+  const rtg = get(data, 'rtg.childImageSharp.gatsbyImageData')
+  const usg = get(data, 'usg.childImageSharp.gatsbyImageData')
+  const zkumavka = get(data, 'zkumavka.childImageSharp.gatsbyImageData')
+  const zub = get(data, 'zub.childImageSharp.gatsbyImageData')
   return (
     <Layout
       location={location}
@@ -58,7 +58,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img fixed={prevence} />
+            <GatsbyImage image={prevence} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -80,7 +80,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img fixed={zkumavka} />
+            <GatsbyImage image={zkumavka} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -102,7 +102,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img fixed={mikroskop} />
+            <GatsbyImage image={mikroskop} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -123,7 +123,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img fixed={derma} />
+            <GatsbyImage image={derma} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -144,7 +144,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img fixed={zub} />
+            <GatsbyImage image={zub} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -164,7 +164,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <Img fixed={otoskop} />
+            <GatsbyImage image={otoskop} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -185,7 +185,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img fixed={usg} />
+            <GatsbyImage image={usg} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -206,7 +206,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-1">&nbsp;</div>
-            <Img fixed={rtg} />
+            <GatsbyImage image={rtg} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -228,7 +228,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img fixed={packa} />
+            <GatsbyImage image={packa} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -249,7 +249,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-2">&nbsp;</div>
-            <Img fixed={chirda} />
+            <GatsbyImage image={chirda} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -273,7 +273,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <Img fixed={lahvicka} />
+            <GatsbyImage image={lahvicka} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -294,7 +294,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <Img fixed={miska} />
+            <GatsbyImage image={miska} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -311,7 +311,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-1">&nbsp;</div>
-            <Img fixed={psik} />
+            <GatsbyImage image={psik} />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -331,137 +331,104 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <Img fixed={infuze} />
+            <GatsbyImage image={infuze} />
           </Col>
         </Row>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default OfferPage
 
-export const pageQuery = graphql`
-  query OfferPageQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
-    }
-    logo: file(name: { eq: "vetgalen-logo" }) {
-      childImageSharp {
-        fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    icon: file(name: { eq: "icon" }) {
-      childImageSharp {
-        fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    derma: file(name: { eq: "derma" }) {
-      childImageSharp {
-        fixed(height: 268, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    chirda: file(name: { eq: "chirda" }) {
-      childImageSharp {
-        fixed(height: 147, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    infuze: file(name: { eq: "infuze" }) {
-      childImageSharp {
-        fixed(height: 262, width: 180) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    lahvicka: file(name: { eq: "lahvicka" }) {
-      childImageSharp {
-        fixed(height: 214, width: 100) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    mikroskop: file(name: { eq: "mikroskop" }) {
-      childImageSharp {
-        fixed(height: 232, width: 150) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    miska: file(name: { eq: "miska" }) {
-      childImageSharp {
-        fixed(height: 117, width: 180) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    otoskop: file(name: { eq: "otoskop" }) {
-      childImageSharp {
-        fixed(height: 171, width: 100) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    packa: file(name: { eq: "packa" }) {
-      childImageSharp {
-        fixed(height: 126, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    prevence: file(name: { eq: "prevence" }) {
-      childImageSharp {
-        fixed(height: 243, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    psik: file(name: { eq: "psik" }) {
-      childImageSharp {
-        fixed(height: 130, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    rtg: file(name: { eq: "rtg_pes" }) {
-      childImageSharp {
-        fixed(width: 200, height: 161) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    usg: file(name: { eq: "usg" }) {
-      childImageSharp {
-        fixed(height: 130, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    zkumavka: file(name: { eq: "zkumavka" }) {
-      childImageSharp {
-        fixed(height: 212, width: 100) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    zub: file(name: { eq: "zub" }) {
-      childImageSharp {
-        fixed(height: 148, width: 110) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
+export const pageQuery = graphql`query OfferPageQuery {
+  site {
+    meta: siteMetadata {
+      title
+      description
+      url: siteUrl
+      author
     }
   }
+  logo: file(name: {eq: "vetgalen-logo"}) {
+    childImageSharp {
+      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+    }
+  }
+  icon: file(name: {eq: "icon"}) {
+    childImageSharp {
+      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+    }
+  }
+  derma: file(name: {eq: "derma"}) {
+    childImageSharp {
+      gatsbyImageData(height: 268, width: 200, layout: FIXED)
+    }
+  }
+  chirda: file(name: {eq: "chirda"}) {
+    childImageSharp {
+      gatsbyImageData(height: 147, width: 200, layout: FIXED)
+    }
+  }
+  infuze: file(name: {eq: "infuze"}) {
+    childImageSharp {
+      gatsbyImageData(height: 262, width: 180, layout: FIXED)
+    }
+  }
+  lahvicka: file(name: {eq: "lahvicka"}) {
+    childImageSharp {
+      gatsbyImageData(height: 214, width: 100, layout: FIXED)
+    }
+  }
+  mikroskop: file(name: {eq: "mikroskop"}) {
+    childImageSharp {
+      gatsbyImageData(height: 232, width: 150, layout: FIXED)
+    }
+  }
+  miska: file(name: {eq: "miska"}) {
+    childImageSharp {
+      gatsbyImageData(height: 117, width: 180, layout: FIXED)
+    }
+  }
+  otoskop: file(name: {eq: "otoskop"}) {
+    childImageSharp {
+      gatsbyImageData(height: 171, width: 100, layout: FIXED)
+    }
+  }
+  packa: file(name: {eq: "packa"}) {
+    childImageSharp {
+      gatsbyImageData(height: 126, width: 200, layout: FIXED)
+    }
+  }
+  prevence: file(name: {eq: "prevence"}) {
+    childImageSharp {
+      gatsbyImageData(height: 243, width: 200, layout: FIXED)
+    }
+  }
+  psik: file(name: {eq: "psik"}) {
+    childImageSharp {
+      gatsbyImageData(height: 130, width: 200, layout: FIXED)
+    }
+  }
+  rtg: file(name: {eq: "rtg_pes"}) {
+    childImageSharp {
+      gatsbyImageData(width: 200, height: 161, placeholder: NONE, layout: FIXED)
+    }
+  }
+  usg: file(name: {eq: "usg"}) {
+    childImageSharp {
+      gatsbyImageData(height: 130, width: 200, layout: FIXED)
+    }
+  }
+  zkumavka: file(name: {eq: "zkumavka"}) {
+    childImageSharp {
+      gatsbyImageData(height: 212, width: 100, layout: FIXED)
+    }
+  }
+  zub: file(name: {eq: "zub"}) {
+    childImageSharp {
+      gatsbyImageData(height: 148, width: 110, layout: FIXED)
+    }
+  }
+}
 `

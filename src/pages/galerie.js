@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import get from 'lodash/get'
@@ -8,10 +8,10 @@ import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const GalleryPage = ({ data, location }) => {
-  const cekarna = get(data, 'cekarna.childImageSharp.fluid')
-  const vchod = get(data, 'vchod.childImageSharp.fluid')
-  const ordinace = get(data, 'ordinace.childImageSharp.fluid')
-  const sal = get(data, 'sal.childImageSharp.fluid')
+  const cekarna = get(data, 'cekarna.childImageSharp.gatsbyImageData')
+  const vchod = get(data, 'vchod.childImageSharp.gatsbyImageData')
+  const ordinace = get(data, 'ordinace.childImageSharp.gatsbyImageData')
+  const sal = get(data, 'sal.childImageSharp.gatsbyImageData')
   return (
     <Layout
       location={location}
@@ -29,7 +29,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <Img imgStyle={{ 'border-radius': '5%' }} fluid={vchod} />
+            <GatsbyImage image={vchod} imgStyle={{ 'border-radius': '5%' }} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -54,7 +54,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <Img imgStyle={{ 'border-radius': '5%' }} fluid={cekarna} />
+            <GatsbyImage image={cekarna} imgStyle={{ 'border-radius': '5%' }} />
           </Col>
         </Row>
         <Row>
@@ -67,7 +67,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <Img imgStyle={{ 'border-radius': '5%' }} fluid={ordinace} />
+            <GatsbyImage image={ordinace} imgStyle={{ 'border-radius': '5%' }} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -92,67 +92,78 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <Img imgStyle={{ 'border-radius': '5%' }} fluid={sal} />
+            <GatsbyImage image={sal} imgStyle={{ 'border-radius': '5%' }} />
           </Col>
         </Row>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default GalleryPage
 
-export const pageQuery = graphql`
-  query GalleryPageQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
-    }
-    logo: file(name: { eq: "vetgalen-logo" }) {
-      childImageSharp {
-        fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    icon: file(name: { eq: "icon" }) {
-      childImageSharp {
-        fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    vchod: file(name: { eq: "foto-vchod" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    cekarna: file(name: { eq: "foto-cekarna" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    ordinace: file(name: { eq: "foto-ordinace" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
-    sal: file(name: { eq: "foto-sal" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 315, maxHeight: 210) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
+export const pageQuery = graphql`query GalleryPageQuery {
+  site {
+    meta: siteMetadata {
+      title
+      description
+      url: siteUrl
+      author
     }
   }
+  logo: file(name: {eq: "vetgalen-logo"}) {
+    childImageSharp {
+      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+    }
+  }
+  icon: file(name: {eq: "icon"}) {
+    childImageSharp {
+      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+    }
+  }
+  vchod: file(name: {eq: "foto-vchod"}) {
+    childImageSharp {
+      gatsbyImageData(
+        quality: 100
+        width: 315
+        height: 210
+        placeholder: NONE
+        layout: CONSTRAINED
+      )
+    }
+  }
+  cekarna: file(name: {eq: "foto-cekarna"}) {
+    childImageSharp {
+      gatsbyImageData(
+        quality: 100
+        width: 315
+        height: 210
+        placeholder: NONE
+        layout: CONSTRAINED
+      )
+    }
+  }
+  ordinace: file(name: {eq: "foto-ordinace"}) {
+    childImageSharp {
+      gatsbyImageData(
+        quality: 100
+        width: 315
+        height: 210
+        placeholder: NONE
+        layout: CONSTRAINED
+      )
+    }
+  }
+  sal: file(name: {eq: "foto-sal"}) {
+    childImageSharp {
+      gatsbyImageData(
+        quality: 100
+        width: 315
+        height: 210
+        placeholder: NONE
+        layout: CONSTRAINED
+      )
+    }
+  }
+}
 `
