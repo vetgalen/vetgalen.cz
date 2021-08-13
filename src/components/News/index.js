@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {
   Card,
   CardHeader,
@@ -12,7 +12,6 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  UncontrolledCarousel,
 } from 'reactstrap'
 
 import get from 'lodash/get'
@@ -37,21 +36,21 @@ export default class News extends React.Component {
     })
 
     this.newsImages = {
-      novinky: get(this.props.novinky, 'childImageSharp.fixed'),
-      vanoce: get(this.props.vanoce, 'childImageSharp.fixed'),
-      spici_pes: get(this.props.spici_pes, 'childImageSharp.fixed'),
-      baset: get(this.props.baset, 'childImageSharp.fixed'),
-      cipovani: get(this.props.cipovani, 'childImageSharp.fixed'),
-      rtg_pes: get(this.props.rtg_pes, 'childImageSharp.fixed'),
-      cupcake: get(this.props.cupcake, 'childImageSharp.fixed'),
-      krabice: get(this.props.krabice, 'childImageSharp.fixed'),
-      od_peti: get(this.props.od_peti, 'childImageSharp.fixed'),
-      alert: get(this.props.alert, 'childImageSharp.fixed'),
-      mask: get(this.props.mask, 'childImageSharp.fixed'),
-      zajicek: get(this.props.zajicek, 'childImageSharp.fixed'),
-      pes_stanuje: get(this.props.pes_stanuje, 'childImageSharp.fixed'),
-      vanoce_2020: get(this.props.vanoce_2020, 'childImageSharp.fixed'),
-      velikonoce_mops: get(this.props.velikonoce_mops, 'childImageSharp.fixed'),
+      novinky: get(this.props.novinky, 'childImageSharp.gatsbyImageData'),
+      vanoce: get(this.props.vanoce, 'childImageSharp.gatsbyImageData'),
+      spici_pes: get(this.props.spici_pes, 'childImageSharp.gatsbyImageData'),
+      baset: get(this.props.baset, 'childImageSharp.gatsbyImageData'),
+      cipovani: get(this.props.cipovani, 'childImageSharp.gatsbyImageData'),
+      rtg_pes: get(this.props.rtg_pes, 'childImageSharp.gatsbyImageData'),
+      cupcake: get(this.props.cupcake, 'childImageSharp.gatsbyImageData'),
+      krabice: get(this.props.krabice, 'childImageSharp.gatsbyImageData'),
+      od_peti: get(this.props.od_peti, 'childImageSharp.gatsbyImageData'),
+      alert: get(this.props.alert, 'childImageSharp.gatsbyImageData'),
+      mask: get(this.props.mask, 'childImageSharp.gatsbyImageData'),
+      zajicek: get(this.props.zajicek, 'childImageSharp.gatsbyImageData'),
+      pes_stanuje: get(this.props.pes_stanuje, 'childImageSharp.gatsbyImageData'),
+      vanoce_2020: get(this.props.vanoce_2020, 'childImageSharp.gatsbyImageData'),
+      velikonoce_mops: get(this.props.velikonoce_mops, 'childImageSharp.gatsbyImageData'),
     }
   }
 
@@ -96,9 +95,9 @@ export default class News extends React.Component {
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={slide.src}>
-          <Img fixed={this.newsImages[slide.image]} />
+          <GatsbyImage image={this.newsImages[slide.image]} />
         </CarouselItem>
-      )
+      );
     })
 
     const slides = this.news.map(slide => {

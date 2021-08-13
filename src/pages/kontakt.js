@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import get from 'lodash/get'
@@ -128,7 +128,7 @@ class ContactPage extends React.Component {
   }
 
   render() {
-    const adresa = get(this.data, 'adresa.childImageSharp.fixed')
+    const adresa = get(this.data, 'adresa.childImageSharp.gatsbyImageData')
 
     return (
       <Layout
@@ -172,7 +172,7 @@ class ContactPage extends React.Component {
                 xs={{ order: 1 }}
                 sm={{ order: 2, size: 6 }}
                 className="text-left">
-                <Img fixed={adresa} />
+                <GatsbyImage image={adresa} />
               </Col>
             </Row>
           </Container>
@@ -193,42 +193,35 @@ class ContactPage extends React.Component {
           <Timetable />
         </Container>
       </Layout>
-    )
+    );
   }
 }
 
 export default ContactPage
 
-export const pageQuery = graphql`
-  query ContactPageQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
-    }
-    logo: file(name: { eq: "vetgalen-logo" }) {
-      childImageSharp {
-        fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    icon: file(name: { eq: "icon" }) {
-      childImageSharp {
-        fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    adresa: file(name: { eq: "adresa" }) {
-      childImageSharp {
-        fixed(height: 115, width: 150) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
+export const pageQuery = graphql`query ContactPageQuery {
+  site {
+    meta: siteMetadata {
+      title
+      description
+      url: siteUrl
+      author
     }
   }
+  logo: file(name: {eq: "vetgalen-logo"}) {
+    childImageSharp {
+      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+    }
+  }
+  icon: file(name: {eq: "icon"}) {
+    childImageSharp {
+      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+    }
+  }
+  adresa: file(name: {eq: "adresa"}) {
+    childImageSharp {
+      gatsbyImageData(height: 115, width: 150, layout: FIXED)
+    }
+  }
+}
 `

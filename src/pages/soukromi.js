@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Row, Col, Container } from 'reactstrap'
 
 import Meta from 'components/Meta'
@@ -9,8 +9,8 @@ import Layout from 'components/Layout'
 
 const PrivacyPage = ({ data, location }) => {
   const { logo, gdpr, cookie, icon, site } = data
-  const gdprImage = get(gdpr, 'childImageSharp.fixed')
-  const cookieImage = get(cookie, 'childImageSharp.fixed')
+  const gdprImage = get(gdpr, 'childImageSharp.gatsbyImageData')
+  const cookieImage = get(cookie, 'childImageSharp.gatsbyImageData')
 
   return (
     <Layout location={location} logo={logo} icon={icon}>
@@ -27,7 +27,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 2, size: 5 }}
             md={{ order: 2, size: 4 }}
             className="text-center">
-            <Img fixed={cookieImage} />
+            <GatsbyImage image={cookieImage} />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -97,7 +97,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 1, size: 5 }}
             md={{ order: 1, size: 4 }}
             className="text-center">
-            <Img fixed={gdprImage} />
+            <GatsbyImage image={gdprImage} />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -310,48 +310,39 @@ const PrivacyPage = ({ data, location }) => {
         </Row>
       </Container>
     </Layout>
-  )
+  );
 }
 
 export default PrivacyPage
 
-export const pageQuery = graphql`
-  query PrivacyPageQuery {
-    site {
-      meta: siteMetadata {
-        title
-        description
-        url: siteUrl
-        author
-      }
-    }
-    logo: file(name: { eq: "vetgalen-logo" }) {
-      childImageSharp {
-        fixed(width: 246, height: 119) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    icon: file(name: { eq: "icon" }) {
-      childImageSharp {
-        fixed(width: 80, height: 30) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
-      }
-    }
-    gdpr: file(name: { eq: "gdpr" }) {
-      childImageSharp {
-        fixed(height: 122, width: 200) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    cookie: file(name: { eq: "cookie" }) {
-      childImageSharp {
-        fixed(height: 122, width: 107) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
+export const pageQuery = graphql`query PrivacyPageQuery {
+  site {
+    meta: siteMetadata {
+      title
+      description
+      url: siteUrl
+      author
     }
   }
+  logo: file(name: {eq: "vetgalen-logo"}) {
+    childImageSharp {
+      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+    }
+  }
+  icon: file(name: {eq: "icon"}) {
+    childImageSharp {
+      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+    }
+  }
+  gdpr: file(name: {eq: "gdpr"}) {
+    childImageSharp {
+      gatsbyImageData(height: 122, width: 200, layout: FIXED)
+    }
+  }
+  cookie: file(name: {eq: "cookie"}) {
+    childImageSharp {
+      gatsbyImageData(height: 122, width: 107, layout: FIXED)
+    }
+  }
+}
 `
