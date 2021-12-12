@@ -3,8 +3,9 @@
 @import 'scss/colors.scss';
 @import 'scss/gatstrap.scss';
 
-.carousel-control-prev, .carousel-control-next {
-  top: 110% !important;
+.controls {
+  position: relative !important;
+  top: -2rem !important;
 }
 
 .carousel-control-prev-icon {
@@ -17,11 +18,7 @@
 }
 
 .carousel-inner {
-  margin-bottom: 6rem;
-}
-
-.carousel-indicators {
-  top: 110% !important;
+  margin-bottom: 3rem;
 }
 
 .carousel-indicators button {
