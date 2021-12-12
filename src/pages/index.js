@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import get from 'lodash/get'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {
   Row,
   Col,
@@ -19,7 +19,7 @@ import News from 'components/News'
 
 const IndexPage = ({ data, location }) => {
   const { logo, news } = data
-  const logoImage = get(logo, 'childImageSharp.fixed')
+  const logoImage = getImage(logo)
 
   return (
     <Layout
@@ -34,7 +34,7 @@ const IndexPage = ({ data, location }) => {
       <Container>
         <div className="clear-fix">
           <div className="d-block d-md-none text-center">
-            <GatsbyImage image={logoImage} />
+            <GatsbyImage image={logoImage} alt="logo"/>
           </div>
           <p>
             Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
@@ -81,7 +81,7 @@ const IndexPage = ({ data, location }) => {
                   </CardText>
                 </CardBody>
                 <CardFooter>
-                  Do mojí čtyřnohé bandy patří boxeři Gan a Argana, a dva
+                  Do mojí čtyřnohé bandy patří boxerka Argana, a dva
                   kocouři.
                 </CardFooter>
               </Card>
