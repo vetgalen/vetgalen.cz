@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import get from 'lodash/get'
@@ -128,8 +128,6 @@ class ContactPage extends React.Component {
   }
 
   render() {
-    const adresa = get(this.data, 'adresa.childImageSharp.gatsbyImageData')
-
     return (
       <Layout
         location={this.location}
@@ -172,7 +170,7 @@ class ContactPage extends React.Component {
                 xs={{ order: 1 }}
                 sm={{ order: 2, size: 6 }}
                 className="text-left">
-                <GatsbyImage image={adresa} />
+                <GatsbyImage image={getImage(this.data.adresa)} alt="adresa" />
               </Col>
             </Row>
           </Container>
@@ -210,12 +208,12 @@ export const pageQuery = graphql`query ContactPageQuery {
   }
   logo: file(name: {eq: "vetgalen-logo"}) {
     childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
     }
   }
   icon: file(name: {eq: "icon"}) {
     childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
     }
   }
   adresa: file(name: {eq: "adresa"}) {

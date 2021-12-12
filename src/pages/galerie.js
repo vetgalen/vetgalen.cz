@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import get from 'lodash/get'
@@ -8,10 +8,6 @@ import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const GalleryPage = ({ data, location }) => {
-  const cekarna = get(data, 'cekarna.childImageSharp.gatsbyImageData')
-  const vchod = get(data, 'vchod.childImageSharp.gatsbyImageData')
-  const ordinace = get(data, 'ordinace.childImageSharp.gatsbyImageData')
-  const sal = get(data, 'sal.childImageSharp.gatsbyImageData')
   return (
     <Layout
       location={location}
@@ -29,7 +25,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <GatsbyImage image={vchod} imgStyle={{ 'border-radius': '5%' }} />
+            <GatsbyImage image={getImage(data.vchod)} alt="vchod" imgStyle={{ 'border-radius': '5%' }} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -54,7 +50,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <GatsbyImage image={cekarna} imgStyle={{ 'border-radius': '5%' }} />
+            <GatsbyImage image={getImage(data.cekarna)} alt="cekarna" imgStyle={{ 'border-radius': '5%' }} />
           </Col>
         </Row>
         <Row>
@@ -67,7 +63,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
             className="text-right">
-            <GatsbyImage image={ordinace} imgStyle={{ 'border-radius': '5%' }} />
+            <GatsbyImage image={getImage(data.ordinace)} alt="data" imgStyle={{ 'border-radius': '5%' }} />
           </Col>
           <Col
             xs={{ order: 1 }}
@@ -92,7 +88,7 @@ const GalleryPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
             className="text-left">
-            <GatsbyImage image={sal} imgStyle={{ 'border-radius': '5%' }} />
+            <GatsbyImage image={getImage(data.sal)} alt="operační sál" imgStyle={{ 'border-radius': '5%' }} />
           </Col>
         </Row>
       </Container>

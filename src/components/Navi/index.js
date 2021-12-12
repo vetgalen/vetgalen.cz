@@ -1,4 +1,3 @@
-import get from 'lodash/get'
 import React from 'react'
 import {
   Container,
@@ -12,7 +11,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Timetable from 'components/Timetable'
 
 class Navi extends React.Component {
@@ -32,14 +31,12 @@ class Navi extends React.Component {
 
   render() {
     const { location, logo, icon } = this.props
-    const logoImage = get(logo, 'childImageSharp.gatsbyImageData')
-    const iconImage = get(icon, 'childImageSharp.gatsbyImageData')
     return (
       <div className="fixed-top">
         <Container fluid className="d-none d-md-block bg-light">
           <Row>
             <Col className="col-8 pt-2 pl-3">
-              <GatsbyImage image={logoImage} />
+              <GatsbyImage image={getImage(logo)} alt="logo" />
             </Col>
             <Col className="col-4 font-weight-bold">
               <Timetable compact />
@@ -48,7 +45,7 @@ class Navi extends React.Component {
         </Container>
         <Navbar className="bg-primary navbar-dark" expand="sm">
           <NavbarBrand className="d-block d-md-none">
-            <GatsbyImage image={iconImage} />
+            <GatsbyImage image={getImage(icon)} alt="icon" />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

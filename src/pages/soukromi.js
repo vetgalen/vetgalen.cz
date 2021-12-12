@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import get from 'lodash/get'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Row, Col, Container } from 'reactstrap'
 
 import Meta from 'components/Meta'
@@ -9,8 +9,6 @@ import Layout from 'components/Layout'
 
 const PrivacyPage = ({ data, location }) => {
   const { logo, gdpr, cookie, icon, site } = data
-  const gdprImage = get(gdpr, 'childImageSharp.gatsbyImageData')
-  const cookieImage = get(cookie, 'childImageSharp.gatsbyImageData')
 
   return (
     <Layout location={location} logo={logo} icon={icon}>
@@ -27,7 +25,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 2, size: 5 }}
             md={{ order: 2, size: 4 }}
             className="text-center">
-            <GatsbyImage image={cookieImage} />
+            <GatsbyImage image={getImage(cookie)} alt="cookie" />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -97,7 +95,7 @@ const PrivacyPage = ({ data, location }) => {
             sm={{ order: 1, size: 5 }}
             md={{ order: 1, size: 4 }}
             className="text-center">
-            <GatsbyImage image={gdprImage} />
+            <GatsbyImage image={getImage(gdpr)} alt="gdpr" />
           </Col>
           <Col
             xs={{ order: 2 }}
@@ -326,12 +324,12 @@ export const pageQuery = graphql`query PrivacyPageQuery {
   }
   logo: file(name: {eq: "vetgalen-logo"}) {
     childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
     }
   }
   icon: file(name: {eq: "icon"}) {
     childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
     }
   }
   gdpr: file(name: {eq: "gdpr"}) {

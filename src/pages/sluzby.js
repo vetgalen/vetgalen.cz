@@ -1,34 +1,20 @@
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import get from 'lodash/get'
 
 import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const OfferPage = ({ data, location }) => {
-  const derma = get(data, 'derma.childImageSharp.gatsbyImageData')
-  const chirda = get(data, 'chirda.childImageSharp.gatsbyImageData')
-  const infuze = get(data, 'infuze.childImageSharp.gatsbyImageData')
-  const lahvicka = get(data, 'lahvicka.childImageSharp.gatsbyImageData')
-  const mikroskop = get(data, 'mikroskop.childImageSharp.gatsbyImageData')
-  const miska = get(data, 'miska.childImageSharp.gatsbyImageData')
-  const otoskop = get(data, 'otoskop.childImageSharp.gatsbyImageData')
-  const packa = get(data, 'packa.childImageSharp.gatsbyImageData')
-  const prevence = get(data, 'prevence.childImageSharp.gatsbyImageData')
-  const psik = get(data, 'psik.childImageSharp.gatsbyImageData')
-  const rtg = get(data, 'rtg.childImageSharp.gatsbyImageData')
-  const usg = get(data, 'usg.childImageSharp.gatsbyImageData')
-  const zkumavka = get(data, 'zkumavka.childImageSharp.gatsbyImageData')
-  const zub = get(data, 'zub.childImageSharp.gatsbyImageData')
+  
   return (
     <Layout
       location={location}
-      logo={get(data, 'logo')}
-      icon={get(data, 'icon')}>
+      logo={data.logo}
+      icon={data.icon}>
       <Meta
-        site={get(data, 'site.meta')}
+        site={data.site.meta}
         title="Služby"
         path="/sluzby/"
         description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, konzultace a další"
@@ -58,7 +44,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <GatsbyImage image={prevence} />
+            <GatsbyImage image={getImage(data.prevence)} alt="prevence" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -80,7 +66,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <GatsbyImage image={zkumavka} />
+            <GatsbyImage image={getImage(data.zkumavka)} alt="zkumavka" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -102,7 +88,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <GatsbyImage image={mikroskop} />
+            <GatsbyImage image={getImage(data.mikroskop)} alt="mikroskop" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -123,7 +109,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <GatsbyImage image={derma} />
+            <GatsbyImage image={getImage(data.derma)} alt="dermatologie"/>
           </Col>
         </Row>
         <Row className="row-offer">
@@ -144,7 +130,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <GatsbyImage image={zub} />
+            <GatsbyImage image={getImage(data.zub)} alt="zub"/>
           </Col>
         </Row>
         <Row className="row-offer">
@@ -164,7 +150,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
-            <GatsbyImage image={otoskop} />
+            <GatsbyImage image={getImage(data.otoskop)} alt="otoskop" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -185,7 +171,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <GatsbyImage image={usg} />
+            <GatsbyImage image={getImage(data.usg)} alt="ultrasonografie" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -206,7 +192,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-1">&nbsp;</div>
-            <GatsbyImage image={rtg} />
+            <GatsbyImage image={getImage(data.rtg)} alt="rentgen" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -228,7 +214,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <GatsbyImage image={packa} />
+            <GatsbyImage image={getImage(data.packa)} alt="packa" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -249,7 +235,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-2">&nbsp;</div>
-            <GatsbyImage image={chirda} />
+            <GatsbyImage image={getImage(data.chirda)} alt="chirurgie" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -273,7 +259,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-4">&nbsp;</div>
-            <GatsbyImage image={lahvicka} />
+            <GatsbyImage image={getImage(data.lahvicka)} alt="lahvička" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -294,7 +280,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
             <div className="d-none d-sm-block mt-3">&nbsp;</div>
-            <GatsbyImage image={miska} />
+            <GatsbyImage image={getImage(data.miska)} alt="miska" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -311,7 +297,7 @@ const OfferPage = ({ data, location }) => {
             sm={{ order: 1, size: 6 }}
             md={{ order: 2, size: 6 }}>
             <div className="d-none d-sm-block mt-1">&nbsp;</div>
-            <GatsbyImage image={psik} />
+            <GatsbyImage image={getImage(data.psik)} alt="zlobivý pes" />
           </Col>
         </Row>
         <Row className="row-offer">
@@ -331,7 +317,7 @@ const OfferPage = ({ data, location }) => {
             xs={{ order: 1 }}
             sm={{ order: 1, size: 6 }}
             md={{ order: 1, size: 6 }}>
-            <GatsbyImage image={infuze} />
+            <GatsbyImage image={getImage(data.infuze)} alt="infuze" />
           </Col>
         </Row>
       </Container>
@@ -352,17 +338,17 @@ export const pageQuery = graphql`query OfferPageQuery {
   }
   logo: file(name: {eq: "vetgalen-logo"}) {
     childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
     }
   }
   icon: file(name: {eq: "icon"}) {
     childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
     }
   }
   derma: file(name: {eq: "derma"}) {
     childImageSharp {
-      gatsbyImageData(height: 268, width: 200, layout: FIXED)
+      gatsbyImageData(height: 268, width: 200, placeholder: BLURRED, layout: FIXED)
     }
   }
   chirda: file(name: {eq: "chirda"}) {
@@ -412,7 +398,7 @@ export const pageQuery = graphql`query OfferPageQuery {
   }
   rtg: file(name: {eq: "rtg_pes"}) {
     childImageSharp {
-      gatsbyImageData(width: 200, height: 161, placeholder: NONE, layout: FIXED)
+      gatsbyImageData(width: 200, height: 161, placeholder: BLURRED, layout: FIXED)
     }
   }
   usg: file(name: {eq: "usg"}) {
