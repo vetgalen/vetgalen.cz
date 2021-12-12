@@ -43,6 +43,7 @@ const News = (data) => {
     pes_stanuje: getImage(data.pes_stanuje),
     vanoce_2020: getImage(data.vanoce_2020),
     velikonoce_mops: getImage(data.velikonoce_mops),
+    vanoce_2021: getImage(data.vanoce_2021),
   }
 
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -56,7 +57,7 @@ const News = (data) => {
   }
 
   const previous = () => {
-    if (animating) 
+    if (animating)
       return
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1
     setActiveIndex(nextIndex)
@@ -109,25 +110,25 @@ const News = (data) => {
             interval={false}
             slide={false}>
             {slides}
-            <Container>
+            <Container className="controls">
               <Row>
                 <Col>
-            <CarouselIndicators
-              items={items}
-              activeIndex={activeIndex}
-              onClickHandler={goToIndex}
-            />
-            <CarouselControl
-              direction="next"
-              directionText="Starší"
-              onClickHandler={next}
-            />
-            <CarouselControl
-              direction="prev"
-              directionText="Novější"
-              onClickHandler={previous}
-            /></Col>
-            </Row>
+                  <CarouselIndicators
+                    items={items}
+                    activeIndex={activeIndex}
+                    onClickHandler={goToIndex}
+                  />
+                  <CarouselControl
+                    direction="next"
+                    directionText="Starší"
+                    onClickHandler={next}
+                  />
+                  <CarouselControl
+                    direction="prev"
+                    directionText="Novější"
+                    onClickHandler={previous}
+                  /></Col>
+              </Row>
             </Container>
           </Carousel>
         </Container>
