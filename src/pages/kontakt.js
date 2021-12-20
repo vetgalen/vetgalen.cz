@@ -2,9 +2,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import get from 'lodash/get'
 
-import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 import Timetable from 'components/Timetable'
 import Icon from 'components/Icon'
@@ -131,14 +129,8 @@ class ContactPage extends React.Component {
     return (
       <Layout
         location={this.location}
-        logo={get(this.data, 'logo')}
-        icon={get(this.data, 'icon')}>
-        <Meta
-          site={get(this.data, 'site.meta')}
-          title="Kontakty"
-          path="/kontakt/"
-          description="Veterinární ordinace v Brně-Medlánkách/Řečkovicích, Podpěrova 439/2, ordinace@vetgalen.cz, +420 721 022 265. "
-        />
+        description="Veterinární ordinace v Brně-Medlánkách/Řečkovicích, Podpěrova 439/2, ordinace@vetgalen.cz, +420 721 022 265."
+      >
         <Container>
           <h3>Kde nás najdete?</h3>
           <Container>
@@ -162,7 +154,7 @@ class ContactPage extends React.Component {
                   </span>
                   <br />
                   <span className="nowrap font-weight-bold">
-                    <Icon name="phone-square" /> 721 022 265‬
+                    <Icon name="phone-square" /> 721 022 265
                   </span>
                 </address>
               </Col>
@@ -198,24 +190,6 @@ class ContactPage extends React.Component {
 export default ContactPage
 
 export const pageQuery = graphql`query ContactPageQuery {
-  site {
-    meta: siteMetadata {
-      title
-      description
-      url: siteUrl
-      author
-    }
-  }
-  logo: file(name: {eq: "vetgalen-logo"}) {
-    childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
-    }
-  }
-  icon: file(name: {eq: "icon"}) {
-    childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
-    }
-  }
   adresa: file(name: {eq: "adresa"}) {
     childImageSharp {
       gatsbyImageData(height: 115, width: 150, layout: FIXED)

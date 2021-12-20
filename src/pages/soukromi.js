@@ -1,23 +1,16 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import get from 'lodash/get'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Row, Col, Container } from 'reactstrap'
 
-import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const PrivacyPage = ({ data, location }) => {
-  const { logo, gdpr, cookie, icon, site } = data
+  const { gdpr, cookie } = data
 
   return (
-    <Layout location={location} logo={logo} icon={icon}>
-      <Meta
-        site={get(site, 'meta')}
-        title="Ochrana soukromí"
-        path="/soukromi/"
-        description="Veterinární ordinace Galen dbá na ochranu Vašeho soukromí"
-      />
+    <Layout location={location}
+      description="Veterinární ordinace Galen dbá na ochranu Vašeho soukromí">
       <Container>
         <Row>
           <Col
@@ -314,24 +307,6 @@ const PrivacyPage = ({ data, location }) => {
 export default PrivacyPage
 
 export const pageQuery = graphql`query PrivacyPageQuery {
-  site {
-    meta: siteMetadata {
-      title
-      description
-      url: siteUrl
-      author
-    }
-  }
-  logo: file(name: {eq: "vetgalen-logo"}) {
-    childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
-    }
-  }
-  icon: file(name: {eq: "icon"}) {
-    childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
-    }
-  }
   gdpr: file(name: {eq: "gdpr"}) {
     childImageSharp {
       gatsbyImageData(height: 122, width: 200, layout: FIXED)

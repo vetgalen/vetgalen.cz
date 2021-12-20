@@ -7,10 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
-import './style.scss'
+import * as iconStyle from './icon.module.css'
 
 library.add(faMapMarker, faEnvelope, faPhoneSquare)
 
-const Icon = ({ name }) => <FontAwesomeIcon icon={name} />
+const Icon = ({ name }) => <FontAwesomeIcon icon={name} className={iconStyle.icon}/>
 
 export default Icon
