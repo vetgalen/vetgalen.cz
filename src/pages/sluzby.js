@@ -3,7 +3,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 
-import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const OfferPage = ({ data, location }) => {
@@ -11,14 +10,8 @@ const OfferPage = ({ data, location }) => {
   return (
     <Layout
       location={location}
-      logo={data.logo}
-      icon={data.icon}>
-      <Meta
-        site={data.site.meta}
-        title="Služby"
-        path="/sluzby/"
-        description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, konzultace a další"
-      />
+      description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, konzultace a další"
+      >
       <Container>
         <Row className="row-offer">
           <Col
@@ -328,24 +321,6 @@ const OfferPage = ({ data, location }) => {
 export default OfferPage
 
 export const pageQuery = graphql`query OfferPageQuery {
-  site {
-    meta: siteMetadata {
-      title
-      description
-      url: siteUrl
-      author
-    }
-  }
-  logo: file(name: {eq: "vetgalen-logo"}) {
-    childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: BLURRED, layout: FIXED)
-    }
-  }
-  icon: file(name: {eq: "icon"}) {
-    childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: BLURRED, layout: FIXED)
-    }
-  }
   derma: file(name: {eq: "derma"}) {
     childImageSharp {
       gatsbyImageData(height: 268, width: 200, placeholder: BLURRED, layout: FIXED)

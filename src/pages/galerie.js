@@ -2,23 +2,13 @@ import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import get from 'lodash/get'
-
-import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 
 const GalleryPage = ({ data, location }) => {
   return (
     <Layout
       location={location}
-      logo={get(data, 'logo')}
-      icon={get(data, 'icon')}>
-      <Meta
-        site={get(data, 'site.meta')}
-        title="Galerie"
-        path="/galerie/"
-        description="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu"
-      />
+      description="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu">
       <Container>
         <Row className="align-items-center">
           <Col
@@ -99,24 +89,6 @@ const GalleryPage = ({ data, location }) => {
 export default GalleryPage
 
 export const pageQuery = graphql`query GalleryPageQuery {
-  site {
-    meta: siteMetadata {
-      title
-      description
-      url: siteUrl
-      author
-    }
-  }
-  logo: file(name: {eq: "vetgalen-logo"}) {
-    childImageSharp {
-      gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
-    }
-  }
-  icon: file(name: {eq: "icon"}) {
-    childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
-    }
-  }
   vchod: file(name: {eq: "foto-vchod"}) {
     childImageSharp {
       gatsbyImageData(

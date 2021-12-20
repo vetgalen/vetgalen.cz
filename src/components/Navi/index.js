@@ -11,66 +11,76 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap'
+
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Timetable from 'components/Timetable'
+import { StaticQuery, graphql } from 'gatsby'
 
-class Navi extends React.Component {
-  constructor(props) {
-    super(props)
-    this.toggle = this.toggle.bind(this)
-    this.state = {
-      isOpen: false,
+const Navi = ({ location }) => {
+
+  const [open, setOpen] = React.useState(false)
+
+  const toggle = () => {
+    setOpen(!open)
+  }
+
+  return (
+    <StaticQuery query={graphql`
+    query {
+      logo: file(name: {eq: "vetgalen-logo"}) {
+        childImageSharp {
+          gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+        }
+      }
+      icon: file(name: {eq: "icon"}) {
+        childImageSharp {
+          gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+        }
+      }
+    }`
     }
-  }
-
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    })
-  }
-
-  render() {
-    const { location, logo, icon } = this.props
-    return (
-      <div className="fixed-top">
-        <Container fluid className="d-none d-md-block bg-light">
-          <Row>
-            <Col className="col-8 pt-2 pl-3">
-              <GatsbyImage image={getImage(logo)} alt="logo" />
-            </Col>
-            <Col className="col-4 font-weight-bold">
-              <Timetable compact />
-            </Col>
-          </Row>
-        </Container>
-        <Navbar className="bg-primary navbar-dark" expand="sm">
-          <NavbarBrand className="d-block d-md-none">
-            <GatsbyImage image={getImage(icon)} alt="icon" />
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="nav-fill" navbar>
-              <NavItem active={location.pathname === '/'}>
-                <NavLink href="/">O nás</NavLink>
-              </NavItem>
-              <NavItem active={location.pathname === '/sluzby/'}>
-                <NavLink href="/sluzby/">Co děláme?</NavLink>
-              </NavItem>
-              <NavItem active={location.pathname === '/galerie/'}>
-                <NavLink href="/galerie/">Jak to u nás vypadá?</NavLink>
-              </NavItem>
-              <NavItem active={location.pathname === '/kontakt/'}>
-                <NavLink href="/kontakt/">Kontakt</NavLink>
-              </NavItem>
-              <NavItem active={location.pathname === '/soukromi/'}>
-                <NavLink href="/soukromi/">Ochrana soukromí</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
-    );
-  }
+      render={(data) => {
+        return (
+          <div className="fixed-top">
+            <Container fluid className="d-none d-md-block bg-light">
+              <Row>
+                <Col className="col-8 pt-2 pl-3">
+                  <GatsbyImage image={getImage(data.logo)} alt="logo" />
+                </Col>
+                <Col className="col-4 font-weight-bold">
+                  <Timetable compact />
+                </Col>
+              </Row>
+            </Container>
+            <Navbar className="bg-primary navbar-dark" expand="sm">
+              <NavbarBrand className="d-block d-md-none">
+                <GatsbyImage image={getImage(data.icon)} alt="icon" />
+              </NavbarBrand>
+              <NavbarToggler onClick={toggle} />
+              <Collapse isOpen={open} navbar>
+                <Nav className="nav-fill" navbar>
+                  <NavItem active={location.pathname === '/'}>
+                    <NavLink href="/">O nás</NavLink>
+                  </NavItem>
+                  <NavItem active={location.pathname === '/sluzby/'}>
+                    <NavLink href="/sluzby/">Co děláme?</NavLink>
+                  </NavItem>
+                  <NavItem active={location.pathname === '/galerie/'}>
+                    <NavLink href="/galerie/">Jak to u nás vypadá?</NavLink>
+                  </NavItem>
+                  <NavItem active={location.pathname === '/kontakt/'}>
+                    <NavLink href="/kontakt/">Kontakt</NavLink>
+                  </NavItem>
+                  <NavItem active={location.pathname === '/soukromi/'}>
+                    <NavLink href="/soukromi/">Ochrana soukromí</NavLink>
+                  </NavItem>
+                </Nav>
+              </Collapse>
+            </Navbar>
+          </div>
+        )
+      }} />
+  )
 }
 
 export default Navi

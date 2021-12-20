@@ -13,28 +13,19 @@ import {
   CardFooter,
 } from 'reactstrap'
 
-import Meta from 'components/Meta'
 import Layout from 'components/Layout'
 import News from 'components/News'
 
 const IndexPage = ({ data, location }) => {
-  const { logo, news } = data
-  const logoImage = getImage(logo)
+  const { logo } = data
 
   return (
     <Layout
-      location={location}
-      logo={get(data, 'logo')}
-      icon={get(data, 'icon')}>
-      <Meta
-        site={get(data, 'site.meta')}
-        path="/"
-        description="Veterinární ordinace v Brně-Medlánkách, péče o malá zvířata a bezproblémové parkování"
-      />
+      location={location}>
       <Container>
         <div className="clear-fix">
           <div className="d-block d-md-none text-center">
-            <GatsbyImage image={logoImage} alt="logo"/>
+            <GatsbyImage image={getImage(logo)} alt="logo" />
           </div>
           <p>
             Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně -
@@ -44,25 +35,7 @@ const IndexPage = ({ data, location }) => {
           </p>
         </div>
         <hr />
-        <News
-          news={news}
-          vanoce={get(data, 'vanoce')}
-          novinky={get(data, 'novinky')}
-          spici_pes={get(data, 'spici_pes')}
-          baset={get(data, 'baset')}
-          cipovani={get(data, 'cipovani')}
-          rtg_pes={get(data, 'rtg_pes')}
-          cupcake={get(data, 'cupcake')}
-          krabice={get(data, 'krabice')}
-          od_peti={get(data, 'od_peti')}
-          alert={get(data, 'alert')}
-          mask={get(data, 'mask')}
-          zajicek={get(data, 'zajicek')}
-          pes_stanuje={get(data, 'pes_stanuje')}
-          vanoce_2020={get(data, 'vanoce_2020')}
-          velikonoce_mops={get(data, 'velikonoce_mops')}
-          vanoce_2021={get(data, 'vanoce_2021')}
-        />
+        <News />
         <hr />
         <h1>Kdo jsme?</h1>
         <Container>
@@ -120,115 +93,10 @@ const IndexPage = ({ data, location }) => {
 export default IndexPage
 
 export const pageQuery = graphql`query IndexPageQuery {
-  site {
-    meta: siteMetadata {
-      title
-      description
-      url: siteUrl
-      author
-    }
-  }
   logo: file(name: {eq: "vetgalen-logo"}) {
     childImageSharp {
       gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
     }
   }
-  icon: file(name: {eq: "icon"}) {
-    childImageSharp {
-      gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
-    }
-  }
-  news: allMarkdownRemark(sort: {order: DESC, fields: fileAbsolutePath}) {
-    edges {
-      node {
-        html
-        frontmatter {
-          image
-        }
-        id
-      }
-    }
-  }
-  novinky: file(name: {eq: "novinky"}) {
-    childImageSharp {
-      gatsbyImageData(width: 112, height: 193, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce: file(name: {eq: "vanoce"}) {
-    childImageSharp {
-      gatsbyImageData(width: 135, height: 134, placeholder: NONE, layout: FIXED)
-    }
-  }
-  spici_pes: file(name: {eq: "spici_pes"}) {
-    childImageSharp {
-      gatsbyImageData(width: 133, height: 97, placeholder: NONE, layout: FIXED)
-    }
-  }
-  baset: file(name: {eq: "baset_zavreno"}) {
-    childImageSharp {
-      gatsbyImageData(width: 110, height: 138, placeholder: NONE, layout: FIXED)
-    }
-  }
-  cipovani: file(name: {eq: "cipovani"}) {
-    childImageSharp {
-      gatsbyImageData(width: 131, height: 137, placeholder: NONE, layout: FIXED)
-    }
-  }
-  rtg_pes: file(name: {eq: "rtg_pes"}) {
-    childImageSharp {
-      gatsbyImageData(width: 133, height: 108, placeholder: NONE, layout: FIXED)
-    }
-  }
-  cupcake: file(name: {eq: "cupcake"}) {
-    childImageSharp {
-      gatsbyImageData(width: 115, height: 175, placeholder: NONE, layout: FIXED)
-    }
-  }
-  krabice: file(name: {eq: "krabice"}) {
-    childImageSharp {
-      gatsbyImageData(width: 162, height: 120, placeholder: NONE, layout: FIXED)
-    }
-  }
-  od_peti: file(name: {eq: "od_peti"}) {
-    childImageSharp {
-      gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
-    }
-  }
-  alert: file(name: {eq: "alert"}) {
-    childImageSharp {
-      gatsbyImageData(width: 119, height: 247, placeholder: NONE, layout: FIXED)
-    }
-  }
-  mask: file(name: {eq: "mask"}) {
-    childImageSharp {
-      gatsbyImageData(width: 210, height: 150, placeholder: NONE, layout: FIXED)
-    }
-  }
-  zajicek: file(name: {eq: "zajicek"}) {
-    childImageSharp {
-      gatsbyImageData(width: 115, height: 181, placeholder: NONE, layout: FIXED)
-    }
-  }
-  pes_stanuje: file(name: {eq: "pes_stanuje"}) {
-    childImageSharp {
-      gatsbyImageData(width: 166, height: 101, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce_2020: file(name: {eq: "vanoce_2020"}) {
-    childImageSharp {
-      gatsbyImageData(width: 174, height: 128, placeholder: NONE, layout: FIXED)
-    }
-  }
-  velikonoce_mops: file(name: {eq: "velikonoce_mops"}) {
-    childImageSharp {
-      gatsbyImageData(width: 142, height: 157, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce_2021: file(name: {eq: "vanoce_2021"}) {
-    childImageSharp {
-      gatsbyImageData(width: 152, height: 96, placeholder: NONE, layout: FIXED)
-    }
-  }
-
 }
 `

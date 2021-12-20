@@ -1,28 +1,20 @@
 import React from 'react'
 import {
   Container,
-  Col,
-  Row,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-  NavLink,
+
 } from 'reactstrap'
-import './style.scss'
+
+import * as footerStyle from './footer.module.css'
 
 const Footer = () => {
   const year = new Date(Date.now()).getFullYear()
   return (
-    <div className="footer">
-      <Container fluid className="bg-primary footer text-light">
-        <span>
-          &copy;
-          {year} Veterinární ordinace Galen, vetgalen.cz
-        </span>
-      </Container>
-    </div>
+    <Container fluid className={`bg-primary text-light ${footerStyle.footer}`}>
+      <span>
+        &copy;
+        {year} Veterinární ordinace Galen, vetgalen.cz
+      </span>
+    </Container>
   )
 }
 
