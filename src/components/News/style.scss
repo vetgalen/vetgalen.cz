@@ -5,7 +5,10 @@
 
 .controls {
   position: relative !important;
-  top: -2rem !important;
+}
+
+.carousel-indicators {
+  flex-wrap: wrap;
 }
 
 .carousel-control-prev-icon {
@@ -32,7 +35,12 @@
   background-color: $blue !important;
 }
 
-/* poor man's hack to make sure image is alwash shown as whole */
+.padder {
+  flex-basis: 100%;
+  height: 1rem;
+}
+
+/* poor man's hack to make sure image is always shown as whole */
 .max-width {
   width: 100%;
   margin: 0px;

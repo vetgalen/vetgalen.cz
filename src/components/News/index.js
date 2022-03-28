@@ -49,7 +49,7 @@ const News = () => {
           }
           baset: file(name: {eq: "baset_zavreno"}) {
             childImageSharp {
-              gatsbyImageData(width: 110, height: 138, placeholder: NONE, layout: FIXED)
+              gatsbyImageData(width: 120, height: 151, placeholder: NONE, layout: CONSTRAINED)
             }
           }
           cipovani: file(name: {eq: "cipovani"}) {
@@ -109,7 +109,12 @@ const News = () => {
           }
           vanoce_2021: file(name: {eq: "vanoce_2021"}) {
             childImageSharp {
-              gatsbyImageData(width: 152, height: 96, placeholder: NONE, layout: FIXED)
+              gatsbyImageData(width: 152, height: 96, placeholder: NONE, layout: CONSTRAINED)
+            }
+          }
+          vzdelavani: file(name: {eq: "vzdelavani"}) {
+            childImageSharp {
+              gatsbyImageData(width: 125, height: 141, placeholder: NONE, layout: CONSTRAINED)
             }
           }
         }
@@ -141,6 +146,7 @@ const News = () => {
           vanoce_2020: getImage(data.vanoce_2020),
           velikonoce_mops: getImage(data.velikonoce_mops),
           vanoce_2021: getImage(data.vanoce_2021),
+          vzdelavani: getImage(data.vzdelavani),
         }
 
         const [activeIndex, setActiveIndex] = React.useState(0);
@@ -208,6 +214,11 @@ const News = () => {
                   slide={false}>
                   {slides}
                   <Container className="controls">
+                    <Row>
+                      <Col>
+                        <div className="padder" />
+                      </Col>
+                    </Row>
                     <Row>
                       <Col>
                         <CarouselIndicators
