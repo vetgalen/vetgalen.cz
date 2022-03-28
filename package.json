@@ -38,12 +38,12 @@
     "react-cookie-consent": "^7.0.1",
     "reactstrap": "^9.0.1",
     "sass": "^1.45.0",
-    "sharp": "^0.29.3"
+    "sharp": "^0.30.3"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.27",
-    "@fortawesome/free-brands-svg-icons": "^5.12.1",
-    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",
