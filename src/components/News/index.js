@@ -77,6 +77,11 @@ const News = () => {
               gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
             }
           }
+          do_jedenacti: file(name: {eq: "do_jedenacti"}) {
+            childImageSharp {
+              gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
+            }
+          }
           alert: file(name: {eq: "alert"}) {
             childImageSharp {
               gatsbyImageData(width: 119, height: 247, placeholder: NONE, layout: FIXED)
@@ -144,6 +149,7 @@ const News = () => {
           cupcake: getImage(data.cupcake),
           krabice: getImage(data.krabice),
           od_peti: getImage(data.od_peti),
+          do_jedenacti: getImage(data.do_jedenacti),
           alert: getImage(data.alert),
           mask: getImage(data.mask),
           zajicek: getImage(data.zajicek),
