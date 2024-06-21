@@ -152,6 +152,11 @@ const News = () => {
               gatsbyImageData(width: 89, height: 128, placeholder: NONE, layout: CONSTRAINED)
             }
           }
+          pes_batoh: file(name: {eq: "pes_batoh"}) {
+            childImageSharp {
+              gatsbyImageData(width: 134, height: 181, placeholder: NONE, layout: CONSTRAINED)
+            }
+          }
         }
       `}
       render={(data) => {
@@ -188,7 +193,8 @@ const News = () => {
           fotak: getImage(data.fotak),
           kufr: getImage(data.kufr),
           pes_zavreno: getImage(data.pes_zavreno),
-          opravy: getImage(data.opravy)
+          opravy: getImage(data.opravy),
+          pes_batoh: getImage(data.pes_batoh)
         }
 
         const [activeIndex, setActiveIndex] = React.useState(0);
