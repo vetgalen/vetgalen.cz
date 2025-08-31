@@ -9,6 +9,7 @@
   "homepage": "https://vetgalen.cz",
   "author": "Karel Piwko <karel.piwko@gmail.com>",
   "dependencies": {
+    "@parcel/watcher": "^2.5.1",
     "classnames": "^2.3.1",
     "gatsby": "^5.14.0",
     "gatsby-plugin-catch-links": "^5.14.0",
