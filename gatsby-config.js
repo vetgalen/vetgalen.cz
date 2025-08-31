@@ -82,13 +82,28 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         mergeSecurityHeaders: true,
-        mergeLinkHeaders: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: ['UA-130093311-1'],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        sassOptions: {
+          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions'],
+        },
+        additionalData: `@import "${__dirname}/src/scss/_variables";`,
+      },
+    }, 
     'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-sharp`,
@@ -109,7 +124,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-image',
     'gatsby-transformer-sharp',
   ],
 }

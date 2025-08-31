@@ -4,12 +4,12 @@ import {
 
 } from 'reactstrap'
 
-import * as footerStyle from './footer.module.css'
+import './footer.scss'
 
 const Footer = () => {
   const year = new Date(Date.now()).getFullYear()
   return (
-    <Container fluid className={`bg-primary text-light ${footerStyle.footer}`}>
+    <Container fluid className="blue-pane text-light footer">
       <span>
         &copy;
         {year} Veterinární ordinace Galen, vetgalen.cz

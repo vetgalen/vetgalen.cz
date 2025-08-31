@@ -4,13 +4,13 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Row, Col, Container } from 'reactstrap'
 
 import Layout from 'components/Layout'
+import { siteMetadata } from '../../gatsby-config'
 
 const PrivacyPage = ({ data, location }) => {
   const { gdpr, cookie } = data
 
   return (
-    <Layout location={location}
-      description="Veterinární ordinace Galen dbá na ochranu Vašeho soukromí">
+    <Layout location={location}>
       <Container>
         <Row>
           <Col
@@ -305,6 +305,14 @@ const PrivacyPage = ({ data, location }) => {
 }
 
 export default PrivacyPage
+
+export const Head = () => (
+  <>
+    <title>Soukromí - {siteMetadata.title}</title>
+    <meta name="description" content="Veterinární ordinace Galen dbá na ochranu Vašeho soukromí" />
+    <meta name="keywords" content="veterina, veterinární ordinace, Medlánky" />
+  </>
+)
 
 export const pageQuery = graphql`query PrivacyPageQuery {
   gdpr: file(name: {eq: "gdpr"}) {
