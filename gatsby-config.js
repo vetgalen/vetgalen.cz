@@ -79,12 +79,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        mergeSecurityHeaders: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: ['UA-130093311-1'],
