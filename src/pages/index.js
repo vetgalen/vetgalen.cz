@@ -15,6 +15,7 @@ import {
 
 import Layout from 'components/Layout'
 import News from 'components/News'
+import { siteMetadata } from '../../gatsby-config'
 
 const IndexPage = ({ data, location }) => {
   const { logo } = data
@@ -91,6 +92,14 @@ const IndexPage = ({ data, location }) => {
 }
 
 export default IndexPage
+
+export const Head = () => (
+  <>
+    <title>{siteMetadata.title}</title>
+    <meta name="description" content={siteMetadata.description} />
+    <meta name="keywords" content="veterina, veterinární ordinace, Medlánky" />
+  </>
+)
 
 export const pageQuery = graphql`query IndexPageQuery {
   logo: file(name: {eq: "vetgalen-logo"}) {

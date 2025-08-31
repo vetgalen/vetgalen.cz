@@ -4,13 +4,13 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 
 import Layout from 'components/Layout'
+import { siteMetadata } from '../../gatsby-config'
 
 const OfferPage = ({ data, location }) => {
   
   return (
     <Layout
       location={location}
-      description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, konzultace a další"
       >
       <Container>
         <Row className="row-offer">
@@ -319,6 +319,14 @@ const OfferPage = ({ data, location }) => {
 }
 
 export default OfferPage
+
+export const Head = () => (
+  <>
+    <title>Služby - {siteMetadata.title}</title>
+    <meta name="description" content="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, rentgen,konzultace a další" />
+    <meta name="keywords" content="veterina, veterinární ordinace, Medlánky" />
+  </>
+)
 
 export const pageQuery = graphql`query OfferPageQuery {
   derma: file(name: {eq: "derma"}) {

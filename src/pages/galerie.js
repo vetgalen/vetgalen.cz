@@ -3,12 +3,12 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import Layout from 'components/Layout'
+import { siteMetadata } from '../../gatsby-config'
 
 const GalleryPage = ({ data, location }) => {
   return (
     <Layout
-      location={location}
-      description="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu">
+      location={location}>
       <Container>
         <Row className="align-items-center">
           <Col
@@ -87,6 +87,14 @@ const GalleryPage = ({ data, location }) => {
 }
 
 export default GalleryPage
+
+export const Head = () => (
+  <>
+    <title>Galerie - {siteMetadata.title}</title>
+    <meta name="description" content="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu" />
+    <meta name="keywords" content="veterina, veterinární ordinace, Medlánky" />
+  </>
+)
 
 export const pageQuery = graphql`query GalleryPageQuery {
   vchod: file(name: {eq: "foto-vchod"}) {
