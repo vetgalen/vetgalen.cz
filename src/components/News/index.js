@@ -164,6 +164,11 @@ const News = () => {
       gatsbyImageData(width: 161, height: 131, placeholder: NONE, layout: CONSTRAINED)
     }
   }
+  kocka_retez: file(name: {eq: "kocka-retez"}) {
+    childImageSharp {
+      gatsbyImageData(width: 124, height: 150, placeholder: NONE, layout: CONSTRAINED)
+    }
+  }
 }`)
 
   const items = data.news.edges.map(e => {
@@ -202,7 +207,8 @@ const News = () => {
     opravy: getImage(data.opravy),
     pes_batoh: getImage(data.pes_batoh),
     sanky: getImage(data.sanky),
-    morce: getImage(data.morce)
+    morce: getImage(data.morce),  
+    kocka_retez: getImage(data.kocka_retez)
   }
 
   const [activeIndex, setActiveIndex] = React.useState(0);
