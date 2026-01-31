@@ -88,7 +88,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
