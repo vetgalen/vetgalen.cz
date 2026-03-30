@@ -69,7 +69,7 @@
     "clean:hard": "npm exec gatsby clean && rm -rf .cache public node_modules package-lock.json && npm install",
     "deploy": "npm exec gatsby build --prefix-paths && npm exec gh-pages -d public",
     "develop": "npm exec gatsby develop",
-    "format": "npm exec prettier --write \"**/*.+(js|json|md)\"",
-    "lint": "npm exec eslint --ext .js,.jsx --ignore-pattern public ."
+    "format": "npm exec prettier --write \"src/**/*.{js,jsx}\" \"*.{js,json,md}\"",
+    "lint": "npm exec eslint ."
   }
 }

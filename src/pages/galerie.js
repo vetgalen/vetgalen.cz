@@ -7,20 +7,25 @@ import { siteMetadata } from '../../gatsby-config'
 
 const GalleryPage = ({ data, location }) => {
   return (
-    <Layout
-      location={location}>
+    <Layout location={location}>
       <Container>
         <Row className="align-items-center">
           <Col
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
-            className="text-right">
-            <GatsbyImage image={getImage(data.vchod)} alt="vchod" imgStyle={{ 'border-radius': '5%' }} />
+            className="text-right"
+          >
+            <GatsbyImage
+              image={getImage(data.vchod)}
+              alt="vchod"
+              imgStyle={{ 'border-radius': '5%' }}
+            />
           </Col>
           <Col
             xs={{ order: 1 }}
             sm={{ order: 2, size: 4 }}
-            className="text-left">
+            className="text-left"
+          >
             <h3>Vchod</h3>
           </Col>
         </Row>
@@ -33,14 +38,20 @@ const GalleryPage = ({ data, location }) => {
           <Col
             xs={{ order: 1 }}
             sm={{ order: 1, size: 4 }}
-            className="text-right d-table-cell align-middle">
+            className="text-right d-table-cell align-middle"
+          >
             <h3>Čekárna</h3>
           </Col>
           <Col
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
-            className="text-left">
-            <GatsbyImage image={getImage(data.cekarna)} alt="cekarna" imgStyle={{ 'border-radius': '5%' }} />
+            className="text-left"
+          >
+            <GatsbyImage
+              image={getImage(data.cekarna)}
+              alt="cekarna"
+              imgStyle={{ 'border-radius': '5%' }}
+            />
           </Col>
         </Row>
         <Row>
@@ -52,13 +63,19 @@ const GalleryPage = ({ data, location }) => {
           <Col
             xs={{ order: 2 }}
             sm={{ order: 1, size: 8 }}
-            className="text-right">
-            <GatsbyImage image={getImage(data.ordinace)} alt="data" imgStyle={{ 'border-radius': '5%' }} />
+            className="text-right"
+          >
+            <GatsbyImage
+              image={getImage(data.ordinace)}
+              alt="data"
+              imgStyle={{ 'border-radius': '5%' }}
+            />
           </Col>
           <Col
             xs={{ order: 1 }}
             sm={{ order: 2, size: 4 }}
-            className="text-left d-table-cell align-middle">
+            className="text-left d-table-cell align-middle"
+          >
             <h3>Ordinace</h3>
           </Col>
         </Row>
@@ -71,19 +88,25 @@ const GalleryPage = ({ data, location }) => {
           <Col
             xs={{ order: 1 }}
             sm={{ order: 1, size: 4 }}
-            className="text-right d-table-cell align-middle">
+            className="text-right d-table-cell align-middle"
+          >
             <h3>Operační sál</h3>
           </Col>
           <Col
             xs={{ order: 1 }}
             sm={{ order: 2, size: 8 }}
-            className="text-left">
-            <GatsbyImage image={getImage(data.sal)} alt="operační sál" imgStyle={{ 'border-radius': '5%' }} />
+            className="text-left"
+          >
+            <GatsbyImage
+              image={getImage(data.sal)}
+              alt="operační sál"
+              imgStyle={{ 'border-radius': '5%' }}
+            />
           </Col>
         </Row>
       </Container>
     </Layout>
-  );
+  )
 }
 
 export default GalleryPage
@@ -91,55 +114,59 @@ export default GalleryPage
 export const Head = () => (
   <>
     <title>Galerie - {siteMetadata.title}</title>
-    <meta name="description" content="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu" />
+    <meta
+      name="description"
+      content="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu"
+    />
     <meta name="keywords" content="veterina, veterinární ordinace, Medlánky" />
   </>
 )
 
-export const pageQuery = graphql`query GalleryPageQuery {
-  vchod: file(name: {eq: "foto-vchod"}) {
-    childImageSharp {
-      gatsbyImageData(
-        quality: 100
-        width: 315
-        height: 210
-        placeholder: NONE
-        layout: CONSTRAINED
-      )
+export const pageQuery = graphql`
+  query GalleryPageQuery {
+    vchod: file(name: { eq: "foto-vchod" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          width: 315
+          height: 210
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
+      }
+    }
+    cekarna: file(name: { eq: "foto-cekarna" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          width: 315
+          height: 210
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
+      }
+    }
+    ordinace: file(name: { eq: "foto-ordinace" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          width: 315
+          height: 210
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
+      }
+    }
+    sal: file(name: { eq: "foto-sal" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          width: 315
+          height: 210
+          placeholder: NONE
+          layout: CONSTRAINED
+        )
+      }
     }
   }
-  cekarna: file(name: {eq: "foto-cekarna"}) {
-    childImageSharp {
-      gatsbyImageData(
-        quality: 100
-        width: 315
-        height: 210
-        placeholder: NONE
-        layout: CONSTRAINED
-      )
-    }
-  }
-  ordinace: file(name: {eq: "foto-ordinace"}) {
-    childImageSharp {
-      gatsbyImageData(
-        quality: 100
-        width: 315
-        height: 210
-        placeholder: NONE
-        layout: CONSTRAINED
-      )
-    }
-  }
-  sal: file(name: {eq: "foto-sal"}) {
-    childImageSharp {
-      gatsbyImageData(
-        quality: 100
-        width: 315
-        height: 210
-        placeholder: NONE
-        layout: CONSTRAINED
-      )
-    }
-  }
-}
 `

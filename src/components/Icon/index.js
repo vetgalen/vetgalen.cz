@@ -11,6 +11,6 @@ import './icon.scss'
 
 library.add(faMapMarker, faEnvelope, faPhoneSquare)
 
-const Icon = ({ name }) => <FontAwesomeIcon icon={name} className="icon"/>
+const Icon = ({ name }) => <FontAwesomeIcon icon={name} className="icon" />
 
 export default Icon

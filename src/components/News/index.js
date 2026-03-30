@@ -17,166 +17,313 @@ import {
 import './style.scss'
 
 const News = () => {
-  const data = useStaticQuery(graphql`{
-  news: allMarkdownRemark(sort: {fileAbsolutePath: DESC}) {
-    edges {
-      node {
-        html
-        frontmatter {
-          image
+  const data = useStaticQuery(graphql`
+    {
+      news: allMarkdownRemark(sort: { fileAbsolutePath: DESC }) {
+        edges {
+          node {
+            html
+            frontmatter {
+              image
+            }
+            id
+          }
         }
-        id
+      }
+      novinky: file(name: { eq: "novinky" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 112
+            height: 193
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      vanoce: file(name: { eq: "vanoce" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 135
+            height: 134
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      spici_pes: file(name: { eq: "spici_pes" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 133
+            height: 97
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      baset: file(name: { eq: "baset_zavreno" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 120
+            height: 151
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      cipovani: file(name: { eq: "cipovani" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 131
+            height: 137
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      rtg_pes: file(name: { eq: "rtg_pes" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 133
+            height: 108
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      cupcake: file(name: { eq: "cupcake" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 115
+            height: 175
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      krabice: file(name: { eq: "krabice" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 162
+            height: 120
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      od_peti: file(name: { eq: "od_peti" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 140
+            height: 202
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      do_jedenacti: file(name: { eq: "do_jedenacti" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 140
+            height: 202
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      alert: file(name: { eq: "alert" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 119
+            height: 247
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      mask: file(name: { eq: "mask" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 210
+            height: 150
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      zajicek: file(name: { eq: "zajicek" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 115
+            height: 181
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      pes_stanuje: file(name: { eq: "pes_stanuje" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 166
+            height: 101
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      vanoce_2020: file(name: { eq: "vanoce_2020" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 174
+            height: 128
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      velikonoce_mops: file(name: { eq: "velikonoce_mops" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 142
+            height: 157
+            placeholder: NONE
+            layout: FIXED
+          )
+        }
+      }
+      vanoce_2021: file(name: { eq: "vanoce_2021" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 152
+            height: 96
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      vzdelavani: file(name: { eq: "vzdelavani" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 125
+            height: 141
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      prehrati: file(name: { eq: "prehrati" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 110
+            height: 156
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      vanoce_2022: file(name: { eq: "vanoce_2022" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 105
+            height: 173
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      fotak: file(name: { eq: "fotak" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 116
+            height: 161
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      kufr: file(name: { eq: "kufr" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 191
+            height: 134
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      pes_zavreno: file(name: { eq: "pes-zavreno" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 122
+            height: 119
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      opravy: file(name: { eq: "opravy" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 89
+            height: 128
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      pes_batoh: file(name: { eq: "pes_batoh" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 134
+            height: 181
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      sanky: file(name: { eq: "sanky" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 161
+            height: 136
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      morce: file(name: { eq: "morce" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 161
+            height: 131
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      kocka_retez: file(name: { eq: "kocka-retez" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 124
+            height: 150
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
+      }
+      snehulak: file(name: { eq: "snehulak_a_pes" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 172
+            height: 112
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
+        }
       }
     }
-  }
-  novinky: file(name: {eq: "novinky"}) {
-    childImageSharp {
-      gatsbyImageData(width: 112, height: 193, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce: file(name: {eq: "vanoce"}) {
-    childImageSharp {
-      gatsbyImageData(width: 135, height: 134, placeholder: NONE, layout: FIXED)
-    }
-  }
-  spici_pes: file(name: {eq: "spici_pes"}) {
-    childImageSharp {
-      gatsbyImageData(width: 133, height: 97, placeholder: NONE, layout: FIXED)
-    }
-  }
-  baset: file(name: {eq: "baset_zavreno"}) {
-    childImageSharp {
-      gatsbyImageData(width: 120, height: 151, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  cipovani: file(name: {eq: "cipovani"}) {
-    childImageSharp {
-      gatsbyImageData(width: 131, height: 137, placeholder: NONE, layout: FIXED)
-    }
-  }
-  rtg_pes: file(name: {eq: "rtg_pes"}) {
-    childImageSharp {
-      gatsbyImageData(width: 133, height: 108, placeholder: NONE, layout: FIXED)
-    }
-  }
-  cupcake: file(name: {eq: "cupcake"}) {
-    childImageSharp {
-      gatsbyImageData(width: 115, height: 175, placeholder: NONE, layout: FIXED)
-    }
-  }
-  krabice: file(name: {eq: "krabice"}) {
-    childImageSharp {
-      gatsbyImageData(width: 162, height: 120, placeholder: NONE, layout: FIXED)
-    }
-  }
-  od_peti: file(name: {eq: "od_peti"}) {
-    childImageSharp {
-      gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
-    }
-  }
-  do_jedenacti: file(name: {eq: "do_jedenacti"}) {
-    childImageSharp {
-      gatsbyImageData(width: 140, height: 202, placeholder: NONE, layout: FIXED)
-    }
-  }
-  alert: file(name: {eq: "alert"}) {
-    childImageSharp {
-      gatsbyImageData(width: 119, height: 247, placeholder: NONE, layout: FIXED)
-    }
-  }
-  mask: file(name: {eq: "mask"}) {
-    childImageSharp {
-      gatsbyImageData(width: 210, height: 150, placeholder: NONE, layout: FIXED)
-    }
-  }
-  zajicek: file(name: {eq: "zajicek"}) {
-    childImageSharp {
-      gatsbyImageData(width: 115, height: 181, placeholder: NONE, layout: FIXED)
-    }
-  }
-  pes_stanuje: file(name: {eq: "pes_stanuje"}) {
-    childImageSharp {
-      gatsbyImageData(width: 166, height: 101, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce_2020: file(name: {eq: "vanoce_2020"}) {
-    childImageSharp {
-      gatsbyImageData(width: 174, height: 128, placeholder: NONE, layout: FIXED)
-    }
-  }
-  velikonoce_mops: file(name: {eq: "velikonoce_mops"}) {
-    childImageSharp {
-      gatsbyImageData(width: 142, height: 157, placeholder: NONE, layout: FIXED)
-    }
-  }
-  vanoce_2021: file(name: {eq: "vanoce_2021"}) {
-    childImageSharp {
-      gatsbyImageData(width: 152, height: 96, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  vzdelavani: file(name: {eq: "vzdelavani"}) {
-    childImageSharp {
-      gatsbyImageData(width: 125, height: 141, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  prehrati: file(name: {eq: "prehrati"}) {
-    childImageSharp {
-      gatsbyImageData(width: 110, height: 156, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  vanoce_2022: file(name: {eq: "vanoce_2022"}) {
-    childImageSharp {
-      gatsbyImageData(width: 105, height: 173, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  fotak: file(name: {eq: "fotak"}) {
-    childImageSharp {
-      gatsbyImageData(width: 116, height: 161, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  kufr: file(name: {eq: "kufr"}) {
-    childImageSharp {
-      gatsbyImageData(width: 191, height: 134, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  pes_zavreno: file(name: {eq: "pes-zavreno"}) {
-    childImageSharp {
-      gatsbyImageData(width: 122, height: 119, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  opravy: file(name: {eq: "opravy"}) {
-    childImageSharp {
-      gatsbyImageData(width: 89, height: 128, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  pes_batoh: file(name: {eq: "pes_batoh"}) {
-    childImageSharp {
-      gatsbyImageData(width: 134, height: 181, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  sanky: file(name: {eq: "sanky"}) {
-    childImageSharp {
-      gatsbyImageData(width: 161, height: 136, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  morce: file(name: {eq: "morce"}) {
-    childImageSharp {
-      gatsbyImageData(width: 161, height: 131, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  kocka_retez: file(name: {eq: "kocka-retez"}) {
-    childImageSharp {
-      gatsbyImageData(width: 124, height: 150, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  snehulak: file(name: {eq: "snehulak_a_pes"}) {
-    childImageSharp {
-      gatsbyImageData(width: 172, height: 112, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }  
-}`)
+  `)
 
-  const items = data.news.edges.map(e => {
+  const items = data.news.edges.map((e) => {
     return {
       html: e.node.html,
       image: e.node.frontmatter.image,
@@ -212,35 +359,32 @@ const News = () => {
     opravy: getImage(data.opravy),
     pes_batoh: getImage(data.pes_batoh),
     sanky: getImage(data.sanky),
-    morce: getImage(data.morce),  
+    morce: getImage(data.morce),
     kocka_retez: getImage(data.kocka_retez),
-    snehulak: getImage(data.snehulak)
+    snehulak: getImage(data.snehulak),
   }
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [animating, setAnimating] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(0)
+  const [animating, setAnimating] = React.useState(false)
 
   const next = () => {
-    if (animating)
-      return
+    if (animating) return
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
   }
 
   const previous = () => {
-    if (animating)
-      return
+    if (animating) return
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1
     setActiveIndex(nextIndex)
   }
 
-  const goToIndex = newIndex => {
-    if (animating)
-      return
+  const goToIndex = (newIndex) => {
+    if (animating) return
     setActiveIndex(newIndex)
   }
 
-  const slides = items.map(item => {
+  const slides = items.map((item) => {
     return (
       <CarouselItem
         className="max-width"
@@ -253,13 +397,11 @@ const News = () => {
             xs={{ order: 1 }}
             sm={{ order: 1 }}
             md={{ order: 1, size: 3 }}
-            className="text-center min-width">
+            className="text-center min-width"
+          >
             <GatsbyImage image={newsImages[item.image]} alt={item.image} />
           </Col>
-          <Col
-            xs={{ order: 2 }}
-            sm={{ order: 2 }}
-            md={{ order: 2, size: 9 }}>
+          <Col xs={{ order: 2 }} sm={{ order: 2 }} md={{ order: 2, size: 9 }}>
             <div dangerouslySetInnerHTML={{ __html: item.html }} />
           </Col>
         </Row>
@@ -279,7 +421,8 @@ const News = () => {
             next={next}
             previous={previous}
             interval={false}
-            slide={false}>
+            slide={false}
+          >
             {slides}
             <Container className="controls">
               <Row>

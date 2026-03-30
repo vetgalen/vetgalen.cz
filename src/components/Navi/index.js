@@ -26,14 +26,24 @@ const Navi = ({ location }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      logo: file(name: {eq: "vetgalen-logo"}) {
+      logo: file(name: { eq: "vetgalen-logo" }) {
         childImageSharp {
-          gatsbyImageData(width: 246, height: 119, placeholder: NONE, layout: FIXED)
+          gatsbyImageData(
+            width: 246
+            height: 119
+            placeholder: NONE
+            layout: FIXED
+          )
         }
       }
-      icon: file(name: {eq: "icon"}) {
+      icon: file(name: { eq: "icon" }) {
         childImageSharp {
-          gatsbyImageData(width: 80, height: 30, placeholder: NONE, layout: FIXED)
+          gatsbyImageData(
+            width: 80
+            height: 30
+            placeholder: NONE
+            layout: FIXED
+          )
         }
       }
     }

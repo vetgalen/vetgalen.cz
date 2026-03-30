@@ -18,7 +18,8 @@ const Layout = ({ children, location }) => {
         location="bottom"
         buttonText="Souhlasím"
         style={{ background: '#2B373B' }}
-        buttonStyle={{ color: '#4e503b' }}>
+        buttonStyle={{ color: '#4e503b' }}
+      >
         <small>
           Provozovatel jako správce osobních údajů zpracovává na tomto webu
           cookies potřebné pro fungování webových stránek a pro analytické
