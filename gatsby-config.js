@@ -92,7 +92,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         sassOptions: {
-          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions'],
+          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions', 'if-function'],
         },
         additionalData: `@import "${__dirname}/src/scss/_variables";`,
       },
