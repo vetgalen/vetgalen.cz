@@ -1,3 +1,8 @@
+---
+name: news
+description: Create a new news panel for the vetgalen.cz website. Use when adding a news item with text content and an image.
+---
+
 # News Panel Creation (`/news`)
 
 Create a new news panel for the vetgalen.cz website.
@@ -62,11 +67,28 @@ image_name: getImage(data.image_name),
 
 Show the user the file content and any code changes. Ask for confirmation before proceeding.
 
-### Step 6 — Bump package.json version
+### Step 6 — Local development check
 
-Bump the patch version in `package.json` (e.g. `1.4.4` → `1.4.5`). This invalidates CDN/browser caches on deploy.
+Ask the user to verify the news item locally before committing:
 
-### Step 7 — Commit and create PR
+```
+npm run develop
+```
+
+> **Note:** Gatsby sometimes has a stale StaticQuery cache after adding new markdown files. If the user sees a StaticQuery error, they should run:
+> ```
+> npm run clean && npm run develop
+> ```
+
+Wait for the user to confirm the news looks correct in the browser before proceeding.
+
+### Step 7 — Bump package.json version
+
+Bump the patch version in `package.json` (e.g. `1.4.4` → `1.4.5`).
+
+**Why this matters:** Netlify uses the `version` field to detect changes and trigger a fresh deployment. Without bumping the version, Netlify or CDN caches may not pick up the new content.
+
+### Step 8 — Commit and create PR
 
 Once confirmed:
 1. Create a branch: `feat/<short-description>`
