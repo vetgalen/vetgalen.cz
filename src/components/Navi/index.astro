@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets'
+import logoImg from '../../assets/images/vetgalen-logo.png'
+import iconImg from '../../assets/images/icon.png'
+import Timetable from '../Timetable/index.astro'
+
+interface Props {
+  pathname: string
+}
+
+const { pathname } = Astro.props
+
+const navLinks = [
+  { href: '/', label: 'O nás' },
+  { href: '/sluzby/', label: 'Co děláme?' },
+  { href: '/galerie/', label: 'Jak to u nás vypadá?' },
+  { href: '/kontakt/', label: 'Kontakt' },
+  { href: '/soukromi/', label: 'Ochrana soukromí' },
+]
+---
+
+<div class="fixed-top">
+  <div class="container-fluid d-none d-md-block bg-light">
+    <div class="row">
+      <div class="col-8 pt-2 ps-3">
+        <Image src={logoImg} width={246} height={119} alt="logo" loading="eager" />
+      </div>
+      <div class="col-4">
+        <Timetable compact />
+      </div>
+    </div>
+  </div>
+  <nav class="navbar blue-pane navbar-light navbar-expand-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand d-block d-md-none" href="/">
+        <Image src={iconImg} width={80} height={30} alt="icon" loading="eager" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav nav-fill w-100">
+          {navLinks.map(({ href, label }) => (
+            <li class:list={['nav-item', { active: pathname === href }]}>
+              <a class="nav-link" href={href}>{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

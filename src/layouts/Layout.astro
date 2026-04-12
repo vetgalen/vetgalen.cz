@@ -1,0 +1,71 @@
+---
+import 'modern-normalize/modern-normalize.css'
+import 'animate.css'
+import '../scss/global.scss'
+
+import Navi from '../components/Navi/index.astro'
+import Footer from '../components/Footer/index.astro'
+import CookieConsent from '../components/CookieConsent/index.jsx'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const {
+  title,
+  description = 'Veterinární ordinace Galen, Brno-Medlánky, Podpěrova 439/2',
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL('/img/icon.png', Astro.site)
+const pathname = Astro.url.pathname
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <link rel="icon" href="/img/icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130093311-1"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        window.dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-130093311-1')
+    </script>
+  </head>
+  <body>
+    <Navi pathname={pathname} />
+    <div class="container-fluid">
+      <div class="d-none d-md-block spacer-lg">&nbsp;</div>
+      <div class="d-md-none spacer-md">&nbsp;</div>
+      <slot />
+    </div>
+    <CookieConsent client:only="react" />
+    <Footer />
+    <script>
+      import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+    </script>
+  </body>
+</html>

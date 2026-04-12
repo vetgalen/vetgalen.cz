@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import logoImg from '../assets/images/vetgalen-logo.png'
+---
+
+<Layout
+  title="Stránka nenalezena - Veterinární ordinace Galen"
+  description="Stránka, kterou hledáte, nebyla nalezena. Veterinární ordinace Galen, Brno-Medlánky."
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-4">
+          <Image src={logoImg} width={246} height={119} alt="Veterinární ordinace Galen logo" />
+        </div>
+        <div class="card border-primary">
+          <div class="card-header text-center">
+            <h1>404 - Stránka nenalezena</h1>
+          </div>
+          <div class="card-body text-center">
+            <p class="lead">Omlouváme se, ale stránka, kterou hledáte, nebyla nalezena.</p>
+            <p>Možná jste zadali špatnou adresu nebo byla stránka přesunuta.</p>
+            <p>
+              <a href="/" class="btn btn-primary">Zpět na hlavní stránku</a>
+            </p>
+            <hr />
+            <h5>Můžete navštívit:</h5>
+            <ul class="list-unstyled">
+              <li><a href="/">Domovská stránka</a></li>
+              <li><a href="/sluzby/">Naše služby</a></li>
+              <li><a href="/kontakt/">Kontakt a ordinační hodiny</a></li>
+              <li><a href="/galerie/">Galerie</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

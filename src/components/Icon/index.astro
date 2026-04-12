@@ -1,0 +1,21 @@
+---
+import { icon as faIcon } from '@fortawesome/fontawesome-svg-core'
+import { faMapMarker, faEnvelope, faPhoneSquare } from '@fortawesome/free-solid-svg-icons'
+import './icon.scss'
+
+interface Props {
+  name: 'map-marker' | 'envelope' | 'phone-square'
+}
+
+const { name } = Astro.props
+
+const iconMap = {
+  'map-marker': faMapMarker,
+  'envelope': faEnvelope,
+  'phone-square': faPhoneSquare,
+}
+
+const rendered = faIcon(iconMap[name])
+---
+
+<span class="icon" set:html={rendered.html[0]} />

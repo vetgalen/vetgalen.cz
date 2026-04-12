@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import vchodImg from '../assets/images/foto-vchod.jpg'
+import cekarnaImg from '../assets/images/foto-cekarna.jpg'
+import ordinaceImg from '../assets/images/foto-ordinace.jpg'
+import salImg from '../assets/images/foto-sal.jpg'
+---
+
+<Layout
+  title="Galerie - Veterinární ordinace Galen"
+  description="Veterinární ordinace Galen, Brno-Medlánky - fotky vstupu, čekárny, ordinace a operačního sálu"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-sm-8 order-sm-1 text-end">
+        <Image src={vchodImg} width={315} height={210} alt="vchod" style="border-radius: 5%" />
+      </div>
+      <div class="col-xs-12 col-sm-4 order-sm-2 text-start">
+        <h3>Vchod</h3>
+      </div>
+    </div>
+    <div class="row"><div class="col"><hr style="width: 50%" /></div></div>
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-sm-4 order-sm-1 text-end">
+        <h3>Čekárna</h3>
+      </div>
+      <div class="col-xs-12 col-sm-8 order-sm-2 text-start">
+        <Image src={cekarnaImg} width={315} height={210} alt="čekárna" style="border-radius: 5%" />
+      </div>
+    </div>
+    <div class="row"><div class="col"><hr style="width: 50%" /></div></div>
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-sm-8 order-sm-1 text-end">
+        <Image src={ordinaceImg} width={315} height={210} alt="ordinace" style="border-radius: 5%" />
+      </div>
+      <div class="col-xs-12 col-sm-4 order-sm-2 text-start">
+        <h3>Ordinace</h3>
+      </div>
+    </div>
+    <div class="row"><div class="col"><hr style="width: 50%" /></div></div>
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-sm-4 order-sm-1 text-end">
+        <h3>Operační sál</h3>
+      </div>
+      <div class="col-xs-12 col-sm-8 order-sm-2 text-start">
+        <Image src={salImg} width={315} height={210} alt="operační sál" style="border-radius: 5%" />
+      </div>
+    </div>
+  </div>
+</Layout>

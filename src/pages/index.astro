@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import News from '../components/News/index.astro'
+import logoImg from '../assets/images/vetgalen-logo.png'
+---
+
+<Layout
+  title="Veterinární ordinace Galen"
+  description="Veterinární ordinace Galen v Brně-Medlánkách. Péče o psy, kočky a drobné savce."
+>
+  <div class="container">
+    <div class="clear-fix">
+      <div class="d-block d-md-none text-center">
+        <Image src={logoImg} width={246} height={119} alt="logo" />
+      </div>
+      <p>
+        Vítejte na webu veterinární ordinace Galen. Sídlíme v Brně - Medlánkách a zaměřujeme
+        se na medicínu psů, koček a drobných savců. Našim cílem je, aby byli spokojeni naši
+        klienti i jejich čtyřnozí přátelé!
+      </p>
+    </div>
+    <hr />
+    <News />
+    <hr />
+    <h1>Kdo jsme?</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 order-lg-1">
+          <div class="card border-primary h-100">
+            <div class="card-header">
+              <h5>MVDr. Pavla Alexandrová</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Do praxe jsem nastoupila po ukončení studií na VFU v roce 2004. Zaměřuji se na
+                medicínu psů, koček a drobných savců. Ráda se účastním zajímavých odborných
+                seminářů. Nejvíce mě baví interna, měkkotkáňová chirurgie, kardiologie,
+                ultrasonografie a dermatologie.
+              </p>
+            </div>
+            <div class="card-footer">
+              Do mojí čtyřnohé bandy patří boxerka Argana, a dva kocouři.
+            </div>
+          </div>
+        </div>
+        <div class="col-12 d-lg-none">&nbsp;</div>
+        <div class="col-12 col-lg-6 order-lg-3">
+          <div class="card border-primary h-100">
+            <div class="card-header">
+              <h5>MVDr. Zuzana Piwková</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                V praxi jsem od r. 2013, kdy jsem ukončila studium na Fakultě veterinárního
+                lékařství VFU. Věnuji se medicíně psů a koček, okrajově i drobných savců.
+                Účastním se různých odborných seminářů, z lékařských oborů mě baví hlavně
+                interna, oftalmologie a psychické „neduhy" psů a koček.
+              </p>
+            </div>
+            <div class="card-footer">Mým zvířecím parťákem je borderteriér Lenny.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

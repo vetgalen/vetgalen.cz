@@ -1,39 +1,23 @@
-const js = require('@eslint/js')
-const react = require('eslint-plugin-react')
-const prettierConfig = require('eslint-config-prettier')
+import js from '@eslint/js'
+import react from 'eslint-plugin-react'
+import astro from 'eslint-plugin-astro'
+import tsParser from '@typescript-eslint/parser'
+import prettierConfig from 'eslint-config-prettier'
 
-module.exports = [
+export default [
   {
-    ignores: ['public/**', 'node_modules/**', '.cache/**', 'eslint.config.js'],
+    ignores: ['dist/**', 'node_modules/**', '.astro/**', '.agents/**', 'eslint.config.js'],
   },
   js.configs.recommended,
+  // JS and JSX (React island components)
   {
-    files: ['gatsby-node.js', 'gatsby-config.js'],
-    languageOptions: {
-      sourceType: 'commonjs',
-      globals: {
-        require: 'readonly',
-        module: 'writable',
-        exports: 'writable',
-        __dirname: 'readonly',
-        process: 'readonly',
-      },
-    },
-    rules: {
-      ...prettierConfig.rules,
-    },
-  },
-  {
-    files: ['src/**/*.js', 'src/**/*.jsx'],
+    files: ['src/**/*.{js,jsx}', 'astro.config.mjs'],
     plugins: { react },
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       sourceType: 'module',
       parserOptions: {
         ecmaFeatures: { jsx: true },
-      },
-      globals: {
-        process: 'readonly',
       },
     },
     settings: {
@@ -45,6 +29,20 @@ module.exports = [
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       'no-irregular-whitespace': ['error', { skipJSXText: true }],
+    },
+  },
+  // Astro components
+  ...astro.configs.recommended,
+  {
+    files: ['**/*.astro'],
+    languageOptions: {
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: ['.astro'],
+      },
+    },
+    rules: {
+      ...prettierConfig.rules,
     },
   },
 ]

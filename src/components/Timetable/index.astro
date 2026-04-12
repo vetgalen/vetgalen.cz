@@ -1,0 +1,44 @@
+---
+import './style.scss'
+
+interface Props {
+  compact?: boolean
+}
+
+const { compact = false } = Astro.props
+---
+
+<table
+  class:list={[
+    'table',
+    'table-hover',
+    { 'table-borderless': compact, compact, 'table-sm': compact },
+  ]}
+>
+  <caption class:list={[{ compact }]}>Ordinační hodiny</caption>
+  <tbody>
+    <tr>
+      <th scope="row">Po</th>
+      <td>09:00&nbsp;-&nbsp;12:00</td>
+      <td>15:00&nbsp;-&nbsp;18:00</td>
+    </tr>
+    <tr>
+      <th scope="row">Út</th>
+      <td></td>
+      <td>15:00&nbsp;-&nbsp;18:00</td>
+    </tr>
+    <tr>
+      <th scope="row">St</th>
+      <td></td>
+      <td>13:00&nbsp;-&nbsp;19:00</td>
+    </tr>
+    <tr>
+      <th scope="row">Čt</th>
+      <td colspan="2">09:00&nbsp;-&nbsp;16:00</td>
+    </tr>
+    <tr>
+      <th scope="row">Pá</th>
+      <td colspan="2">09:00&nbsp;-&nbsp;15:00</td>
+    </tr>
+  </tbody>
+</table>
