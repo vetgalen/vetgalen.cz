@@ -10,11 +10,14 @@ interface Props {
 
 const { pathname } = Astro.props
 
+const showRezervace = import.meta.env.DEV || new Date() >= new Date('2026-04-19')
+
 const navLinks = [
   { href: '/', label: 'O nás' },
   { href: '/sluzby/', label: 'Co děláme?' },
   { href: '/galerie/', label: 'Jak to u nás vypadá?' },
   { href: '/kontakt/', label: 'Kontakt' },
+  ...(showRezervace ? [{ href: '/rezervace/', label: 'Rezervace' }] : []),
   { href: '/soukromi/', label: 'Ochrana soukromí' },
 ]
 ---
@@ -30,7 +33,7 @@ const navLinks = [
       </div>
     </div>
   </div>
-  <nav class="navbar blue-pane navbar-light navbar-expand-sm">
+  <nav class="navbar blue-pane navbar-light navbar-expand-md">
     <div class="container-fluid">
       <a class="navbar-brand d-block d-md-none" href="/">
         <Image src={iconImg} width={80} height={30} alt="icon" loading="eager" />
