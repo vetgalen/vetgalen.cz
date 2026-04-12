@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import Icon from '../components/Icon/index.astro'
+import Timetable from '../components/Timetable/index.astro'
+import ClinicMap from '../components/Map/index.jsx'
+import adresaImg from '../assets/images/adresa.png'
+---
+
+<Layout
+  title="Kontakt - Veterinární ordinace Galen"
+  description="Veterinární ordinace v Brně-Medlánkách/Řečkovicích, Podpěrova 439/2, ordinace@vetgalen.cz, +420 721 022 265."
+>
+  <div class="container">
+    <h3>Kde nás najdete?</h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 order-sm-1 order-2">
+          <address>
+            <span class="nowrap fw-bold">
+              <Icon name="map-marker" /> Veterinární ordinace Galen
+            </span>
+            <br />
+            Podpěrova 439/2
+            <br />
+            621 00 Brno-Medlánky
+            <br />
+            <span class="nowrap fw-bold">
+              <Icon name="envelope" />&nbsp;<a href="mailto:ordinace@vetgalen.cz">ordinace@vetgalen.cz</a>
+            </span>
+            <br />
+            <span class="nowrap fw-bold">
+              <Icon name="phone-square" /> 721 022 265
+            </span>
+          </address>
+        </div>
+        <div class="col-12 col-sm-6 order-sm-2 order-1 text-start">
+          <Image src={adresaImg} width={150} height={115} alt="adresa" />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p>
+        Odkazy:&nbsp;<a href="https://goo.gl/maps/TtFt2ZCFAeM2">Mapy Google</a
+        >&nbsp;|&nbsp;<a href="https://mapy.cz/s/3dAHc">Mapy.cz</a>
+      </p>
+      <p>
+        GPS souřadnice: <strong>49.23841N</strong>,&nbsp;<strong>16.5828108E</strong>
+      </p>
+    </div>
+    <ClinicMap client:load />
+    <Timetable />
+  </div>
+</Layout>

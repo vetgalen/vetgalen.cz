@@ -1,0 +1,124 @@
+---
+import { getCollection, render } from 'astro:content'
+import { Image } from 'astro:assets'
+
+const allNews = await getCollection('news')
+const newsItems = allNews.sort((a, b) => b.id.localeCompare(a.id))
+
+const renderedNews = await Promise.all(
+  newsItems.map(async (entry) => {
+    const { Content } = await render(entry)
+    return { entry, Content }
+  })
+)
+---
+
+<div class="card border-primary">
+  <div class="card-header">
+    <h2>Novinky</h2>
+  </div>
+  <div class="card-body">
+    <div id="newsCarousel" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-inner">
+        {renderedNews.map(({ entry, Content }, index) => (
+          <div class:list={['carousel-item', { active: index === 0 }]}>
+            <div class="row g-3">
+              <div class="col-12 col-md-3 text-center">
+                <Image src={entry.data.image} width={200} alt={entry.id} />
+              </div>
+              <div class="col-12 col-md-9">
+                <Content />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="news-nav">
+        <button
+          class="news-nav-btn"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="prev"
+          aria-label="Novější"
+        >‹</button>
+        <div class="carousel-indicators">
+          {renderedNews.map(({ entry }, index) => (
+            <button
+              type="button"
+              data-bs-target="#newsCarousel"
+              data-bs-slide-to={index}
+              class={index === 0 ? 'active' : ''}
+              aria-current={index === 0 ? 'true' : undefined}
+              aria-label={entry.id}
+            />
+          ))}
+        </div>
+        <button
+          class="news-nav-btn"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="next"
+          aria-label="Starší"
+        >›</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  // #newsCarousel prefix gives specificity (1,0,1) > Bootstrap's (0,1,0)
+  #newsCarousel .carousel-indicators {
+    position: static;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;
+  }
+
+  #newsCarousel .carousel-indicators button {
+    border: none;
+    border-radius: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: $gray-400;
+    opacity: 1;
+    flex-shrink: 0;
+    transition: background-color 0.15s;
+  }
+
+  #newsCarousel .carousel-indicators button.active {
+    background-color: $primary;
+  }
+
+  .news-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .news-nav-btn {
+    background: none;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    color: $primary;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  // List bullet variants used in news content
+  ul.stars   { list-style-type: "☆ "; }
+  ul.hands   { list-style-type: "☞ "; }
+  ul.arrows  { list-style-type: "→ "; }
+  ul.squares { list-style-type: "■ "; }
+</style>

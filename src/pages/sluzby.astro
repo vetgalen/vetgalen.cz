@@ -1,0 +1,206 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+
+import dermaImg from '../assets/images/derma.png'
+import chirdaImg from '../assets/images/chirda.png'
+import infuzeImg from '../assets/images/infuze.png'
+import lahvickaImg from '../assets/images/lahvicka.png'
+import mikroskopImg from '../assets/images/mikroskop.png'
+import miskaImg from '../assets/images/miska.png'
+import otoskopImg from '../assets/images/otoskop.png'
+import packaImg from '../assets/images/packa.png'
+import prevenceImg from '../assets/images/prevence.png'
+import psikImg from '../assets/images/psik.png'
+import rtgImg from '../assets/images/rtg_pes.png'
+import usgImg from '../assets/images/usg.png'
+import zkumavkaImg from '../assets/images/zkumavka.png'
+import zubImg from '../assets/images/zub.png'
+---
+
+<Layout
+  title="Služby - Veterinární ordinace Galen"
+  description="Galen - péče o malá zvířata - prevence, odběry, diagnostika, dermatologie, stomatologie, ortopedie, oftalmologie, gynekologie, sono, rentgen, konzultace a další"
+>
+  <div class="container">
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Preventivní péče</h3>
+        <ul>
+          <li>vakcinace psů, koček, fretek a králíků</li>
+          <li>antiparazitární program</li>
+          <li>péče o drápy, uši, anální žlázy</li>
+          <li>čipování a vystavení Petpasu, vyšetření zvířete před cestou do zahraničí</li>
+          <li>preventivní klinické vyšetření</li>
+          <li>geriatrický program</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <Image src={prevenceImg} width={200} height={243} alt="prevence" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Odběry krve</h3>
+        <ul>
+          <li>zajištění biochemického, hematologického a endokrinologického vyšetření ve specializované veterinární laboratoři</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <Image src={zkumavkaImg} width={100} height={212} alt="zkumavka" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Laboratorní diagnostika</h3>
+        <ul>
+          <li>mikroskopické vyšetření kožních seškrabů</li>
+          <li>koprologické vyšetření trusu</li>
+          <li>vyšetření moči a močového sedimentu</li>
+          <li>cytologie</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <Image src={mikroskopImg} width={150} height={232} alt="mikroskop" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Dermatologie</h3>
+        <ul>
+          <li>vyšetření</li>
+          <li>odběr vzorků pro další diagnostiku</li>
+          <li>kultivace na dermatofyta</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <Image src={dermaImg} width={200} height={268} alt="dermatologie" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Stomatologie</h3>
+        <ul>
+          <li>odstranění zubního kamene</li>
+          <li>extrakce mléčných zubů</li>
+          <li>terapeutické ošetření dutiny ústní</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <Image src={zubImg} width={110} height={148} alt="zub" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Otologie a oftalmologie</h3>
+        <ul>
+          <li>vyšetření uší, terapie ušních zánětů, prevence</li>
+          <li>diagnostika defektů víček, rohovky</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <Image src={otoskopImg} width={100} height={171} alt="otoskop" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Ultrasonografické vyšetření</h3>
+        <ul>
+          <li>vyšetření přístrojem vybaveným Doppler zobrazením</li>
+          <li>echokardiografické vyšetření</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <div class="d-none d-sm-block mt-3">&nbsp;</div>
+        <Image src={usgImg} width={200} height={130} alt="ultrasonografie" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Rentgenologické vyšetření</h3>
+        <ul>
+          <li>vyšetření při akutních stavech</li>
+          <li>preventivní a kontrolní vyšetření pohybového aparátu</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <div class="d-none d-sm-block mt-1">&nbsp;</div>
+        <Image src={rtgImg} width={200} height={161} alt="rentgen" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Ortopedie</h3>
+        <ul>
+          <li>klinické vyšetření</li>
+          <li>management pacientů s ortopedickým onemocněním</li>
+          <li>případně zajištění ošetření na specializovaném pracovišti</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <div class="d-none d-sm-block mt-4">&nbsp;</div>
+        <Image src={packaImg} width={200} height={126} alt="packa" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Chirurgické zákroky</h3>
+        <ul>
+          <li>preventivní a terapeutické</li>
+          <li>odeslání vzorků na vyšetření</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <div class="d-none d-sm-block mt-2">&nbsp;</div>
+        <Image src={chirdaImg} width={200} height={147} alt="chirurgie" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <div class="d-none d-sm-block mt-1">&nbsp;</div>
+        <h3>Gynekologie a porodnictví</h3>
+        <ul>
+          <li>stanovení hladiny progesteronu a vhodné doby ke krytí</li>
+          <li>vaginální cytologie</li>
+          <li>diagnostika březosti</li>
+          <li>vedení porodu a péče o novorozence</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <div class="d-none d-sm-block mt-4">&nbsp;</div>
+        <Image src={lahvickaImg} width={100} height={214} alt="lahvička" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <h3>Výživa</h3>
+        <ul>
+          <li>konzultace výživy</li>
+          <li>prodej krmiv, doplňků výživy a veterinárních diet</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <div class="d-none d-sm-block mt-3">&nbsp;</div>
+        <Image src={miskaImg} width={180} height={117} alt="miska" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-sm-1 order-2 offer">
+        <h3>Konzultace v oblasti nežádoucího chování psů a koček</h3>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-sm-2 order-1 text-center">
+        <div class="d-none d-sm-block mt-1">&nbsp;</div>
+        <Image src={psikImg} width={200} height={130} alt="zlobivý pes" />
+      </div>
+    </div>
+    <div class="row row-offer">
+      <div class="col-12 col-sm-6 col-md-6 order-2 offer">
+        <div class="d-none d-sm-block mt-3">&nbsp;</div>
+        <h3>Krátkodobá hospitalizace pacientů, infúzní terapie, pooperační péče</h3>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 order-1 text-center">
+        <Image src={infuzeImg} width={180} height={262} alt="infuze" />
+      </div>
+    </div>
+  </div>
+</Layout>
