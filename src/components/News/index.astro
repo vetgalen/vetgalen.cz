@@ -18,7 +18,7 @@ const renderedNews = await Promise.all(
     <h2>Novinky</h2>
   </div>
   <div class="card-body">
-    <div id="newsCarousel" class="carousel slide" data-bs-ride="false">
+    <div id="newsCarousel" class="carousel" data-bs-ride="false">
       <div class="carousel-inner">
         {renderedNews.map(({ entry, Content }, index) => (
           <div class:list={['carousel-item', { active: index === 0 }]}>
@@ -34,14 +34,9 @@ const renderedNews = await Promise.all(
         ))}
       </div>
       <div class="news-nav">
-        <button
-          class="news-nav-btn"
-          type="button"
-          data-bs-target="#newsCarousel"
-          data-bs-slide="prev"
-          aria-label="Novější"
-        >‹</button>
-        <div class="carousel-indicators">
+        <button class="news-nav-btn" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev" aria-label="Novější">‹</button>
+        <span class="news-counter d-md-none">1 / {renderedNews.length}</span>
+        <div class="carousel-indicators d-none d-md-flex">
           {renderedNews.map(({ entry }, index) => (
             <button
               type="button"
@@ -53,13 +48,7 @@ const renderedNews = await Promise.all(
             />
           ))}
         </div>
-        <button
-          class="news-nav-btn"
-          type="button"
-          data-bs-target="#newsCarousel"
-          data-bs-slide="next"
-          aria-label="Starší"
-        >›</button>
+        <button class="news-nav-btn" type="button" data-bs-target="#newsCarousel" data-bs-slide="next" aria-label="Starší">›</button>
       </div>
     </div>
   </div>
@@ -116,9 +105,28 @@ const renderedNews = await Promise.all(
     }
   }
 
+  .news-counter {
+    color: $primary;
+    font-size: 0.9rem;
+    min-width: 3rem;
+    text-align: center;
+  }
+
   // List bullet variants used in news content
   ul.stars   { list-style-type: "☆ "; }
   ul.hands   { list-style-type: "☞ "; }
   ul.arrows  { list-style-type: "→ "; }
   ul.squares { list-style-type: "■ "; }
 </style>
+
+<script>
+  const carouselEl = document.getElementById('newsCarousel')
+  const counter = document.querySelector<HTMLElement>('.news-counter')
+
+  if (carouselEl && counter) {
+    const total = carouselEl.querySelectorAll('.carousel-item').length
+    carouselEl.addEventListener('slid.bs.carousel', (e) => {
+      counter.textContent = `${(e as any).to + 1} / ${total}`
+    })
+  }
+</script>
