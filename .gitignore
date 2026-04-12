@@ -1,7 +1,8 @@
 node_modules/
-public
-.gatsby-context.js
+dist/
+.astro/
 .DS_Store
-.intermediate-representation/
-.cache/
 .vscode/
+.agents/
+session.md
+skills-lock.json
