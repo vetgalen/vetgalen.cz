@@ -7,7 +7,7 @@ image: './images/pes_zavreno.png'
 Vážení klienti, 
 
 rády bychom vás upozornily, že 
-v <span class="text-danger bold">pondělí 28.10. 2024 </span><span class="bold">(státní svátek), a dále v </span><span class="text-danger bold">pátek 1.11.2024 </span><span class="bold">budeme mít </span><span class="text-danger bold">zavřeno</span>. 
+v <span class="bold text-danger">pondělí 28.10. 2024 </span><span class="bold">(státní svátek), a dále v </span><span class="bold text-danger">pátek 1.11.2024 </span><span class="bold">budeme mít </span><span class="bold text-danger">zavřeno</span>. 
 
 V ostatní dny tohoto týdne jsme tu pro vás v našich běžných ordinačních hodinách. 
 
