@@ -1,5 +1,5 @@
 ---
-image: './images/psik-u-palmy.png'
+image: './images/psik_u_palmy.png'
 ---
 
 ## Kdy máme prázdniny?

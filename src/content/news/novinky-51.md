@@ -1,5 +1,5 @@
 ---
-image: './images/kalendar-rezervace.png'
+image: './images/kalendar_rezervace.png'
 ---
 
 ## Online rezervace spuštěna!
