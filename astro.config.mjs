@@ -10,13 +10,15 @@ export default defineConfig({
   site: 'https://www.vetgalen.cz',
   integrations: [react(), sitemap()],
   vite: {
+    build: {
+      // maplibre-gl is ~770 kB and intentionally kept as its own lazy chunk
+      chunkSizeWarningLimit: 1000,
+    },
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'legacy',
           additionalData: `@import "${__dirname}/src/scss/_variables";`,
           silenceDeprecations: [
-            'legacy-js-api',
             'import',
             'global-builtin',
             'color-functions',
