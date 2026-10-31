@@ -1,5 +1,0 @@
-# Serve the kill-switch service worker on the apex domain too, instead of the
-# automatic 301 to www. Browsers reject redirects when updating a service
-# worker, so an old Gatsby worker registered on https://vetgalen.cz would never
-# be replaced. See public/sw.js.
-https://vetgalen.cz/sw.js  /sw.js  200!
