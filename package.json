@@ -25,8 +25,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@typescript-eslint/parser": "^8.72.1",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.7",
