@@ -1,4 +1,3 @@
-import React from 'react'
 import CookieConsent from 'react-cookie-consent'
 
 // Remove Google Analytics cookies (_ga, _ga_<id>) that may have been set
