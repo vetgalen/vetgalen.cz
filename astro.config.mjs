@@ -11,8 +11,9 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   vite: {
     build: {
-      // maplibre-gl is ~770 kB and intentionally kept as its own lazy chunk
-      chunkSizeWarningLimit: 1000,
+      // maplibre-gl (v6) is ~1.1 MB (~290 kB gzipped) and intentionally kept as
+      // its own chunk, loaded only on the contact page
+      chunkSizeWarningLimit: 1200,
     },
     css: {
       preprocessorOptions: {
