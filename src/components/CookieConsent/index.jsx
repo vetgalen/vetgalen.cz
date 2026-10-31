@@ -28,12 +28,10 @@ const Cookie = () => (
     onAccept={() => window.loadAnalytics && window.loadAnalytics()}
     onDecline={removeAnalyticsCookies}
     style={{ background: '#2B373B' }}
-    buttonStyle={{ color: '#4e503b' }}
-  >
+    buttonStyle={{ color: '#4e503b' }}>
     <small>
-      Provozovatel jako správce osobních údajů zpracovává na tomto webu cookies
-      potřebné pro fungování webových stránek a se souhlasem uživatele také
-      cookies pro analytické účely.{' '}
+      Provozovatel jako správce osobních údajů zpracovává na tomto webu cookies potřebné pro
+      fungování webových stránek a se souhlasem uživatele také cookies pro analytické účely.{' '}
       <a href="/soukromi/">Další informace</a>
     </small>
   </CookieConsent>

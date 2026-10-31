@@ -62,8 +62,16 @@ const ClinicMap = () => {
 
   const routingData = useMemo(
     () => ({
-      route1: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: path1 } },
-      route2: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: path2 } },
+      route1: {
+        type: 'Feature',
+        properties: {},
+        geometry: { type: 'LineString', coordinates: path1 },
+      },
+      route2: {
+        type: 'Feature',
+        properties: {},
+        geometry: { type: 'LineString', coordinates: path2 },
+      },
     }),
     []
   )
@@ -76,13 +84,19 @@ const ClinicMap = () => {
   }, [])
 
   return (
-    <div style={{ height: '400px', width: '100%', borderRadius: '8px', overflow: 'hidden', marginBottom: '20px' }}>
+    <div
+      style={{
+        height: '400px',
+        width: '100%',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        marginBottom: '20px',
+      }}>
       <Map
         mapStyle={mapStyle}
         style={{ width: '100%', height: '100%' }}
         initialViewState={{ longitude: CLINIC_COORDS[0], latitude: CLINIC_COORDS[1], zoom: 15 }}
-        attributionControl={true}
-      >
+        attributionControl={true}>
         <NavigationControl position="top-right" />
         <Source id="route-1" type="geojson" data={routingData.route1}>
           <Layer {...route1LayerStyle} />
@@ -102,8 +116,7 @@ const ClinicMap = () => {
             latitude={CLINIC_COORDS[1]}
             anchor="bottom"
             offset={25}
-            onClose={() => setShowPopup(false)}
-          >
+            onClose={() => setShowPopup(false)}>
             <div style={{ padding: '10px' }}>
               <strong>Veterinární ordinace Galen</strong>
               <br />

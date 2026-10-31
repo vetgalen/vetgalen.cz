@@ -31,7 +31,9 @@ body {
   color: rgba(255, 255, 255, 0.55) !important;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
 }
 
 // Nav link hover and focus states
@@ -129,12 +131,12 @@ ol.lower-roman {
 }
 
 #map {
-  width: 100%; 
+  width: 100%;
   height: 400px;
   min-height: 400px;
 }
 
-div#map img { 
+div#map img {
   all: initial;
 }
 
@@ -145,7 +147,6 @@ div#map div.card-header {
 div#map div.card-footer {
   all: initial;
 }
-
 
 div#map div.card {
   z-index: 10;
@@ -158,4 +159,3 @@ div#map div.card {
 .underline {
   text-decoration: underline;
 }
-
