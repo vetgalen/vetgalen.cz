@@ -44,15 +44,28 @@ const pathname = Astro.url.pathname
       href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130093311-1"
-    ></script>
     <script is:inline>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        window.dataLayer.push(arguments)
+      // Google Analytics is loaded only after the visitor accepts cookies in
+      // the consent banner (src/components/CookieConsent), or on later visits
+      // once the CookieConsent=true cookie is present.
+      window.loadAnalytics = function () {
+        if (window.__analyticsLoaded) return
+        window.__analyticsLoaded = true
+        var id = 'G-0GF8N4E27D'
+        window.dataLayer = window.dataLayer || []
+        window.gtag = function () {
+          window.dataLayer.push(arguments)
+        }
+        window.gtag('js', new Date())
+        window.gtag('config', id)
+        var s = document.createElement('script')
+        s.async = true
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id
+        document.head.appendChild(s)
       }
-      gtag('js', new Date())
-      gtag('config', 'UA-130093311-1')
+      if (/(?:^|;\s*)CookieConsent(?:-legacy)?=true(?:;|$)/.test(document.cookie)) {
+        window.loadAnalytics()
+      }
     </script>
   </head>
   <body>
