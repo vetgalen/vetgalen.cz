@@ -12,7 +12,10 @@
 //
 // Keep this file deployed for a long time (at least until late 2027) so that
 // infrequent visitors get cleaned up too. See also the inline cleanup script in
-// src/layouts/Layout.astro and the apex-domain rule in public/_redirects.
+// src/layouts/Layout.astro.
+//
+// Only www.vetgalen.cz needs this: the apex domain has always 301-redirected to
+// www, so no worker was ever registered there.
 
 self.addEventListener('install', () => {
   self.skipWaiting()
