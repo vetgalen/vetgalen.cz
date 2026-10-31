@@ -1,5 +1,12 @@
 node_modules
+dist
+.astro
 public
-.cache
-.vscode
 package.json
+package-lock.json
+skills-lock.json
+# News content is written by the news skill; keep it out of code formatting
+src/content
+# Tooling directories
+.agents
+.claude
