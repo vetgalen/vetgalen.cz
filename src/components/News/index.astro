@@ -34,7 +34,14 @@ const renderedNews = await Promise.all(
         ))}
       </div>
       <div class="news-nav">
-        <button class="news-nav-btn" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev" aria-label="Novější">‹</button>
+        <button
+          class="news-nav-btn"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="prev"
+          aria-label="Novější">
+          ‹
+        </button>
         <span class="news-counter d-md-none">1 / {renderedNews.length}</span>
         <div class="carousel-indicators d-none d-md-flex">
           {renderedNews.map(({ entry }, index) => (
@@ -48,7 +55,14 @@ const renderedNews = await Promise.all(
             />
           ))}
         </div>
-        <button class="news-nav-btn" type="button" data-bs-target="#newsCarousel" data-bs-slide="next" aria-label="Starší">›</button>
+        <button
+          class="news-nav-btn"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="next"
+          aria-label="Starší">
+          ›
+        </button>
       </div>
     </div>
   </div>
@@ -97,7 +111,9 @@ const renderedNews = await Promise.all(
     line-height: 1;
     flex-shrink: 0;
     cursor: pointer;
-    transition: background-color 0.15s, color 0.15s;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
 
     &:hover {
       background-color: $primary;
@@ -113,10 +129,18 @@ const renderedNews = await Promise.all(
   }
 
   // List bullet variants used in news content
-  ul.stars   { list-style-type: "☆ "; }
-  ul.hands   { list-style-type: "☞ "; }
-  ul.arrows  { list-style-type: "→ "; }
-  ul.squares { list-style-type: "■ "; }
+  ul.stars {
+    list-style-type: '☆ ';
+  }
+  ul.hands {
+    list-style-type: '☞ ';
+  }
+  ul.arrows {
+    list-style-type: '→ ';
+  }
+  ul.squares {
+    list-style-type: '■ ';
+  }
 </style>
 
 <script>

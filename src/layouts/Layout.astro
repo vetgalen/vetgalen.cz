@@ -12,10 +12,8 @@ interface Props {
   description?: string
 }
 
-const {
-  title,
-  description = 'Veterinární ordinace Galen, Brno-Medlánky, Podpěrova 439/2',
-} = Astro.props
+const { title, description = 'Veterinární ordinace Galen, Brno-Medlánky, Podpěrova 439/2' } =
+  Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImage = new URL('/img/icon.png', Astro.site)
@@ -83,10 +81,14 @@ const pathname = Astro.url.pathname
     <script is:inline>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function (registrations) {
-          registrations.forEach(function (r) { r.unregister() })
+          registrations.forEach(function (r) {
+            r.unregister()
+          })
         })
         caches.keys().then(function (keys) {
-          keys.forEach(function (key) { caches.delete(key) })
+          keys.forEach(function (key) {
+            caches.delete(key)
+          })
         })
       }
     </script>
