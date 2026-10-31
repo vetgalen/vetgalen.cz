@@ -1,6 +1,12 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import Map, { Marker, Popup, Source, Layer, NavigationControl } from 'react-map-gl/maplibre'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import { setWorkerUrl } from 'maplibre-gl'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
+
+// maplibre-gl v6 looks for its worker next to its own module, which does not
+// exist after bundling. Point it at the worker file emitted by Vite instead.
+setWorkerUrl(maplibreWorkerUrl)
 
 const CLINIC_COORDS = [16.5828108, 49.23841]
 
