@@ -1,4 +1,3 @@
-/* global self, caches */
 // Kill-switch service worker — DO NOT DELETE.
 //
 // The old Gatsby site used gatsby-plugin-offline, which registered a service
