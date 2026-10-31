@@ -68,7 +68,12 @@ const ClinicMap = () => {
     []
   )
 
-  const onMarkerClick = useCallback(() => setShowPopup(true), [])
+  const onMarkerClick = useCallback((e) => {
+    // Otherwise the same click also reaches the map, and the popup's
+    // closeOnClick immediately closes it again.
+    e.originalEvent.stopPropagation()
+    setShowPopup(true)
+  }, [])
 
   return (
     <div style={{ height: '400px', width: '100%', borderRadius: '8px', overflow: 'hidden', marginBottom: '20px' }}>
